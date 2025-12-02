@@ -123,6 +123,17 @@ const Footer: React.FC = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/80">
           <p>&copy; {currentYear} Sri Haritha Agro Food Products Pvt. Ltd. All rights reserved.</p>
+          <p className="mt-4">
+            Made with ❤️ by{' '}
+            <a 
+              href="https://www.talecrafters.in" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors underline"
+            >
+              TaleCrafters
+            </a>
+          </p>
         </div>
       </div>
     </footer>
