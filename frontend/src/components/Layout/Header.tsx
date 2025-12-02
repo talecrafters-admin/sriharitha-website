@@ -171,7 +171,7 @@ const Header: React.FC = () => {
             </Link>
             <Link 
               to="/contact" 
-              className="btn-primary text-sm px-6 py-2.5"
+              className="bg-accent text-primary px-6 py-2.5 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm"
             >
               Contact / Enquiry
             </Link>
@@ -319,7 +319,7 @@ const Header: React.FC = () => {
               </Link>
               <Link 
                 to="/contact" 
-                className="btn-primary text-center mt-2 px-6 py-2.5"
+                className="bg-accent text-primary px-6 py-2.5 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm text-center mt-2"
               >
                 Contact / Enquiry
               </Link>
