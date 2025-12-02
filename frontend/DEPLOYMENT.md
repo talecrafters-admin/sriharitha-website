@@ -64,7 +64,7 @@ frontend/build
 
 **Environment variables:** (Optional - add if needed)
 - `NODE_VERSION`: `18` or `20` (recommended)
-- `CI`: `false` (if you want to ignore ESLint warnings during build - already configured in package.json)
+- `DISABLE_ESLINT_PLUGIN`: `true` (to ignore ESLint errors - already configured in package.json build script)
 
 ### Step 4: Deploy
 
@@ -146,17 +146,19 @@ Access them in your code with `process.env.REACT_APP_VARIABLE_NAME`
 
 **If you see "Treating warnings as errors" or ESLint errors:**
 
-The build script is already configured to ignore ESLint warnings by setting `CI=false` in the build command. If you still see errors:
+The build script is already configured to disable ESLint by setting `DISABLE_ESLINT_PLUGIN=true` in the build command. If you still see errors:
 
 1. **Check package.json build script:**
-   - Should be: `"build": "CI=false react-scripts build"`
+   - Should be: `"build": "DISABLE_ESLINT_PLUGIN=true react-scripts build"`
 
-2. **Or add environment variable in Cloudflare:**
+2. **Or add environment variable in Cloudflare (if script doesn't work):**
+   - Go to Settings → Environment variables
+   - Add: `DISABLE_ESLINT_PLUGIN` = `true`
+
+3. **Alternative: Set CI=false in Cloudflare:**
    - Go to Settings → Environment variables
    - Add: `CI` = `false`
-
-3. **Or disable ESLint completely (not recommended):**
-   - Add to package.json: `"eslintConfig": { "ignoreDuringBuilds": true }`
+   - This prevents warnings from being treated as errors
 
 ### Build Fails - Yarn Version Issue
 
