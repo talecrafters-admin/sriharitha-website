@@ -25,6 +25,9 @@ const Home: React.FC = () => {
   const [calculatorResult, setCalculatorResult] = useState<number | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const testimonialAutoplayRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   useEffect(() => {
     // Hero animation
@@ -261,10 +264,36 @@ const Home: React.FC = () => {
 
   const handleCalculatorSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const basePrice = 100;
     const quantity = parseInt(calculatorValues.quantity) || 0;
-    const packagingMultiplier = calculatorValues.packaging === 'premium' ? 1.3 : 1;
-    const result = quantity > 0 ? Math.round(basePrice * quantity * packagingMultiplier) : null;
+    
+    // Base prices per unit based on product type
+    const basePrices: { [key: string]: number } = {
+      'breakfast-mix': 99,      // Breakfast Mixes - ₹99 per pack
+      'snack': 40,              // Energy Bytes - ₹40 per pack
+      'spice': 150,             // Spice Powders - average ₹150 per pack
+      'flour': 120,             // Flours & Grits - average ₹120 per kg
+      'cereal': 130,            // Breakfast Cereals - average ₹130 per kg/pack
+      'soup': 500,              // Soup Mix - ₹500 per kg
+      'noodles': 230,           // Millet Noodles - ₹230 per kg
+      'energy-bar': 400          // Energy Bars - ₹400 per kg
+    };
+    
+    const basePrice = basePrices[calculatorValues.productType] || 100;
+    const packagingMultiplier = calculatorValues.packaging === 'premium' ? 1.15 : 1;
+    
+    // Volume discount for larger orders
+    let volumeDiscount = 1;
+    if (quantity >= 1000) {
+      volumeDiscount = 0.85; // 15% discount for 1000+ units
+    } else if (quantity >= 500) {
+      volumeDiscount = 0.90; // 10% discount for 500+ units
+    } else if (quantity >= 200) {
+      volumeDiscount = 0.95; // 5% discount for 200+ units
+    }
+    
+    const result = quantity > 0 
+      ? Math.round(basePrice * quantity * packagingMultiplier * volumeDiscount) 
+      : null;
     setCalculatorResult(result);
   };
 
@@ -309,7 +338,7 @@ const Home: React.FC = () => {
     },
   ];
 
-  // Carousel autoplay and navigation
+  // Hero carousel autoplay and navigation
   useEffect(() => {
     const startAutoplay = () => {
       autoplayRef.current = setInterval(() => {
@@ -325,6 +354,23 @@ const Home: React.FC = () => {
       }
     };
   }, [heroSlides.length]);
+
+  // Testimonials carousel autoplay
+  useEffect(() => {
+    const startTestimonialAutoplay = () => {
+      testimonialAutoplayRef.current = setInterval(() => {
+        setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+      }, 4000); // Change testimonial every 4 seconds
+    };
+
+    startTestimonialAutoplay();
+
+    return () => {
+      if (testimonialAutoplayRef.current) {
+        clearInterval(testimonialAutoplayRef.current);
+      }
+    };
+  }, [testimonials.length]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -344,11 +390,44 @@ const Home: React.FC = () => {
     goToSlide((currentSlide - 1 + heroSlides.length) % heroSlides.length);
   };
 
+  // Swipe handlers
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      nextSlide();
+    }
+    if (isRightSwipe) {
+      prevSlide();
+    }
+  };
+
   return (
     <div>
       {/* Hero Carousel Section */}
       <section className="relative h-screen w-full overflow-hidden -mt-20">
-        <div ref={carouselRef} className="relative h-full w-full">
+        <div 
+          ref={carouselRef} 
+          className="relative h-full w-full"
+          onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
+          onTouchEnd={onTouchEnd}
+        >
           {heroSlides.map((slide, index) => (
             <div
               key={index}
@@ -404,22 +483,6 @@ const Home: React.FC = () => {
           ))}
         </div>
 
-        {/* Navigation Controls */}
-        <button
-          onClick={prevSlide}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
-          aria-label="Previous slide"
-        >
-          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
-          aria-label="Next slide"
-        >
-          <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
-        </button>
-
         {/* Dot Indicators */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex space-x-3">
           {heroSlides.map((_, index) => (
@@ -467,18 +530,13 @@ const Home: React.FC = () => {
               Explore our wide range of millet and cereal-based food products
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8" ref={categoriesRef}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" ref={categoriesRef}>
             {productCategories.map((category, index) => {
-              // First 3 items: 4 columns each (3 x 4 = 12 columns total for first row)
-              // Next 4 items: 3 columns each (4 x 3 = 12 columns total for second row)
-              const isFirstRow = index < 3;
-              const colSpan = isFirstRow ? 'lg:col-span-4' : 'lg:col-span-3';
-              
               return (
               <Link
                 key={category.id}
                 to={`/products/${category.slug}`}
-                className={`group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 ${colSpan}`}
+                className="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
               >
                 {/* Image Container with Overlay */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
@@ -676,7 +734,16 @@ const Home: React.FC = () => {
               {testimonials.map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentTestimonial(index)}
+                  onClick={() => {
+                    setCurrentTestimonial(index);
+                    // Reset autoplay timer
+                    if (testimonialAutoplayRef.current) {
+                      clearInterval(testimonialAutoplayRef.current);
+                    }
+                    testimonialAutoplayRef.current = setInterval(() => {
+                      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                    }, 4000);
+                  }}
                   className={`transition-all duration-300 rounded-full ${
                     index === currentTestimonial
                       ? 'bg-primary w-10 h-3'
@@ -687,14 +754,32 @@ const Home: React.FC = () => {
               ))}
             </div>
             <button
-              onClick={() => setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+              onClick={() => {
+                setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+                // Reset autoplay timer
+                if (testimonialAutoplayRef.current) {
+                  clearInterval(testimonialAutoplayRef.current);
+                }
+                testimonialAutoplayRef.current = setInterval(() => {
+                  setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                }, 4000);
+              }}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white shadow-lg p-3 rounded-full hover:bg-gray-50 transition-all"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6 text-primary" />
             </button>
             <button
-              onClick={() => setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)}
+              onClick={() => {
+                setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                // Reset autoplay timer
+                if (testimonialAutoplayRef.current) {
+                  clearInterval(testimonialAutoplayRef.current);
+                }
+                testimonialAutoplayRef.current = setInterval(() => {
+                  setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                }, 4000);
+              }}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white shadow-lg p-3 rounded-full hover:bg-gray-50 transition-all"
               aria-label="Next testimonial"
             >
@@ -898,10 +983,14 @@ const Home: React.FC = () => {
                   required
                 >
                   <option value="">Select Product Type</option>
-                  <option value="breakfast-mix">Breakfast Mix</option>
-                  <option value="snack">Energy Bytes (Snacks)</option>
-                  <option value="spice">Spice Powder</option>
-                  <option value="flour">Flour & Grits</option>
+                  <option value="breakfast-mix">Breakfast Mix (₹99/pack, MOQ: 50 packs)</option>
+                  <option value="cereal">Breakfast Cereals (₹120-170/kg, MOQ: 10-400 kg)</option>
+                  <option value="snack">Energy Bytes - Snacks (₹40/pack, MOQ: 50 packs)</option>
+                  <option value="spice">Spice Powder (₹150/pack, MOQ: varies)</option>
+                  <option value="flour">Flour & Grits (₹120/kg, MOQ: varies)</option>
+                  <option value="soup">Soup Mix (₹500/kg, MOQ: 25-120 units)</option>
+                  <option value="noodles">Millet Noodles (₹230/kg, MOQ: 25 kg)</option>
+                  <option value="energy-bar">Energy Bars (₹400/kg, MOQ: 10 kg)</option>
                 </select>
               </div>
               <div>
@@ -938,7 +1027,17 @@ const Home: React.FC = () => {
                 <div className="bg-primary/10 border-2 border-primary rounded-xl p-6 text-center">
                   <p className="text-sm text-gray-600 mb-2">Estimated Price</p>
                   <p className="text-3xl font-bold text-primary">₹{calculatorResult.toLocaleString()}</p>
-                  <p className="text-xs text-gray-500 mt-2">*Final price may vary based on specifications</p>
+                  <p className="text-xs text-gray-500 mt-2">
+                    *Final price may vary based on specifications, order volume, and customization requirements.
+                    {parseInt(calculatorValues.quantity) >= 200 && (
+                      <span className="block mt-1 text-primary font-semibold">
+                        Volume discount applied!
+                      </span>
+                    )}
+                  </p>
+                  <p className="text-xs text-gray-500 mt-1">
+                    Prices are indicative. Contact us for exact pricing and MOQ details.
+                  </p>
                 </div>
               )}
             </form>

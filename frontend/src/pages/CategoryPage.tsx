@@ -58,10 +58,28 @@ const CategoryPage: React.FC = () => {
                 <p className="text-gray-600 mb-3">
                   {product.description}
                 </p>
-                <div className="mb-4">
-                  <span className="inline-block bg-secondary px-3 py-1 rounded-full text-sm font-medium text-gray-700">
-                    {product.packSize}
-                  </span>
+                <div className="mb-4 space-y-2">
+                  <div>
+                    <span className="inline-block bg-secondary px-3 py-1 rounded-full text-sm font-medium text-gray-700">
+                      {product.packSize}
+                    </span>
+                  </div>
+                  {product.price && (
+                    <div className="flex items-center justify-between">
+                      <div>
+                        <p className="text-2xl font-bold text-primary">
+                          ₹{product.price.toLocaleString()}
+                        </p>
+                        <p className="text-xs text-gray-500">{product.priceUnit || 'per unit'}</p>
+                      </div>
+                      {product.moq && (
+                        <div className="text-right">
+                          <p className="text-sm font-semibold text-gray-700">MOQ</p>
+                          <p className="text-sm text-primary font-medium">{product.moq}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
                 {product.features && product.features.length > 0 && (
                   <div className="space-y-2 mb-4">

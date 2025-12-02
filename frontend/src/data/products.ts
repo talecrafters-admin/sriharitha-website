@@ -5,6 +5,9 @@ export interface Product {
   packSize: string;
   category: string;
   features?: string[];
+  price?: number;
+  priceUnit?: string;
+  moq?: string;
 }
 
 export interface ProductCategory {
@@ -24,19 +27,124 @@ export const productCategories: ProductCategory[] = [
     products: [
       {
         id: 'bc-1',
-        name: 'Muesli Vanilla',
-        description: 'Delicious vanilla-flavored muesli with a perfect blend of millets, nuts, and dried fruits. A nutritious start to your day.',
-        packSize: '250 gms',
+        name: 'Wheat Flakes',
+        description: 'Crispy and nutritious wheat flakes, perfect for a healthy breakfast.',
+        packSize: 'per Kg',
         category: 'breakfast-cereals',
+        price: 120,
+        priceUnit: 'per kg',
+        moq: '10 kg',
         features: ['High in fiber', 'No artificial flavors', 'Rich in nutrients']
       },
       {
         id: 'bc-2',
-        name: 'Muesli Chocolate',
-        description: 'Indulgent chocolate muesli combining health and taste. Made with natural cocoa and wholesome grains.',
-        packSize: '250 gms',
+        name: 'Ragi Flakes',
+        description: 'Nutritious ragi flakes rich in calcium and iron.',
+        packSize: 'per Kg',
         category: 'breakfast-cereals',
-        features: ['Natural cocoa', 'Energy-rich', 'Kid-friendly']
+        price: 120,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['High calcium', 'Iron-rich', 'Gluten-free']
+      },
+      {
+        id: 'bc-3',
+        name: 'Kodo Flakes',
+        description: 'Healthy kodo millet flakes for a nutritious breakfast.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 170,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['High fiber', 'Diabetic-friendly', 'Gluten-free']
+      },
+      {
+        id: 'bc-4',
+        name: 'Bajra Flakes',
+        description: 'Nutritious bajra (pearl millet) flakes.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 100,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['Iron-rich', 'Gluten-free', 'Energy-rich']
+      },
+      {
+        id: 'bc-5',
+        name: 'Red Rice Flakes',
+        description: 'Healthy red rice flakes for traditional breakfast.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 150,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['Antioxidant-rich', 'Natural', 'Traditional']
+      },
+      {
+        id: 'bc-6',
+        name: 'Browntop Flakes',
+        description: 'Nutritious browntop millet flakes.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 130,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['High fiber', 'Gluten-free', 'Nutritious']
+      },
+      {
+        id: 'bc-7',
+        name: 'Brownrice Flakes',
+        description: 'Healthy brown rice flakes for a wholesome breakfast.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 130,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['High fiber', 'Natural', 'Nutritious']
+      },
+      {
+        id: 'bc-8',
+        name: 'Barley Flakes',
+        description: 'Nutritious barley flakes for a healthy start.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 120,
+        priceUnit: 'per kg',
+        moq: '400 kg',
+        features: ['High fiber', 'Beta-glucan rich', 'Heart healthy']
+      },
+      {
+        id: 'bc-9',
+        name: 'Jowar Flakes',
+        description: 'Healthy jowar (sorghum) flakes.',
+        packSize: 'per Kg',
+        category: 'breakfast-cereals',
+        price: 130,
+        priceUnit: 'per kg',
+        moq: '100 kg',
+        features: ['Gluten-free', 'High protein', 'Nutritious']
+      },
+      {
+        id: 'bc-10',
+        name: 'Muesli Vanilla / Muesli Flakes',
+        description: 'Delicious vanilla-flavored muesli with a perfect blend of millets, nuts, and dried fruits.',
+        packSize: 'per Pack',
+        category: 'breakfast-cereals',
+        price: 165,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['High in fiber', 'No artificial flavors', 'Rich in nutrients']
+      },
+      {
+        id: 'bc-11',
+        name: 'Ragi Malt',
+        description: 'Traditional ragi malt for strength and vitality. Rich in calcium and iron.',
+        packSize: 'per Pack',
+        category: 'breakfast-cereals',
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['High calcium', 'Natural iron source', 'Strengthens bones']
       }
     ]
   },
@@ -48,51 +156,80 @@ export const productCategories: ProductCategory[] = [
     products: [
       {
         id: 'bm-1',
-        name: 'Ragi Idli Mix',
-        description: 'Nutritious ragi idli mix for soft, fluffy idlis. Makes 16 idlis per pack.',
-        packSize: '250 gms (16 Idlis)',
+        name: 'Health Mix',
+        description: 'Power-packed health drink with multiple grains, nuts, and seeds for overall wellness.',
+        packSize: 'Pack (multi-grain health mix powder)',
         category: 'breakfast-mixes',
-        features: ['Rich in calcium', 'Easy to prepare', 'Traditional taste']
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '100 packs',
+        features: ['Multi-grain formula', 'Energy booster', 'Suitable for all ages']
       },
       {
         id: 'bm-2',
-        name: 'Millet Poha Mix',
-        description: 'Instant millet poha mix for a healthy breakfast. Just add hot water and your favorite toppings.',
-        packSize: '200 gms',
+        name: 'Millet Upma Mix',
+        description: 'Quick and healthy upma mix made from nutritious millets.',
+        packSize: '250 g pack',
         category: 'breakfast-mixes',
-        features: ['Instant preparation', 'Low GI', 'Diabetic-friendly']
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Ready in minutes', 'High fiber', 'Wholesome']
       },
       {
         id: 'bm-3',
         name: 'Millet Pongal Mix',
         description: 'Traditional pongal made easy with millet goodness. Makes 5 servings.',
-        packSize: '250 gms (5 Servings)',
+        packSize: '250 g pack',
         category: 'breakfast-mixes',
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
         features: ['Comfort food', 'Nutritious', 'Easy to cook']
       },
       {
         id: 'bm-4',
-        name: 'Multigrain Dosa Mix',
-        description: 'Crispy dosas with the power of multiple grains and millets.',
-        packSize: '250 gms',
+        name: 'Millet Khichdi Mix',
+        description: 'Comfort food made healthy with millet-based khichdi mix.',
+        packSize: '250 g pack',
         category: 'breakfast-mixes',
-        features: ['Multi-grain blend', 'Protein-rich', 'Crispy texture']
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Complete meal', 'Easy digestion', 'Balanced nutrition']
       },
       {
         id: 'bm-5',
-        name: 'Millet Upma Mix',
-        description: 'Quick and healthy upma mix made from nutritious millets.',
-        packSize: '250 gms',
+        name: 'Millet Idli Mix',
+        description: 'Nutritious millet idli mix for soft, fluffy idlis.',
+        packSize: '250 g pack',
         category: 'breakfast-mixes',
-        features: ['Ready in minutes', 'High fiber', 'Wholesome']
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Rich in calcium', 'Easy to prepare', 'Traditional taste']
       },
       {
         id: 'bm-6',
-        name: 'Millet Khichdi Mix',
-        description: 'Comfort food made healthy with millet-based khichdi mix.',
-        packSize: '250 gms',
+        name: 'Millet Dosa Mix',
+        description: 'Crispy dosas with the power of millets.',
+        packSize: '250 g pack',
         category: 'breakfast-mixes',
-        features: ['Complete meal', 'Easy digestion', 'Balanced nutrition']
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Multi-grain blend', 'Protein-rich', 'Crispy texture']
+      },
+      {
+        id: 'bm-7',
+        name: 'Millet Poha',
+        description: 'Instant millet poha mix for a healthy breakfast. Just add hot water and your favorite toppings.',
+        packSize: '250 g pack',
+        category: 'breakfast-mixes',
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Instant preparation', 'Low GI', 'Diabetic-friendly']
       }
     ]
   },
@@ -106,25 +243,23 @@ export const productCategories: ProductCategory[] = [
         id: 'bv-1',
         name: 'Health Mix',
         description: 'Power-packed health drink with multiple grains, nuts, and seeds for overall wellness.',
-        packSize: '250 gms',
+        packSize: 'Pack (multi-grain health mix powder)',
         category: 'beverage-mixes',
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '100 packs',
         features: ['Multi-grain formula', 'Energy booster', 'Suitable for all ages']
       },
       {
         id: 'bv-2',
         name: 'Ragi Malt',
         description: 'Traditional ragi malt for strength and vitality. Rich in calcium and iron.',
-        packSize: '250 gms',
+        packSize: 'per Pack',
         category: 'beverage-mixes',
+        price: 99,
+        priceUnit: 'per pack',
+        moq: '50 packs',
         features: ['High calcium', 'Natural iron source', 'Strengthens bones']
-      },
-      {
-        id: 'bv-3',
-        name: 'Fruit Porridge Mix',
-        description: 'Delicious fruit-flavored porridge mix combining health and taste.',
-        packSize: 'Available in bulk',
-        category: 'beverage-mixes',
-        features: ['Fruity flavor', 'Instant preparation', 'Nutritious']
       }
     ]
   },
@@ -136,27 +271,14 @@ export const productCategories: ProductCategory[] = [
     products: [
       {
         id: 'sm-1',
-        name: 'Tomato Soup',
-        description: 'Rich and tangy tomato soup with the goodness of millets and vegetables.',
-        packSize: '100 gms',
+        name: 'Soup Mix',
+        description: 'Wholesome and balanced soup mix with the goodness of millets and vegetables.',
+        packSize: 'per Kg / piece (bag pack)',
         category: 'soup-mixes',
+        price: 500,
+        priceUnit: 'per kg',
+        moq: '25-120 units',
         features: ['Rich in antioxidants', 'Low calorie', 'Quick preparation']
-      },
-      {
-        id: 'sm-2',
-        name: 'Vegetable Soup',
-        description: 'Hearty vegetable soup packed with nutrition and flavor.',
-        packSize: '100 gms',
-        category: 'soup-mixes',
-        features: ['Multi-vegetable', 'High fiber', 'Immunity booster']
-      },
-      {
-        id: 'sm-3',
-        name: 'Vegetable Porridge Mix',
-        description: 'Nourishing vegetable porridge for a light and healthy meal.',
-        packSize: 'Available in bulk',
-        category: 'soup-mixes',
-        features: ['Comfort food', 'Easy digestion', 'Wholesome']
       }
     ]
   },
@@ -168,43 +290,58 @@ export const productCategories: ProductCategory[] = [
     products: [
       {
         id: 'eb-1',
-        name: 'Energy Bytes Pudina',
-        description: 'Refreshing mint-flavored millet snacks. Perfect for tea-time.',
-        packSize: '100 gms',
-        category: 'energy-bytes',
-        features: ['No artificial colors', 'Baked not fried', 'Refreshing flavor']
-      },
-      {
-        id: 'eb-2',
-        name: 'Energy Bytes Cheese Chilli',
-        description: 'Zesty cheese and chilli flavored energy bytes for spice lovers.',
-        packSize: '100 gms',
-        category: 'energy-bytes',
-        features: ['Bold flavor', 'Crunchy texture', 'High protein']
-      },
-      {
-        id: 'eb-3',
         name: 'Energy Bytes Tomato Chilli',
         description: 'Tangy tomato with a hint of chilli. A perfect snacking companion.',
-        packSize: '100 gms',
+        packSize: '250 g',
         category: 'energy-bytes',
+        price: 40,
+        priceUnit: 'per pack',
+        moq: '50 packs',
         features: ['Tangy & spicy', 'Natural flavors', 'Healthy snacking']
       },
       {
-        id: 'eb-4',
-        name: 'Energy Bytes Tangy Tomato',
-        description: 'Classic tomato flavor in a healthy millet-based snack.',
-        packSize: '100 gms',
+        id: 'eb-2',
+        name: 'Energy Bytes Masala',
+        description: 'Traditional Indian masala flavored energy bytes. Irresistibly tasty.',
+        packSize: '250 g',
         category: 'energy-bytes',
-        features: ['Tangy taste', 'Kid-friendly', 'No preservatives']
+        price: 40,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Authentic spices', 'Crunchy', 'Guilt-free snacking']
+      },
+      {
+        id: 'eb-3',
+        name: 'Energy Bytes Pudina',
+        description: 'Refreshing mint-flavored millet snacks. Perfect for tea-time.',
+        packSize: '250 g',
+        category: 'energy-bytes',
+        price: 40,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['No artificial colors', 'Baked not fried', 'Refreshing flavor']
+      },
+      {
+        id: 'eb-4',
+        name: 'Energy Bytes Cheese Chilli',
+        description: 'Zesty cheese and chilli flavored energy bytes for spice lovers.',
+        packSize: '250 g',
+        category: 'energy-bytes',
+        price: 40,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Bold flavor', 'Crunchy texture', 'High protein']
       },
       {
         id: 'eb-5',
-        name: 'Energy Bytes Masala',
-        description: 'Traditional Indian masala flavored energy bytes. Irresistibly tasty.',
-        packSize: '100 gms',
+        name: 'Energy Bytes Tangy Tomato',
+        description: 'Classic tomato flavor in a healthy millet-based snack.',
+        packSize: '250 g',
         category: 'energy-bytes',
-        features: ['Authentic spices', 'Crunchy', 'Guilt-free snacking']
+        price: 40,
+        priceUnit: 'per pack',
+        moq: '50 packs',
+        features: ['Tangy taste', 'Kid-friendly', 'No preservatives']
       }
     ]
   },
@@ -309,6 +446,47 @@ export const productCategories: ProductCategory[] = [
         packSize: 'Available in bulk',
         category: 'flours-grits',
         features: ['Multi-grain blend', 'Balanced nutrition', 'Versatile']
+      }
+    ]
+  },
+  {
+    id: '8',
+    name: 'Upcoming Products',
+    slug: 'upcoming-products',
+    description: 'New and innovative millet-based products coming soon.',
+    products: [
+      {
+        id: 'up-1',
+        name: 'Millet Noodles',
+        description: 'Healthy millet-based noodles for a nutritious meal.',
+        packSize: 'per Kg',
+        category: 'upcoming-products',
+        price: 230,
+        priceUnit: 'per kg',
+        moq: '25 kg',
+        features: ['Gluten-free', 'High fiber', 'Nutritious']
+      },
+      {
+        id: 'up-2',
+        name: 'Soup Mix',
+        description: 'Wholesome and balanced soup mix with the goodness of millets.',
+        packSize: 'per Kg / piece (bag pack)',
+        category: 'upcoming-products',
+        price: 500,
+        priceUnit: 'per kg',
+        moq: '25-120 units',
+        features: ['Rich in antioxidants', 'Low calorie', 'Quick preparation']
+      },
+      {
+        id: 'up-3',
+        name: 'Energy Bars',
+        description: 'Nutritious energy bars made from millets and natural ingredients.',
+        packSize: 'per Kg',
+        category: 'upcoming-products',
+        price: 400,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['High protein', 'Natural ingredients', 'Energy-rich']
       }
     ]
   }
