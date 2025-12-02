@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-primary-dark text-white">
       <div className="container-custom py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
@@ -27,27 +27,27 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/about" className="hover:text-primary transition-colors">
+                <Link to="/about" className="hover:text-accent transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contract-manufacturing" className="hover:text-primary transition-colors">
+                <Link to="/contract-manufacturing" className="hover:text-accent transition-colors">
                   Contract Manufacturing
                 </Link>
               </li>
               <li>
-                <Link to="/products" className="hover:text-primary transition-colors">
+                <Link to="/products" className="hover:text-accent transition-colors">
                   Products
                 </Link>
               </li>
               <li>
-                <Link to="/avasya" className="hover:text-primary transition-colors">
+                <Link to="/avasya" className="hover:text-accent transition-colors">
                   Avasya Brand
                 </Link>
               </li>
               <li>
-                <Link to="/quality" className="hover:text-primary transition-colors">
+                <Link to="/quality" className="hover:text-accent transition-colors">
                   Quality & Infrastructure
                 </Link>
               </li>
@@ -59,27 +59,27 @@ const Footer: React.FC = () => {
             <h4 className="text-white font-semibold mb-4">Our Products</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/products/breakfast-cereals" className="hover:text-primary transition-colors">
+                <Link to="/products/breakfast-cereals" className="hover:text-accent transition-colors">
                   Breakfast Cereals
                 </Link>
               </li>
               <li>
-                <Link to="/products/breakfast-mixes" className="hover:text-primary transition-colors">
+                <Link to="/products/breakfast-mixes" className="hover:text-accent transition-colors">
                   Breakfast Mixes
                 </Link>
               </li>
               <li>
-                <Link to="/products/beverage-mixes" className="hover:text-primary transition-colors">
+                <Link to="/products/beverage-mixes" className="hover:text-accent transition-colors">
                   Beverage Mixes
                 </Link>
               </li>
               <li>
-                <Link to="/products/energy-bytes" className="hover:text-primary transition-colors">
+                <Link to="/products/energy-bytes" className="hover:text-accent transition-colors">
                   Energy Bytes
                 </Link>
               </li>
               <li>
-                <Link to="/products/spice-powders" className="hover:text-primary transition-colors">
+                <Link to="/products/spice-powders" className="hover:text-accent transition-colors">
                   Spice Powders
                 </Link>
               </li>
@@ -101,18 +101,18 @@ const Footer: React.FC = () => {
               <li className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 flex-shrink-0" />
                 <div>
-                  <a href="tel:+919885704670" className="hover:text-primary transition-colors">
+                  <a href="tel:+919885704670" className="hover:text-accent transition-colors">
                     +91 98857 04670
                   </a>
                   <br />
-                  <a href="tel:+919885704400" className="hover:text-primary transition-colors">
+                  <a href="tel:+919885704400" className="hover:text-accent transition-colors">
                     +91 98857 04400
                   </a>
                 </div>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <a href="mailto:sriharithaagrofood@gmail.com" className="hover:text-primary transition-colors">
+                <a href="mailto:sriharithaagrofood@gmail.com" className="hover:text-accent transition-colors">
                   sriharithaagrofood@gmail.com
                 </a>
               </li>
@@ -121,7 +121,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+        <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/80">
           <p>&copy; {currentYear} Sri Haritha Agro Food Products Pvt. Ltd. All rights reserved.</p>
         </div>
       </div>

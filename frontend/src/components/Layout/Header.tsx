@@ -7,6 +7,7 @@ const Header: React.FC = () => {
   const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -31,80 +32,158 @@ const Header: React.FC = () => {
     { name: 'Flours & Grits', path: '/products/flours-grits' },
   ];
 
+  const isOverHero = isHomePage && !isScrolled;
+  
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+      isScrolled 
+        ? 'bg-white shadow-lg' 
+        : isOverHero 
+          ? 'bg-transparent' 
+          : 'bg-white/98 backdrop-blur-md'
     }`}>
       <div className="container-custom">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="flex flex-col">
-              <span className="text-xl md:text-2xl font-heading font-bold text-primary">
+              <span className={`text-xl md:text-2xl font-heading font-bold transition-colors ${
+                isOverHero ? 'text-white' : 'text-primary'
+              }`}>
                 Sri Haritha
               </span>
-              <span className="text-xs md:text-sm text-gray-600">
+              <span className={`text-xs md:text-sm transition-colors ${
+                isOverHero ? 'text-white/90' : 'text-gray-600'
+              }`}>
                 Agro Food Products
               </span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-8">
-            <Link to="/" className="text-gray-700 hover:text-primary transition-colors">
+          <nav className="hidden lg:flex items-center space-x-6">
+            <Link 
+              to="/" 
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === '/'
+                  ? isOverHero 
+                    ? 'text-accent' 
+                    : 'text-primary font-semibold'
+                  : isOverHero 
+                    ? 'text-white hover:text-accent' 
+                    : 'text-gray-700 hover:text-primary'
+              }`}
+            >
               Home
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              to="/about" 
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === '/about'
+                  ? isOverHero 
+                    ? 'text-accent' 
+                    : 'text-primary font-semibold'
+                  : isOverHero 
+                    ? 'text-white hover:text-accent' 
+                    : 'text-gray-700 hover:text-primary'
+              }`}
+            >
               About Us
             </Link>
-            <Link to="/contract-manufacturing" className="text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              to="/contract-manufacturing" 
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === '/contract-manufacturing'
+                  ? isOverHero 
+                    ? 'text-accent' 
+                    : 'text-primary font-semibold'
+                  : isOverHero 
+                    ? 'text-white hover:text-accent' 
+                    : 'text-gray-700 hover:text-primary'
+              }`}
+            >
               Contract Manufacturing
             </Link>
             
             {/* Products Dropdown */}
-            <div className="relative" 
-                 onMouseEnter={() => setIsProductsOpen(true)}
-                 onMouseLeave={() => setIsProductsOpen(false)}>
-              <button className="flex items-center space-x-1 text-gray-700 hover:text-primary transition-colors">
+            <div className="relative group">
+              <button 
+                className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
+                  location.pathname.startsWith('/products')
+                    ? isOverHero 
+                      ? 'text-accent' 
+                      : 'text-primary font-semibold'
+                    : isOverHero 
+                      ? 'text-white hover:text-accent' 
+                      : 'text-gray-700 hover:text-primary'
+                }`}
+              >
                 <span>Products</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
               
-              {isProductsOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-100">
-                  <Link 
-                    to="/products" 
+              <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
+                <Link 
+                  to="/products" 
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
+                >
+                  All Products
+                </Link>
+                {productCategories.map((category) => (
+                  <Link
+                    key={category.path}
+                    to={category.path}
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
                   >
-                    All Products
+                    {category.name}
                   </Link>
-                  {productCategories.map((category) => (
-                    <Link
-                      key={category.path}
-                      to={category.path}
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
-                    >
-                      {category.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
+                ))}
+              </div>
             </div>
 
-            <Link to="/avasya" className="text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              to="/avasya" 
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === '/avasya'
+                  ? isOverHero 
+                    ? 'text-accent' 
+                    : 'text-primary font-semibold'
+                  : isOverHero 
+                    ? 'text-white hover:text-accent' 
+                    : 'text-gray-700 hover:text-primary'
+              }`}
+            >
               Avasya
             </Link>
-            <Link to="/quality" className="text-gray-700 hover:text-primary transition-colors">
+            <Link 
+              to="/quality" 
+              className={`text-sm font-medium transition-colors ${
+                location.pathname === '/quality'
+                  ? isOverHero 
+                    ? 'text-accent' 
+                    : 'text-primary font-semibold'
+                  : isOverHero 
+                    ? 'text-white hover:text-accent' 
+                    : 'text-gray-700 hover:text-primary'
+              }`}
+            >
               Quality & Infrastructure
             </Link>
-            <Link to="/contact" className="btn-primary text-sm">
+            <Link 
+              to="/contact" 
+              className="btn-primary text-sm px-6 py-2.5"
+            >
               Contact / Enquiry
             </Link>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-700 hover:text-primary"
+            className={`lg:hidden p-2 transition-colors ${
+              isOverHero 
+                ? 'text-white hover:text-accent' 
+                : 'text-gray-700 hover:text-primary'
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -113,15 +192,52 @@ const Header: React.FC = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <nav className="lg:hidden pb-4 border-t border-gray-100 mt-2 pt-4">
+          <nav className={`lg:hidden pb-4 mt-2 pt-4 transition-colors ${
+            isOverHero 
+              ? 'border-t border-white/20' 
+              : 'border-t border-gray-100'
+          }`}>
             <div className="flex flex-col space-y-3">
-              <Link to="/" className="text-gray-700 hover:text-primary transition-colors py-2">
+              <Link 
+                to="/" 
+                className={`text-sm font-medium transition-colors py-2 ${
+                  location.pathname === '/'
+                    ? isOverHero 
+                      ? 'text-accent' 
+                      : 'text-primary font-semibold'
+                    : isOverHero 
+                      ? 'text-white hover:text-accent' 
+                      : 'text-gray-700 hover:text-primary'
+                }`}
+              >
                 Home
               </Link>
-              <Link to="/about" className="text-gray-700 hover:text-primary transition-colors py-2">
+              <Link 
+                to="/about" 
+                className={`text-sm font-medium transition-colors py-2 ${
+                  location.pathname === '/about'
+                    ? isOverHero 
+                      ? 'text-accent' 
+                      : 'text-primary font-semibold'
+                    : isOverHero 
+                      ? 'text-white hover:text-accent' 
+                      : 'text-gray-700 hover:text-primary'
+                }`}
+              >
                 About Us
               </Link>
-              <Link to="/contract-manufacturing" className="text-gray-700 hover:text-primary transition-colors py-2">
+              <Link 
+                to="/contract-manufacturing" 
+                className={`text-sm font-medium transition-colors py-2 ${
+                  location.pathname === '/contract-manufacturing'
+                    ? isOverHero 
+                      ? 'text-accent' 
+                      : 'text-primary font-semibold'
+                    : isOverHero 
+                      ? 'text-white hover:text-accent' 
+                      : 'text-gray-700 hover:text-primary'
+                }`}
+              >
                 Contract Manufacturing
               </Link>
               
@@ -129,7 +245,15 @@ const Header: React.FC = () => {
               <div>
                 <button 
                   onClick={() => setIsProductsOpen(!isProductsOpen)}
-                  className="flex items-center justify-between w-full text-gray-700 hover:text-primary transition-colors py-2"
+                  className={`flex items-center justify-between w-full text-sm font-medium transition-colors py-2 ${
+                    location.pathname.startsWith('/products')
+                      ? isOverHero 
+                        ? 'text-accent' 
+                        : 'text-primary font-semibold'
+                      : isOverHero 
+                        ? 'text-white hover:text-accent' 
+                        : 'text-gray-700 hover:text-primary'
+                  }`}
                 >
                   <span>Products</span>
                   <ChevronDown className={`w-4 h-4 transition-transform ${
@@ -138,14 +262,25 @@ const Header: React.FC = () => {
                 </button>
                 {isProductsOpen && (
                   <div className="pl-4 mt-2 space-y-2">
-                    <Link to="/products" className="block text-sm text-gray-600 hover:text-primary py-1">
+                    <Link 
+                      to="/products" 
+                      className={`block text-sm py-1 transition-colors ${
+                        isOverHero 
+                          ? 'text-white/80 hover:text-accent' 
+                          : 'text-gray-600 hover:text-primary'
+                      }`}
+                    >
                       All Products
                     </Link>
                     {productCategories.map((category) => (
                       <Link
                         key={category.path}
                         to={category.path}
-                        className="block text-sm text-gray-600 hover:text-primary py-1"
+                        className={`block text-sm py-1 transition-colors ${
+                          isOverHero 
+                            ? 'text-white/80 hover:text-accent' 
+                            : 'text-gray-600 hover:text-primary'
+                        }`}
                       >
                         {category.name}
                       </Link>
@@ -154,13 +289,38 @@ const Header: React.FC = () => {
                 )}
               </div>
 
-              <Link to="/avasya" className="text-gray-700 hover:text-primary transition-colors py-2">
+              <Link 
+                to="/avasya" 
+                className={`text-sm font-medium transition-colors py-2 ${
+                  location.pathname === '/avasya'
+                    ? isOverHero 
+                      ? 'text-accent' 
+                      : 'text-primary font-semibold'
+                    : isOverHero 
+                      ? 'text-white hover:text-accent' 
+                      : 'text-gray-700 hover:text-primary'
+                }`}
+              >
                 Avasya
               </Link>
-              <Link to="/quality" className="text-gray-700 hover:text-primary transition-colors py-2">
+              <Link 
+                to="/quality" 
+                className={`text-sm font-medium transition-colors py-2 ${
+                  location.pathname === '/quality'
+                    ? isOverHero 
+                      ? 'text-accent' 
+                      : 'text-primary font-semibold'
+                    : isOverHero 
+                      ? 'text-white hover:text-accent' 
+                      : 'text-gray-700 hover:text-primary'
+                }`}
+              >
                 Quality & Infrastructure
               </Link>
-              <Link to="/contact" className="btn-primary text-center mt-2">
+              <Link 
+                to="/contact" 
+                className="btn-primary text-center mt-2 px-6 py-2.5"
+              >
                 Contact / Enquiry
               </Link>
             </div>
