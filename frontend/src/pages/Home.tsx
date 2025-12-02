@@ -1,9 +1,34 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Download, Factory, Users, Award, ShieldCheck, ChevronLeft, ChevronRight, Package, TrendingUp, Globe, Star, ChevronDown, ChevronUp, MessageCircle, MapPin, Calculator, Sparkles, Send, X, Settings, Truck, Phone } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { productCategories } from '../data/products';
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  CheckCircle,
+  Download,
+  Factory,
+  Users,
+  Award,
+  ShieldCheck,
+  ChevronLeft,
+  ChevronRight,
+  Package,
+  TrendingUp,
+  Globe,
+  Star,
+  ChevronDown,
+  ChevronUp,
+  MessageCircle,
+  MapPin,
+  Calculator,
+  Sparkles,
+  Send,
+  X,
+  Settings,
+  Truck,
+  Phone,
+} from "lucide-react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { productCategories } from "../data/products";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,11 +41,11 @@ const Home: React.FC = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
   const [isChatOpen, setIsChatOpen] = useState(false);
-  const [chatMessage, setChatMessage] = useState('');
+  const [chatMessage, setChatMessage] = useState("");
   const [calculatorValues, setCalculatorValues] = useState({
-    productType: '',
-    quantity: '',
-    packaging: 'standard',
+    productType: "",
+    quantity: "",
+    packaging: "standard",
   });
   const [calculatorResult, setCalculatorResult] = useState<number | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -40,14 +65,14 @@ const Home: React.FC = () => {
           y: 0,
           duration: 0.8,
           stagger: 0.2,
-          ease: 'power3.out',
+          ease: "power3.out",
         }
       );
     }
 
     // Category cards animation
     if (categoriesRef.current) {
-      const cards = categoriesRef.current.querySelectorAll('.category-card');
+      const cards = categoriesRef.current.querySelectorAll(".category-card");
       gsap.fromTo(
         cards,
         { opacity: 0, y: 50 },
@@ -58,7 +83,7 @@ const Home: React.FC = () => {
           stagger: 0.1,
           scrollTrigger: {
             trigger: categoriesRef.current,
-            start: 'top 80%',
+            start: "top 80%",
           },
         }
       );
@@ -66,9 +91,9 @@ const Home: React.FC = () => {
 
     // Statistics counter animation
     if (statsRef.current) {
-      const counters = statsRef.current.querySelectorAll('.stat-number');
+      const counters = statsRef.current.querySelectorAll(".stat-number");
       counters.forEach((counter) => {
-        const target = parseInt(counter.getAttribute('data-target') || '0');
+        const target = parseInt(counter.getAttribute("data-target") || "0");
         const duration = 2000;
         const increment = target / (duration / 16);
         let current = 0;
@@ -85,10 +110,10 @@ const Home: React.FC = () => {
 
         ScrollTrigger.create({
           trigger: counter,
-          start: 'top 80%',
+          start: "top 80%",
           onEnter: () => {
-            if (!counter.classList.contains('counted')) {
-              counter.classList.add('counted');
+            if (!counter.classList.contains("counted")) {
+              counter.classList.add("counted");
               updateCounter();
             }
           },
@@ -98,7 +123,7 @@ const Home: React.FC = () => {
 
     // Process timeline animation
     if (processRef.current) {
-      const steps = processRef.current.querySelectorAll('.process-step');
+      const steps = processRef.current.querySelectorAll(".process-step");
       gsap.fromTo(
         steps,
         { opacity: 0, y: 50 },
@@ -109,92 +134,103 @@ const Home: React.FC = () => {
           stagger: 0.15,
           scrollTrigger: {
             trigger: processRef.current,
-            start: 'top 75%',
+            start: "top 75%",
           },
         }
       );
     }
 
     // Parallax effects for sections
-    const parallaxSections = document.querySelectorAll('.parallax-section');
+    const parallaxSections = document.querySelectorAll(".parallax-section");
     parallaxSections.forEach((section) => {
       gsap.to(section, {
         yPercent: -30,
-        ease: 'none',
+        ease: "none",
         scrollTrigger: {
           trigger: section,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: "top bottom",
+          end: "bottom top",
           scrub: true,
         },
       });
     });
-
   }, []);
 
   const testimonials = [
     {
-      name: 'Rajesh Kumar',
-      company: 'Healthy Foods Pvt. Ltd.',
-      role: 'Procurement Manager',
-      content: 'Sri Haritha has been our trusted manufacturing partner for over 3 years. Their quality standards and timely delivery have been exceptional.',
+      name: "Rajesh Kumar",
+      company: "Healthy Foods Pvt. Ltd.",
+      role: "Procurement Manager",
+      content:
+        "Sri Haritha has been our trusted manufacturing partner for over 3 years. Their quality standards and timely delivery have been exceptional.",
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop',
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
     },
     {
-      name: 'Priya Sharma',
-      company: 'NutriWell Brands',
-      role: 'Product Manager',
-      content: 'The contract manufacturing services are top-notch. They helped us launch our millet-based snack line with excellent formulation support.',
+      name: "Priya Sharma",
+      company: "NutriWell Brands",
+      role: "Product Manager",
+      content:
+        "The contract manufacturing services are top-notch. They helped us launch our millet-based snack line with excellent formulation support.",
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop',
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
     },
     {
-      name: 'Amit Patel',
-      company: 'Green Grocers Chain',
-      role: 'Category Head',
-      content: 'Their products consistently meet our quality expectations. The FSSAI certification and transparent processes give us confidence.',
+      name: "Amit Patel",
+      company: "Green Grocers Chain",
+      role: "Category Head",
+      content:
+        "Their products consistently meet our quality expectations. The FSSAI certification and transparent processes give us confidence.",
       rating: 5,
-      image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop',
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
     },
   ];
 
   const socialProof = [
-    { name: 'Retail Chains', count: '200+', icon: TrendingUp },
-    { name: 'Institutions', count: '150+', icon: Users },
-    { name: 'Brand Partners', count: '100+', icon: Award },
-    { name: 'Export Markets', count: '15+', icon: Globe },
+    { name: "Retail Chains", count: "200+", icon: TrendingUp },
+    { name: "Institutions", count: "150+", icon: Users },
+    { name: "Brand Partners", count: "100+", icon: Award },
+    { name: "Export Markets", count: "15+", icon: Globe },
   ];
-
 
   const faqs = [
     {
-      question: 'What does Sri Haritha Agro Food Products manufacture?',
-      answer: 'We manufacture Ready-to-Eat (RTE) and Ready-to-Cook (RTC) millet & cereal-based food products including breakfast mixes, cereals, instant mixes, snacks, soups, spice powders, and flours.'
+      question: "What does Sri Haritha Agro Food Products manufacture?",
+      answer:
+        "We manufacture Ready-to-Eat (RTE) and Ready-to-Cook (RTC) millet & cereal-based food products including breakfast mixes, cereals, instant mixes, snacks, soups, spice powders, and flours.",
     },
     {
-      question: 'Do you offer contract manufacturing services?',
-      answer: 'Yes, we provide end-to-end contract manufacturing and private label services for brands, institutions, and retailers looking to develop millet and cereal-based food products.'
+      question: "Do you offer contract manufacturing services?",
+      answer:
+        "Yes, we provide end-to-end contract manufacturing and private label services for brands, institutions, and retailers looking to develop millet and cereal-based food products.",
     },
     {
-      question: 'What is the minimum order quantity for bulk orders?',
-      answer: 'MOQ varies by product category and customization requirements. Please contact us with your specific needs for accurate pricing and MOQ details.'
+      question: "What is the minimum order quantity for bulk orders?",
+      answer:
+        "MOQ varies by product category and customization requirements. Please contact us with your specific needs for accurate pricing and MOQ details.",
     },
     {
-      question: 'Are your products FSSAI certified?',
-      answer: 'Yes, Sri Haritha Agro Food Products is FSSAI certified, and all our products meet the highest quality and safety standards.'
+      question: "Are your products FSSAI certified?",
+      answer:
+        "Yes, Sri Haritha Agro Food Products is FSSAI certified, and all our products meet the highest quality and safety standards.",
     },
     {
-      question: 'How can I start a contract manufacturing project?',
-      answer: 'Simply contact us with your project requirements. We\'ll guide you through formulation, pilot batch, finalization, and scale-up production.'
+      question: "How can I start a contract manufacturing project?",
+      answer:
+        "Simply contact us with your project requirements. We'll guide you through formulation, pilot batch, finalization, and scale-up production.",
     },
     {
-      question: 'Do you provide private label packaging?',
-      answer: 'Yes, we offer complete private label services including custom packaging design, branding, and labeling as per your requirements.'
+      question: "Do you provide private label packaging?",
+      answer:
+        "Yes, we offer complete private label services including custom packaging design, branding, and labeling as per your requirements.",
     },
     {
-      question: 'What is your production capacity?',
-      answer: 'We have a modern manufacturing facility with scalable production capacity to meet both small and large volume requirements.'
+      question: "What is your production capacity?",
+      answer:
+        "We have a modern manufacturing facility with scalable production capacity to meet both small and large volume requirements.",
     },
   ];
 
@@ -206,135 +242,221 @@ const Home: React.FC = () => {
   const processSteps = [
     {
       step: 1,
-      title: 'Consultation & Requirements',
-      description: 'We discuss your product vision, target market, and specific requirements.',
+      title: "Consultation & Requirements",
+      description:
+        "We discuss your product vision, target market, and specific requirements.",
       icon: MessageCircle,
-      color: 'bg-primary',
+      color: "bg-primary",
     },
     {
       step: 2,
-      title: 'Formulation & R&D',
-      description: 'Our food scientists develop the perfect formulation tailored to your needs.',
+      title: "Formulation & R&D",
+      description:
+        "Our food scientists develop the perfect formulation tailored to your needs.",
       icon: Sparkles,
-      color: 'bg-primary',
+      color: "bg-primary",
     },
     {
       step: 3,
-      title: 'Pilot Batch Testing',
-      description: 'We create sample batches for your approval and quality testing.',
+      title: "Pilot Batch Testing",
+      description:
+        "We create sample batches for your approval and quality testing.",
       icon: Settings,
-      color: 'bg-primary-light',
+      color: "bg-primary-light",
     },
     {
       step: 4,
-      title: 'Production & Packaging',
-      description: 'Full-scale production with your custom packaging and branding.',
+      title: "Production & Packaging",
+      description:
+        "Full-scale production with your custom packaging and branding.",
       icon: Factory,
-      color: 'bg-primary',
+      color: "bg-primary",
     },
     {
       step: 5,
-      title: 'Quality Assurance',
-      description: 'Rigorous quality checks and FSSAI compliance verification.',
+      title: "Quality Assurance",
+      description: "Rigorous quality checks and FSSAI compliance verification.",
       icon: ShieldCheck,
-      color: 'bg-primary',
+      color: "bg-primary",
     },
     {
       step: 6,
-      title: 'Delivery & Support',
-      description: 'Timely delivery and ongoing support for your product line.',
+      title: "Delivery & Support",
+      description: "Timely delivery and ongoing support for your product line.",
       icon: Truck,
-      color: 'bg-primary-light',
+      color: "bg-primary-light",
     },
   ];
 
   const comparisonData = {
     features: [
-      'FSSAI Certified',
-      'Custom Formulation',
-      'Private Label',
-      'MOQ Flexibility',
-      'Quality Assurance',
-      'Timely Delivery',
-      'Ongoing Support',
+      "FSSAI Certified",
+      "Custom Formulation",
+      "Private Label",
+      "MOQ Flexibility",
+      "Quality Assurance",
+      "Timely Delivery",
+      "Ongoing Support",
     ],
     us: [true, true, true, true, true, true, true],
-    others: ['May be', 'May be', 'May be', 'May be', 'May be', 'May be', 'May be'],
+    others: [
+      "May be",
+      "May be",
+      "May be",
+      "May be",
+      "May be",
+      "May be",
+      "May be",
+    ],
   };
 
   const handleCalculatorSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const quantity = parseInt(calculatorValues.quantity) || 0;
-    
+
     // Base prices per unit based on product type
     const basePrices: { [key: string]: number } = {
-      'breakfast-mix': 99,      // Breakfast Mixes - ₹99 per pack
-      'snack': 40,              // Energy Bytes - ₹40 per pack
-      'spice': 150,             // Spice Powders - average ₹150 per pack
-      'flour': 120,             // Flours & Grits - average ₹120 per kg
-      'cereal': 130,            // Breakfast Cereals - average ₹130 per kg/pack
-      'soup': 500,              // Soup Mix - ₹500 per kg
-      'noodles': 230,           // Millet Noodles - ₹230 per kg
-      'energy-bar': 400          // Energy Bars - ₹400 per kg
+      "breakfast-mix": 99, // Breakfast Mixes - ₹99 per pack
+      snack: 40, // Energy Bytes - ₹40 per pack
+      spice: 150, // Spice Powders - average ₹150 per pack
+      flour: 120, // Flours & Grits - average ₹120 per kg
+      cereal: 130, // Breakfast Cereals - average ₹130 per kg/pack
+      soup: 500, // Soup Mix - ₹500 per kg
+      noodles: 230, // Millet Noodles - ₹230 per kg
+      "energy-bar": 400, // Energy Bars - ₹400 per kg
     };
-    
+
     const basePrice = basePrices[calculatorValues.productType] || 100;
-    const packagingMultiplier = calculatorValues.packaging === 'premium' ? 1.15 : 1;
-    
+    const packagingMultiplier =
+      calculatorValues.packaging === "premium" ? 1.15 : 1;
+
     // Volume discount for larger orders
     let volumeDiscount = 1;
     if (quantity >= 1000) {
       volumeDiscount = 0.85; // 15% discount for 1000+ units
     } else if (quantity >= 500) {
-      volumeDiscount = 0.90; // 10% discount for 500+ units
+      volumeDiscount = 0.9; // 10% discount for 500+ units
     } else if (quantity >= 200) {
       volumeDiscount = 0.95; // 5% discount for 200+ units
     }
-    
-    const result = quantity > 0 
-      ? Math.round(basePrice * quantity * packagingMultiplier * volumeDiscount) 
-      : null;
+
+    const result =
+      quantity > 0
+        ? Math.round(
+            basePrice * quantity * packagingMultiplier * volumeDiscount
+          )
+        : null;
     setCalculatorResult(result);
   };
 
   const handleChatSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Chat message:', chatMessage);
-    setChatMessage('');
-    alert('Thank you for your message! We\'ll get back to you soon.');
+    console.log("Chat message:", chatMessage);
+    setChatMessage("");
+    alert("Thank you for your message! We'll get back to you soon.");
   };
 
-
   const categoryImages = [
-    'https://images.unsplash.com/photo-1589210032586-3e54debe41df',
-    'https://images.unsplash.com/photo-1603199476769-12b7c78485e2',
-    'https://images.pexels.com/photos/8933640/pexels-photo-8933640.jpeg',
-    'https://images.unsplash.com/photo-1512621776951-a57141f2eefd',
-    'https://images.unsplash.com/photo-1547592180-85f173990554',
-    'https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg',
-    'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg'
+    "https://images.unsplash.com/photo-1589210032586-3e54debe41df",
+    "https://images.unsplash.com/photo-1603199476769-12b7c78485e2",
+    "https://images.pexels.com/photos/8933640/pexels-photo-8933640.jpeg",
+    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
+    "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg",
   ];
 
   const heroSlides = [
     {
-      image: 'https://images.unsplash.com/photo-1563139205-b6d0e303ad58',
-      title: 'Millet & Cereal-Based Food Manufacturer in Hyderabad',
-      subtitle: 'Ready-to-Eat & Ready-to-Cook foods made from the goodness of millets. Trusted by brands, institutions & retailers for bulk supply and contract manufacturing.',
+      image: "https://images.unsplash.com/photo-1563139205-b6d0e303ad58",
+      title: "India's Trusted Millet & Cereal Food Manufacturer",
+      subtitle: "Bulk Supply • Private Label • Contract Manufacturing",
+      description:
+        "From formulation to finished product — we help brands launch healthier foods faster.",
+      ctaText: "Enquire for Bulk / OEM",
+      ctaLink: "/contact",
     },
     {
-      image: 'https://images.unsplash.com/photo-1542838132-92c53300491e',
-      title: 'FSSAI Certified Quality Since 2018',
-      subtitle: 'Maintaining highest quality and safety standards in every product we manufacture. Your trusted partner for nutritious, healthy food products.',
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e",
+      title: "Build Your Millet Product Line With an FSSAI-Certified Partner",
+      subtitle:
+        "Breakfast mixes, cereals, instant mixes, snacks, soups & more — manufactured at scale with consistent quality.",
+      description: "",
+      ctaText: "Start Your Project",
+      ctaLink: "/contract-manufacturing",
     },
     {
-      image: 'https://images.unsplash.com/photo-1556910103-1c02745aae4d',
-      title: 'Contract Manufacturing & Private Label Services',
-      subtitle: 'End-to-end solutions from product formulation to packaging and delivery. Let\'s bring your millet-based food product vision to life.',
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d",
+      title: "Your Ideas. Our Manufacturing. One Reliable Partner.",
+      subtitle:
+        "We turn your millet food concepts into ready retail-ready products with full R&D, piloting & packaging support.",
+      description: "",
+      ctaText: "Get Formulation Support",
+      ctaLink: "/contact",
     },
     {
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836',
-      title: 'Essentials for Healthy Living',
-      subtitle: 'Through our Avasya brand, we showcase our commitment to "Eat Healthy, Stay Healthy" and "Food as Therapy" philosophy.',
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      title: "Millet Manufacturing Specialists Since 2018",
+      subtitle:
+        "Farm-linked sourcing, advanced processing and a full range of Ready-to-Eat & Ready-to-Cook products.",
+      description: "",
+      ctaText: "Download Catalogue",
+      ctaLink: "/sri-haritha-catalog.pdf",
+      isDownload: true,
+    },
+    {
+      image: "https://images.unsplash.com/photo-1563139205-b6d0e303ad58",
+      title: "Consistent Quality. Scalable Manufacturing. Clean Nutrition.",
+      subtitle:
+        "The preferred partner for brands, institutions and exporters across India.",
+      description: "",
+      ctaText: "Partner With Us",
+      ctaLink: "/contact",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e",
+      title: "Looking for a Reliable OEM Partner for Millet Foods?",
+      subtitle:
+        "We manufacture and private-label your SKUs — flakes, mixes, snacks, soups, flours & more.",
+      description: "",
+      ctaText: "Explore OEM / Private Label",
+      ctaLink: "/contract-manufacturing",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1556910103-1c02745aae4d",
+      title: "Export-Ready Millet Food Products in Bulk",
+      subtitle:
+        "Clean formulations, compliant labeling, stable shelf life — manufactured with global standards.",
+      description: "",
+      ctaText: "Discuss Export Orders",
+      ctaLink: "/contact",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+      title: "Where Innovation Begins: Avasya",
+      subtitle:
+        "Our home brand proves every formulation we build — and we can build the same for you.",
+      description: "",
+      ctaText: "See Our Product Range",
+      ctaLink: "/avasya",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1563139205-b6d0e303ad58",
+      title: "Nutritious Millet Foods for Institutions & Meal Programs",
+      subtitle:
+        "Ready-to-Cook mixes and cereals designed for school meals, hostels & large kitchens.",
+      description: "",
+      ctaText: "Bulk Enquiry",
+      ctaLink: "/contact",
+    },
+    {
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e",
+      title: "Healthy, Clean, Millet-Based Foods Made for Modern India",
+      subtitle:
+        "Wholesome, high-fiber, natural ingredients — manufactured with strict quality standards.",
+      description: "",
+      ctaText: "View Our Products",
+      ctaLink: "/products",
     },
   ];
 
@@ -404,7 +526,7 @@ const Home: React.FC = () => {
 
   const onTouchEnd = () => {
     if (!touchStartX.current || !touchEndX.current) return;
-    
+
     const distance = touchStartX.current - touchEndX.current;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -421,8 +543,8 @@ const Home: React.FC = () => {
     <div>
       {/* Hero Carousel Section */}
       <section className="relative h-screen w-full overflow-hidden -mt-20">
-        <div 
-          ref={carouselRef} 
+        <div
+          ref={carouselRef}
           className="relative h-full w-full"
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
@@ -432,27 +554,29 @@ const Home: React.FC = () => {
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ${
-                index === currentSlide ? 'opacity-100 z-10' : 'opacity-0 z-0'
+                index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
               }`}
             >
               {/* Background Image */}
               <div className="absolute inset-0">
-                <img 
-                  src={slide.image} 
+                <img
+                  src={slide.image}
                   alt={slide.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              
+
               {/* Overlay */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary-dark/95"></div>
-              
+
               {/* Content */}
               <div className="container-custom relative z-10 h-full flex items-center">
                 <div className="max-w-4xl" ref={index === 0 ? heroRef : null}>
                   <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
                     <ShieldCheck className="w-5 h-5 text-white" />
-                    <span className="text-sm font-semibold text-white">FSSAI Certified | Since 2018</span>
+                    <span className="text-sm font-semibold text-white">
+                      FSSAI Certified | Since 2018
+                    </span>
                   </div>
                   <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-8 leading-tight text-white">
                     {slide.title}
@@ -461,15 +585,15 @@ const Home: React.FC = () => {
                     {slide.subtitle}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-5">
-                    <Link 
-                      to="/contact" 
+                    <Link
+                      to="/contact"
                       className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
                     >
                       <span>Enquire for Bulk / OEM</span>
                       <ArrowRight className="w-5 h-5" />
                     </Link>
-                    <a 
-                      href="/sri-haritha-catalog.pdf" 
+                    <a
+                      href="/sri-haritha-catalog.pdf"
                       download
                       className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
                     >
@@ -491,8 +615,8 @@ const Home: React.FC = () => {
               onClick={() => goToSlide(index)}
               className={`transition-all duration-300 rounded-full ${
                 index === currentSlide
-                  ? 'bg-accent w-10 h-3'
-                  : 'bg-white/40 hover:bg-white/60 w-3 h-3'
+                  ? "bg-accent w-10 h-3"
+                  : "bg-white/40 hover:bg-white/60 w-3 h-3"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -509,10 +633,17 @@ const Home: React.FC = () => {
             </h2>
             <div className="space-y-6 text-lg md:text-xl text-gray-700 leading-relaxed">
               <p>
-                Sri Haritha Agro Food Products Pvt. Ltd. has been a trusted manufacturer of millet and cereal-based Ready-to-Eat and Ready-to-Cook food products since 2018. Based in Hyderabad, we specialize in producing nutritious, healthy food products that combine traditional wisdom with modern manufacturing.
+                Sri Haritha Agro Food Products Pvt. Ltd. has been a trusted
+                manufacturer of millet and cereal-based Ready-to-Eat and
+                Ready-to-Cook food products since 2018. Based in Hyderabad, we
+                specialize in producing nutritious, healthy food products that
+                combine traditional wisdom with modern manufacturing.
               </p>
               <p>
-                Our product range includes breakfast mixes, cereals, instant mixes, energy bytes (snacks), soups, spice powders, flours, and grits - all crafted with quality ingredients and FSSAI-certified processes.
+                Our product range includes breakfast mixes, cereals, instant
+                mixes, energy bytes (snacks), soups, spice powders, flours, and
+                grits - all crafted with quality ingredients and FSSAI-certified
+                processes.
               </p>
             </div>
           </div>
@@ -530,49 +661,52 @@ const Home: React.FC = () => {
               Explore our wide range of millet and cereal-based food products
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" ref={categoriesRef}>
+          <div
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            ref={categoriesRef}
+          >
             {productCategories.map((category, index) => {
               return (
-              <Link
-                key={category.id}
-                to={`/products/${category.slug}`}
-                className="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
-              >
-                {/* Image Container with Overlay */}
-                <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
-                  <img 
-                    src={categoryImages[index] || categoryImages[0]}
-                    alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                    <ArrowRight className="w-5 h-5 text-primary" />
-                  </div>
-                </div>
-                
-                {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-start justify-between mb-4">
-                    <h3 className="text-2xl font-heading font-bold text-gray-900 group-hover:text-primary transition-colors flex-1">
-                      {category.name}
-                    </h3>
-                    <div className="ml-4 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <Package className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                <Link
+                  key={category.id}
+                  to={`/products/${category.slug}`}
+                  className="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
+                >
+                  {/* Image Container with Overlay */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
+                    <img
+                      src={categoryImages[index] || categoryImages[0]}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <ArrowRight className="w-5 h-5 text-primary" />
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
-                    {category.description}
-                  </p>
-                  <div className="flex items-center text-primary font-semibold group-hover:gap-3 transition-all">
-                    <span>Explore Category</span>
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
+
+                  {/* Content */}
+                  <div className="p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-2xl font-heading font-bold text-gray-900 group-hover:text-primary transition-colors flex-1">
+                        {category.name}
+                      </h3>
+                      <div className="ml-4 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <Package className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                      </div>
+                    </div>
+                    <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+                      {category.description}
+                    </p>
+                    <div className="flex items-center text-primary font-semibold group-hover:gap-3 transition-all">
+                      <span>Explore Category</span>
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
+                    </div>
                   </div>
-                </div>
-                
-                {/* Accent Border on Hover */}
-                <div className="absolute inset-0 border-2 border-primary rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
-              </Link>
+
+                  {/* Accent Border on Hover */}
+                  <div className="absolute inset-0 border-2 border-primary rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </Link>
               );
             })}
           </div>
@@ -589,26 +723,38 @@ const Home: React.FC = () => {
               </h2>
               <div className="space-y-6 text-lg text-gray-700 leading-relaxed mb-10">
                 <p>
-                  Avasya is our in-house brand that represents our commitment to "Essentials for Healthy Living." Through Avasya, we showcase our product formulation expertise and quality standards.
+                  Avasya is our in-house brand that represents our commitment to
+                  "Essentials for Healthy Living." Through Avasya, we showcase
+                  our product formulation expertise and quality standards.
                 </p>
                 <p>
-                  Our philosophy: <strong className="text-primary">"Eat Healthy, Stay Healthy"</strong> and <strong className="text-primary">"Food as Therapy."</strong> Every Avasya product is a testament to our capability in creating nutritious, delicious millet-based foods.
+                  Our philosophy:{" "}
+                  <strong className="text-primary">
+                    "Eat Healthy, Stay Healthy"
+                  </strong>{" "}
+                  and{" "}
+                  <strong className="text-primary">"Food as Therapy."</strong>{" "}
+                  Every Avasya product is a testament to our capability in
+                  creating nutritious, delicious millet-based foods.
                 </p>
               </div>
-              <Link to="/avasya" className="btn-primary inline-flex items-center space-x-2">
+              <Link
+                to="/avasya"
+                className="btn-primary inline-flex items-center space-x-2"
+              >
                 <span>Explore Avasya</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
             <div className="grid grid-cols-2 gap-6">
-              <img 
-                src="https://images.unsplash.com/photo-1644057565733-b21dce26d342" 
-                alt="Avasya Products" 
+              <img
+                src="https://images.unsplash.com/photo-1644057565733-b21dce26d342"
+                alt="Avasya Products"
                 className="rounded-2xl shadow-modern"
               />
-              <img 
-                src="https://images.pexels.com/photos/4099234/pexels-photo-4099234.jpeg" 
-                alt="Healthy Food" 
+              <img
+                src="https://images.pexels.com/photos/4099234/pexels-photo-4099234.jpeg"
+                alt="Healthy Food"
                 className="rounded-2xl shadow-modern mt-12"
               />
             </div>
@@ -639,8 +785,13 @@ const Home: React.FC = () => {
                     Quality
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-center">FSSAI Certified</h3>
-                <p className="text-white/90 leading-relaxed text-lg text-center">Maintaining highest quality and safety standards with rigorous testing protocols</p>
+                <h3 className="text-2xl font-bold mb-4 text-center">
+                  FSSAI Certified
+                </h3>
+                <p className="text-white/90 leading-relaxed text-lg text-center">
+                  Maintaining highest quality and safety standards with rigorous
+                  testing protocols
+                </p>
               </div>
             </div>
             <div className="group relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 hover:border-accent/50 transition-all duration-500 hover:bg-white/20 hover:shadow-2xl hover:-translate-y-2">
@@ -654,8 +805,13 @@ const Home: React.FC = () => {
                     Experience
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-center">Since 2018</h3>
-                <p className="text-white/90 leading-relaxed text-lg text-center">Years of proven expertise in millet food manufacturing and innovation</p>
+                <h3 className="text-2xl font-bold mb-4 text-center">
+                  Since 2018
+                </h3>
+                <p className="text-white/90 leading-relaxed text-lg text-center">
+                  Years of proven expertise in millet food manufacturing and
+                  innovation
+                </p>
               </div>
             </div>
             <div className="group relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 hover:border-accent/50 transition-all duration-500 hover:bg-white/20 hover:shadow-2xl hover:-translate-y-2">
@@ -669,8 +825,13 @@ const Home: React.FC = () => {
                     Services
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-center">Contract Manufacturing</h3>
-                <p className="text-white/90 leading-relaxed text-lg text-center">End-to-end OEM and private label services with complete customization</p>
+                <h3 className="text-2xl font-bold mb-4 text-center">
+                  Contract Manufacturing
+                </h3>
+                <p className="text-white/90 leading-relaxed text-lg text-center">
+                  End-to-end OEM and private label services with complete
+                  customization
+                </p>
               </div>
             </div>
             <div className="group relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 border-2 border-white/20 hover:border-accent/50 transition-all duration-500 hover:bg-white/20 hover:shadow-2xl hover:-translate-y-2">
@@ -684,8 +845,13 @@ const Home: React.FC = () => {
                     Trust
                   </span>
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-center">Trusted Partner</h3>
-                <p className="text-white/90 leading-relaxed text-lg text-center">Serving brands, institutions, and retailers with proven reliability</p>
+                <h3 className="text-2xl font-bold mb-4 text-center">
+                  Trusted Partner
+                </h3>
+                <p className="text-white/90 leading-relaxed text-lg text-center">
+                  Serving brands, institutions, and retailers with proven
+                  reliability
+                </p>
               </div>
             </div>
           </div>
@@ -705,27 +871,41 @@ const Home: React.FC = () => {
           </div>
           <div className="max-w-4xl mx-auto relative">
             <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-secondary/30 to-white p-8 md:p-12">
-              <div className="flex transition-transform duration-500 ease-in-out" style={{ transform: `translateX(-${currentTestimonial * 100}%)` }}>
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{
+                  transform: `translateX(-${currentTestimonial * 100}%)`,
+                }}
+              >
                 {testimonials.map((testimonial, index) => (
                   <div key={index} className="min-w-full px-4">
                     <div className="flex items-center mb-6">
-                      <img 
-                        src={testimonial.image} 
+                      <img
+                        src={testimonial.image}
                         alt={testimonial.name}
                         className="w-16 h-16 rounded-full object-cover mr-4 border-4 border-white shadow-lg"
                       />
                       <div>
-                        <h3 className="text-xl font-bold text-gray-900">{testimonial.name}</h3>
+                        <h3 className="text-xl font-bold text-gray-900">
+                          {testimonial.name}
+                        </h3>
                         <p className="text-gray-600">{testimonial.role}</p>
-                        <p className="text-sm text-primary font-semibold">{testimonial.company}</p>
+                        <p className="text-sm text-primary font-semibold">
+                          {testimonial.company}
+                        </p>
                       </div>
                     </div>
                     <div className="flex mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-accent text-accent" />
+                        <Star
+                          key={i}
+                          className="w-5 h-5 fill-accent text-accent"
+                        />
                       ))}
                     </div>
-                    <p className="text-lg text-gray-700 leading-relaxed italic">"{testimonial.content}"</p>
+                    <p className="text-lg text-gray-700 leading-relaxed italic">
+                      "{testimonial.content}"
+                    </p>
                   </div>
                 ))}
               </div>
@@ -741,13 +921,15 @@ const Home: React.FC = () => {
                       clearInterval(testimonialAutoplayRef.current);
                     }
                     testimonialAutoplayRef.current = setInterval(() => {
-                      setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                      setCurrentTestimonial(
+                        (prev) => (prev + 1) % testimonials.length
+                      );
                     }, 4000);
                   }}
                   className={`transition-all duration-300 rounded-full ${
                     index === currentTestimonial
-                      ? 'bg-primary w-10 h-3'
-                      : 'bg-gray-300 hover:bg-gray-400 w-3 h-3'
+                      ? "bg-primary w-10 h-3"
+                      : "bg-gray-300 hover:bg-gray-400 w-3 h-3"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -755,13 +937,18 @@ const Home: React.FC = () => {
             </div>
             <button
               onClick={() => {
-                setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+                setCurrentTestimonial(
+                  (prev) =>
+                    (prev - 1 + testimonials.length) % testimonials.length
+                );
                 // Reset autoplay timer
                 if (testimonialAutoplayRef.current) {
                   clearInterval(testimonialAutoplayRef.current);
                 }
                 testimonialAutoplayRef.current = setInterval(() => {
-                  setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                  setCurrentTestimonial(
+                    (prev) => (prev + 1) % testimonials.length
+                  );
                 }, 4000);
               }}
               className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 bg-white shadow-lg p-3 rounded-full hover:bg-gray-50 transition-all"
@@ -771,13 +958,17 @@ const Home: React.FC = () => {
             </button>
             <button
               onClick={() => {
-                setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                setCurrentTestimonial(
+                  (prev) => (prev + 1) % testimonials.length
+                );
                 // Reset autoplay timer
                 if (testimonialAutoplayRef.current) {
                   clearInterval(testimonialAutoplayRef.current);
                 }
                 testimonialAutoplayRef.current = setInterval(() => {
-                  setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
+                  setCurrentTestimonial(
+                    (prev) => (prev + 1) % testimonials.length
+                  );
                 }, 4000);
               }}
               className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 bg-white shadow-lg p-3 rounded-full hover:bg-gray-50 transition-all"
@@ -807,35 +998,45 @@ const Home: React.FC = () => {
           <div className="flex animate-marquee space-x-16">
             {/* First set of logos */}
             {[
-              'Healthy Foods Pvt. Ltd.',
-              'NutriWell Brands',
-              'Green Grocers Chain',
-              'Organic Essentials',
-              'Wellness Products India',
-              'Nature\'s Best',
-              'Pure Health Foods',
-              'Farm Fresh Organics',
+              "Healthy Foods Pvt. Ltd.",
+              "NutriWell Brands",
+              "Green Grocers Chain",
+              "Organic Essentials",
+              "Wellness Products India",
+              "Nature's Best",
+              "Pure Health Foods",
+              "Farm Fresh Organics",
             ].map((brand, index) => (
-              <div key={index} className="flex-shrink-0 flex items-center justify-center px-8">
+              <div
+                key={index}
+                className="flex-shrink-0 flex items-center justify-center px-8"
+              >
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl px-8 py-6 border border-primary/10 hover:border-primary/30 transition-all">
-                  <span className="text-xl font-bold text-primary whitespace-nowrap">{brand}</span>
+                  <span className="text-xl font-bold text-primary whitespace-nowrap">
+                    {brand}
+                  </span>
                 </div>
               </div>
             ))}
             {/* Duplicate set for seamless loop */}
             {[
-              'Healthy Foods Pvt. Ltd.',
-              'NutriWell Brands',
-              'Green Grocers Chain',
-              'Organic Essentials',
-              'Wellness Products India',
-              'Nature\'s Best',
-              'Pure Health Foods',
-              'Farm Fresh Organics',
+              "Healthy Foods Pvt. Ltd.",
+              "NutriWell Brands",
+              "Green Grocers Chain",
+              "Organic Essentials",
+              "Wellness Products India",
+              "Nature's Best",
+              "Pure Health Foods",
+              "Farm Fresh Organics",
             ].map((brand, index) => (
-              <div key={`dup-${index}`} className="flex-shrink-0 flex items-center justify-center px-8">
+              <div
+                key={`dup-${index}`}
+                className="flex-shrink-0 flex items-center justify-center px-8"
+              >
                 <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-2xl px-8 py-6 border border-primary/10 hover:border-primary/30 transition-all">
-                  <span className="text-xl font-bold text-primary whitespace-nowrap">{brand}</span>
+                  <span className="text-xl font-bold text-primary whitespace-nowrap">
+                    {brand}
+                  </span>
                 </div>
               </div>
             ))}
@@ -848,11 +1049,16 @@ const Home: React.FC = () => {
             {socialProof.map((proof, index) => {
               const Icon = proof.icon;
               return (
-                <div key={index} className="text-center card hover:shadow-card-hover transition-all duration-300">
+                <div
+                  key={index}
+                  className="text-center card hover:shadow-card-hover transition-all duration-300"
+                >
                   <div className="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-4">
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-2">{proof.count}</div>
+                  <div className="text-3xl font-bold text-primary mb-2">
+                    {proof.count}
+                  </div>
                   <p className="text-lg text-gray-700">{proof.name}</p>
                 </div>
               );
@@ -869,10 +1075,12 @@ const Home: React.FC = () => {
               Looking for a Reliable Manufacturing Partner?
             </h2>
             <p className="text-xl text-gray-700 mb-10 leading-relaxed">
-              We offer complete contract manufacturing solutions - from product formulation to packaging and delivery. Let's bring your millet-based food product vision to life.
+              We offer complete contract manufacturing solutions - from product
+              formulation to packaging and delivery. Let's bring your
+              millet-based food product vision to life.
             </p>
-            <Link 
-              to="/contract-manufacturing" 
+            <Link
+              to="/contract-manufacturing"
               className="btn-primary inline-flex items-center space-x-2"
             >
               <span>Start Your Contract Manufacturing Project</span>
@@ -897,18 +1105,29 @@ const Home: React.FC = () => {
               From concept to delivery - a seamless journey
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8" ref={processRef}>
+          <div
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+            ref={processRef}
+          >
             {processSteps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <div key={index} className="process-step relative">
                   <div className="card hover:shadow-card-hover transition-all duration-300 h-full">
-                    <div className={`${step.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg`}>
+                    <div
+                      className={`${step.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg`}
+                    >
                       <Icon className="w-8 h-8" />
                     </div>
-                    <div className="text-sm font-semibold text-primary mb-2">Step {step.step}</div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{step.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                    <div className="text-sm font-semibold text-primary mb-2">
+                      Step {step.step}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {step.description}
+                    </p>
                   </div>
                   {index < processSteps.length - 1 && (
                     <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-0.5 bg-gradient-to-r from-primary to-transparent z-0"></div>
@@ -936,19 +1155,28 @@ const Home: React.FC = () => {
               <thead>
                 <tr className="bg-primary text-white">
                   <th className="p-4 text-left rounded-tl-xl">Features</th>
-                  <th className="p-4 text-center bg-accent text-primary font-bold">Sri Haritha</th>
+                  <th className="p-4 text-center bg-accent text-primary font-bold">
+                    Sri Haritha
+                  </th>
                   <th className="p-4 text-center rounded-tr-xl">Others</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonData.features.map((feature, index) => (
-                  <tr key={index} className="border-b border-gray-200 hover:bg-secondary/30 transition-colors">
-                    <td className="p-4 font-semibold text-gray-900">{feature}</td>
+                  <tr
+                    key={index}
+                    className="border-b border-gray-200 hover:bg-secondary/30 transition-colors"
+                  >
+                    <td className="p-4 font-semibold text-gray-900">
+                      {feature}
+                    </td>
                     <td className="p-4 text-center">
                       <CheckCircle className="w-6 h-6 text-primary mx-auto" />
                     </td>
                     <td className="p-4 text-center">
-                      <span className="text-gray-600 font-medium">{comparisonData.others[index]}</span>
+                      <span className="text-gray-600 font-medium">
+                        {comparisonData.others[index]}
+                      </span>
                     </td>
                   </tr>
                 ))}
@@ -978,19 +1206,40 @@ const Home: React.FC = () => {
                 </label>
                 <select
                   value={calculatorValues.productType}
-                  onChange={(e) => setCalculatorValues({...calculatorValues, productType: e.target.value})}
+                  onChange={(e) =>
+                    setCalculatorValues({
+                      ...calculatorValues,
+                      productType: e.target.value,
+                    })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary"
                   required
                 >
                   <option value="">Select Product Type</option>
-                  <option value="breakfast-mix">Breakfast Mix (₹99/pack, MOQ: 50 packs)</option>
-                  <option value="cereal">Breakfast Cereals (₹120-170/kg, MOQ: 10-400 kg)</option>
-                  <option value="snack">Energy Bytes - Snacks (₹40/pack, MOQ: 50 packs)</option>
-                  <option value="spice">Spice Powder (₹150/pack, MOQ: varies)</option>
-                  <option value="flour">Flour & Grits (₹120/kg, MOQ: varies)</option>
-                  <option value="soup">Soup Mix (₹500/kg, MOQ: 25-120 units)</option>
-                  <option value="noodles">Millet Noodles (₹230/kg, MOQ: 25 kg)</option>
-                  <option value="energy-bar">Energy Bars (₹400/kg, MOQ: 10 kg)</option>
+                  <option value="breakfast-mix">
+                    Breakfast Mix (₹99/pack, MOQ: 50 packs)
+                  </option>
+                  <option value="cereal">
+                    Breakfast Cereals (₹120-170/kg, MOQ: 10-400 kg)
+                  </option>
+                  <option value="snack">
+                    Energy Bytes - Snacks (₹40/pack, MOQ: 50 packs)
+                  </option>
+                  <option value="spice">
+                    Spice Powder (₹150/pack, MOQ: varies)
+                  </option>
+                  <option value="flour">
+                    Flour & Grits (₹120/kg, MOQ: varies)
+                  </option>
+                  <option value="soup">
+                    Soup Mix (₹500/kg, MOQ: 25-120 units)
+                  </option>
+                  <option value="noodles">
+                    Millet Noodles (₹230/kg, MOQ: 25 kg)
+                  </option>
+                  <option value="energy-bar">
+                    Energy Bars (₹400/kg, MOQ: 10 kg)
+                  </option>
                 </select>
               </div>
               <div>
@@ -1000,7 +1249,12 @@ const Home: React.FC = () => {
                 <input
                   type="number"
                   value={calculatorValues.quantity}
-                  onChange={(e) => setCalculatorValues({...calculatorValues, quantity: e.target.value})}
+                  onChange={(e) =>
+                    setCalculatorValues({
+                      ...calculatorValues,
+                      quantity: e.target.value,
+                    })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary"
                   placeholder="Enter quantity"
                   min="1"
@@ -1013,7 +1267,12 @@ const Home: React.FC = () => {
                 </label>
                 <select
                   value={calculatorValues.packaging}
-                  onChange={(e) => setCalculatorValues({...calculatorValues, packaging: e.target.value})}
+                  onChange={(e) =>
+                    setCalculatorValues({
+                      ...calculatorValues,
+                      packaging: e.target.value,
+                    })
+                  }
                   className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary"
                 >
                   <option value="standard">Standard</option>
@@ -1026,9 +1285,12 @@ const Home: React.FC = () => {
               {calculatorResult !== null && (
                 <div className="bg-primary/10 border-2 border-primary rounded-xl p-6 text-center">
                   <p className="text-sm text-gray-600 mb-2">Estimated Price</p>
-                  <p className="text-3xl font-bold text-primary">₹{calculatorResult.toLocaleString()}</p>
+                  <p className="text-3xl font-bold text-primary">
+                    ₹{calculatorResult.toLocaleString()}
+                  </p>
                   <p className="text-xs text-gray-500 mt-2">
-                    *Final price may vary based on specifications, order volume, and customization requirements.
+                    *Final price may vary based on specifications, order volume,
+                    and customization requirements.
                     {parseInt(calculatorValues.quantity) >= 200 && (
                       <span className="block mt-1 text-primary font-semibold">
                         Volume discount applied!
@@ -1036,7 +1298,8 @@ const Home: React.FC = () => {
                     )}
                   </p>
                   <p className="text-xs text-gray-500 mt-1">
-                    Prices are indicative. Contact us for exact pricing and MOQ details.
+                    Prices are indicative. Contact us for exact pricing and MOQ
+                    details.
                   </p>
                 </div>
               )}
@@ -1060,24 +1323,37 @@ const Home: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="card mb-6">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Address</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Address
+                </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Plot No. B-35, BHEL AIE,<br />
-                  R.C. Puram, Hyderabad-502 032,<br />
+                  Plot No. B-35, BHEL AIE,
+                  <br />
+                  R.C. Puram, Hyderabad-502 032,
+                  <br />
                   Telangana, India
                 </p>
                 <div className="space-y-3">
-                  <a href="tel:+919885704670" className="flex items-center text-primary hover:text-primary-light">
+                  <a
+                    href="tel:+919885704670"
+                    className="flex items-center text-primary hover:text-primary-light"
+                  >
                     <Phone className="w-5 h-5 mr-2" />
                     +91 98857 04670
                   </a>
-                  <a href="mailto:sriharithaagrofood@gmail.com" className="flex items-center text-primary hover:text-primary-light">
+                  <a
+                    href="mailto:sriharithaagrofood@gmail.com"
+                    className="flex items-center text-primary hover:text-primary-light"
+                  >
                     <MessageCircle className="w-5 h-5 mr-2" />
                     sriharithaagrofood@gmail.com
                   </a>
                 </div>
               </div>
-              <Link to="/contact" className="btn-primary inline-flex items-center space-x-2">
+              <Link
+                to="/contact"
+                className="btn-primary inline-flex items-center space-x-2"
+              >
                 <span>Schedule a Visit</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
@@ -1108,7 +1384,10 @@ const Home: React.FC = () => {
             </h2>
             <div className="space-y-4">
               {faqs.map((faq, index) => (
-                <div key={index} className="card border-2 border-gray-100 hover:border-primary/30 transition-all">
+                <div
+                  key={index}
+                  className="card border-2 border-gray-100 hover:border-primary/30 transition-all"
+                >
                   <button
                     onClick={() => toggleFaq(index)}
                     className="w-full flex items-center justify-between text-left"
@@ -1124,10 +1403,12 @@ const Home: React.FC = () => {
                   </button>
                   <div
                     className={`overflow-hidden transition-all duration-300 ${
-                      openFaqIndex === index ? 'max-h-96 mt-4' : 'max-h-0'
+                      openFaqIndex === index ? "max-h-96 mt-4" : "max-h-0"
                     }`}
                   >
-                    <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                    <p className="text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
                   </div>
                 </div>
               ))}
@@ -1143,14 +1424,21 @@ const Home: React.FC = () => {
             Have a Bulk Requirement? Let's Work Together.
           </h2>
           <p className="text-xl md:text-2xl mb-10 text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Contact us today to discuss your bulk orders, contract manufacturing, or distribution partnership needs.
+            Contact us today to discuss your bulk orders, contract
+            manufacturing, or distribution partnership needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link to="/contact" className="btn-primary inline-flex items-center justify-center space-x-2">
+            <Link
+              to="/contact"
+              className="btn-primary inline-flex items-center justify-center space-x-2"
+            >
               <span>Contact Us</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <a href="tel:+919885704670" className="border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-white transition-all">
+            <a
+              href="tel:+919885704670"
+              className="border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-white transition-all"
+            >
               Call: +91 98857 04670
             </a>
           </div>
@@ -1194,12 +1482,16 @@ const Home: React.FC = () => {
               <div className="mb-4">
                 <div className="bg-white rounded-lg p-3 shadow-sm max-w-[80%]">
                   <p className="text-sm text-gray-700">
-                    Hello! How can we assist you today? Feel free to ask about our products, manufacturing services, or get a quote.
+                    Hello! How can we assist you today? Feel free to ask about
+                    our products, manufacturing services, or get a quote.
                   </p>
                 </div>
               </div>
             </div>
-            <form onSubmit={handleChatSubmit} className="p-4 border-t border-gray-200 flex space-x-2">
+            <form
+              onSubmit={handleChatSubmit}
+              className="p-4 border-t border-gray-200 flex space-x-2"
+            >
               <input
                 type="text"
                 value={chatMessage}

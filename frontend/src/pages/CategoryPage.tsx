@@ -48,7 +48,11 @@ const CategoryPage: React.FC = () => {
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categoryData.products.map((product) => (
-              <div key={product.id} className="card hover:shadow-xl transition-all">
+              <Link 
+                key={product.id} 
+                to="/contact"
+                className="card hover:shadow-xl transition-all cursor-pointer block"
+              >
                 <div className="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/20 flex items-center justify-center">
                   <Package className="w-24 h-24 text-primary/30" />
                 </div>
@@ -94,7 +98,7 @@ const CategoryPage: React.FC = () => {
                 <p className="text-sm text-primary font-medium">
                   Available for bulk / private label
                 </p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

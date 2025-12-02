@@ -5,6 +5,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isProductsDropdownOpen, setIsProductsDropdownOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -106,7 +107,11 @@ const Header: React.FC = () => {
             </Link>
             
             {/* Products Dropdown */}
-            <div className="relative group">
+            <div 
+              className="relative"
+              onMouseEnter={() => setIsProductsDropdownOpen(true)}
+              onMouseLeave={() => setIsProductsDropdownOpen(false)}
+            >
               <button 
                 className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
                   location.pathname.startsWith('/products')
@@ -122,22 +127,28 @@ const Header: React.FC = () => {
                 <ChevronDown className="w-4 h-4" />
               </button>
               
-              <div className="absolute top-full left-0 mt-2 w-64 bg-white shadow-lg rounded-lg py-2 border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto">
-                <Link 
-                  to="/products" 
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
-                >
-                  All Products
-                </Link>
-                {productCategories.map((category) => (
-                  <Link
-                    key={category.path}
-                    to={category.path}
+              <div className={`absolute top-full left-0 w-64 transition-all duration-200 z-50 pt-1 ${
+                isProductsDropdownOpen 
+                  ? 'opacity-100 visible pointer-events-auto' 
+                  : 'opacity-0 invisible pointer-events-none'
+              }`}>
+                <div className="bg-white shadow-lg rounded-lg py-2 border border-gray-100">
+                  <Link 
+                    to="/products" 
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
                   >
-                    {category.name}
+                    All Products
                   </Link>
-                ))}
+                  {productCategories.map((category) => (
+                    <Link
+                      key={category.path}
+                      to={category.path}
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
+                    >
+                      {category.name}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
 
