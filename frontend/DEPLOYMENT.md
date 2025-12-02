@@ -44,7 +44,12 @@ This creates a `build` folder with your production-ready files.
 
 **Build command:**
 ```bash
-cd frontend && yarn install && yarn build
+cd frontend && npm install && npm run build
+```
+
+**OR if you prefer Yarn (requires Yarn 1.x):**
+```bash
+cd frontend && npm install -g yarn@1.22.19 && yarn install && yarn build
 ```
 
 **Build output directory:**
@@ -59,6 +64,7 @@ frontend/build
 
 **Environment variables:** (Optional - add if needed)
 - `NODE_VERSION`: `18` or `20` (recommended)
+- `CI`: `false` (if you want to ignore ESLint warnings during build - already configured in package.json)
 
 ### Step 4: Deploy
 
@@ -136,7 +142,39 @@ Access them in your code with `process.env.REACT_APP_VARIABLE_NAME`
 
 ## Troubleshooting
 
-### Build Fails
+### Build Fails - ESLint Errors
+
+**If you see "Treating warnings as errors" or ESLint errors:**
+
+The build script is already configured to ignore ESLint warnings by setting `CI=false` in the build command. If you still see errors:
+
+1. **Check package.json build script:**
+   - Should be: `"build": "CI=false react-scripts build"`
+
+2. **Or add environment variable in Cloudflare:**
+   - Go to Settings → Environment variables
+   - Add: `CI` = `false`
+
+3. **Or disable ESLint completely (not recommended):**
+   - Add to package.json: `"eslintConfig": { "ignoreDuringBuilds": true }`
+
+### Build Fails - Yarn Version Issue
+
+**If you see "The lockfile would have been modified" error:**
+
+This happens when Cloudflare uses Yarn 4.x but your project uses Yarn 1.x. Solutions:
+
+1. **Use npm instead (Recommended):**
+   - Change build command to: `cd frontend && npm install && npm run build`
+
+2. **Or force Yarn 1.x:**
+   - Add environment variable: `YARN_VERSION=1.22.19`
+   - Or use build command: `cd frontend && npm install -g yarn@1.22.19 && yarn install && yarn build`
+
+3. **Or use npm in package.json:**
+   - Add `"packageManager": "npm@9.0.0"` to package.json
+
+### Other Build Issues
 
 - Check Node.js version (Cloudflare uses Node 18 by default)
 - Ensure all dependencies are in `package.json`

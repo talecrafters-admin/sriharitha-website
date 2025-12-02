@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, CheckCircle, Download, Factory, Users, Award, ShieldCheck, ChevronLeft, ChevronRight, Package, TrendingUp, Globe, Star, ChevronDown, ChevronUp, MessageCircle, MapPin, Calculator, Sparkles, FileText, Search, Send, X, Zap, Settings, Box, Truck, Phone } from 'lucide-react';
+import { ArrowRight, CheckCircle, Download, Factory, Users, Award, ShieldCheck, ChevronLeft, ChevronRight, Package, TrendingUp, Globe, Star, ChevronDown, ChevronUp, MessageCircle, MapPin, Calculator, Sparkles, Send, X, Settings, Truck, Phone } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { productCategories } from '../data/products';
@@ -128,20 +128,6 @@ const Home: React.FC = () => {
     });
 
   }, []);
-
-  const stats = [
-    { number: 500, suffix: '+', label: 'Happy Clients', icon: Users },
-    { number: 1000, suffix: '+', label: 'Products Manufactured', icon: Package },
-    { number: 7, suffix: ' Years', label: 'Experience', icon: Award },
-    { number: 50, suffix: '+', label: 'Team Members', icon: Users },
-  ];
-
-  const certifications = [
-    { name: 'FSSAI Certified', icon: ShieldCheck },
-    { name: 'ISO Certified', icon: Award },
-    { name: 'GMP Compliant', icon: CheckCircle },
-    { name: 'HACCP Certified', icon: ShieldCheck },
-  ];
 
   const testimonials = [
     {
@@ -999,6 +985,7 @@ const Home: React.FC = () => {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-modern h-96 bg-gray-100">
               <iframe
+                title="Sri Haritha Agro Food Products Location"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d78.3891!3d17.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzU2LjAiTiA3OMKwMjMnMjAuOCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
