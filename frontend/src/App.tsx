@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Layout from './components/Layout/Layout';
+import Home from './pages/Home';
+import About from './pages/About';
+import ContractManufacturing from './pages/ContractManufacturing';
+import Products from './pages/Products';
+import CategoryPage from './pages/CategoryPage';
+import Avasya from './pages/Avasya';
+import Quality from './pages/Quality';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contract-manufacturing" element={<ContractManufacturing />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:category" element={<CategoryPage />} />
+          <Route path="/avasya" element={<Avasya />} />
+          <Route path="/quality" element={<Quality />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </Layout>
+    </Router>
   );
 }
 
