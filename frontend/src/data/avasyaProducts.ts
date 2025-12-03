@@ -72,7 +72,7 @@ export const avasyaProducts: AvasyaProduct[] = [
     category: 'Breakfast Mix',
     netWeight: '250 gms',
     price: 110,
-    image: '/images/avasya/millet-khichdi.png',
+    image: '/images/avasya/millet-khichidi.png',
     inStock: true,
   },
   {

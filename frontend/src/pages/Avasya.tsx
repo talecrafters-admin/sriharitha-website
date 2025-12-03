@@ -160,11 +160,12 @@ const Avasya: React.FC = () => {
             alt={product.name}
             className="max-w-full max-h-full object-contain transition-transform duration-300 group-hover:scale-105"
             onError={(e) => {
-              (
-                e.target as HTMLImageElement
-              ).src = `https://via.placeholder.com/300x300?text=${encodeURIComponent(
-                product.name
-              )}`;
+              const target = e.target as HTMLImageElement;
+              // Prevent infinite loop - if already tried placeholder, hide the image
+              if (!target.dataset.fallbackAttempted) {
+                target.dataset.fallbackAttempted = "true";
+                target.style.display = "none";
+              }
             }}
           />
           {product.inStock && (
@@ -326,11 +327,11 @@ const Avasya: React.FC = () => {
                         alt={item.product.name}
                         className="w-16 h-16 object-cover rounded-lg"
                         onError={(e) => {
-                          (
-                            e.target as HTMLImageElement
-                          ).src = `https://via.placeholder.com/64x64?text=${encodeURIComponent(
-                            item.product.name
-                          )}`;
+                          const target = e.target as HTMLImageElement;
+                          if (!target.dataset.fallbackAttempted) {
+                            target.dataset.fallbackAttempted = "true";
+                            target.style.display = "none";
+                          }
                         }}
                       />
                       <div className="flex-1">
@@ -516,11 +517,11 @@ const Avasya: React.FC = () => {
                   alt={zoomedImage.name}
                   className="max-w-full max-h-full object-contain"
                   onError={(e) => {
-                    (
-                      e.target as HTMLImageElement
-                    ).src = `https://via.placeholder.com/800x800?text=${encodeURIComponent(
-                      zoomedImage.name
-                    )}`;
+                    const target = e.target as HTMLImageElement;
+                    if (!target.dataset.fallbackAttempted) {
+                      target.dataset.fallbackAttempted = "true";
+                      target.style.display = "none";
+                    }
                   }}
                 />
               </div>
