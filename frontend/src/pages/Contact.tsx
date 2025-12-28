@@ -1,5 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
-import { MapPin, Phone, Mail, Send, CheckCircle, Clock, ArrowRight } from "lucide-react";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Send,
+  CheckCircle,
+  Clock,
+  ArrowRight,
+} from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -409,7 +417,7 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none w-full md:w-auto"
+                    className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none w-full md:w-auto"
                   >
                     {isSubmitting ? (
                       <>

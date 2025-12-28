@@ -1,56 +1,202 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
   body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
     @apply font-body text-text bg-background;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  #root {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply bg-accent text-text px-8 py-4 rounded-xl font-bold text-lg hover:bg-accent-dark transition-all duration-300 shadow-2xl hover:scale-105 transform;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
-  
+
+  .btn-primary:hover {
+    box-shadow: 0 35px 60px -12px rgba(45, 80, 22, 0.3);
+  }
+
+  .btn-primary::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
   .btn-secondary {
-    @apply border-2 border-primary text-primary px-8 py-4 rounded-xl font-semibold hover:bg-primary hover:text-white transition-all duration-300;
+    @apply border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300;
   }
-  
+
   .btn-white {
-    @apply bg-white text-primary px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+    @apply bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl;
   }
-  
+
   .card {
-    @apply bg-background-white border border-gray-100 rounded-card shadow-card p-8 hover:shadow-card-hover transition-all duration-300;
+    @apply bg-background-white border border-secondary-dark/20 rounded-lg shadow-card p-6 hover:shadow-card-hover transition-all duration-300;
   }
-  
+
   .section-padding {
-    @apply py-20 md:py-28 lg:py-32;
+    @apply py-16 md:py-20 lg:py-24;
   }
-  
+
   .container-custom {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    margin-top: 0 !important;
+    padding-top: 0 !important;
   }
-  
-  .gradient-green {
-    @apply bg-gradient-to-br from-primary to-primary-light;
+
+  .gradient-earth {
+    @apply bg-gradient-to-br from-primary via-primary-dark to-earth;
   }
-  
+
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-earth to-primary-dark bg-clip-text text-transparent;
+  }
+
+  .earthy-texture {
+    background-image: radial-gradient(
+      circle at 2px 2px,
+      rgba(61, 40, 23, 0.03) 1px,
+      transparent 0
+    );
+    background-size: 40px 40px;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      135deg,
+      rgba(2, 95, 56, 0.95) 0%,
+      rgba(61, 40, 23, 0.9) 50%,
+      rgba(1, 64, 41, 0.95) 100%
+    );
+  }
+
+  .section-divider {
+    position: relative;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(61, 40, 23, 0.3),
+      transparent
+    );
+  }
+
+  .floating-shape {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .gradient-mask {
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+
+  .text-shadow-soft {
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-glow {
+    box-shadow: 0 4px 20px rgba(2, 95, 56, 0.08),
+      0 0 0 1px rgba(61, 40, 23, 0.1);
+  }
+
+  .card-glow:hover {
+    box-shadow: 0 8px 30px rgba(2, 95, 56, 0.15),
+      0 0 0 1px rgba(61, 40, 23, 0.2);
   }
 }
 
-/* Smooth scroll behavior */
+/* Smooth scroll behavior and ensure no top spacing */
 html {
   scroll-behavior: smooth;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0;
+}
+
+#root {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0;
 }
 
 /* Marquee Animation */

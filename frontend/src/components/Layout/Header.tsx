@@ -37,43 +37,43 @@ const Header: React.FC = () => {
   const isProductCategoryPage =
     location.pathname.startsWith("/products/") &&
     location.pathname !== "/products";
-  const shouldShowGreenBg = !isScrolled && !isProductCategoryPage;
+  const shouldShowGreenBg = !isScrolled && !isProductCategoryPage && isHomePage;
+  const isOtherPage = !isHomePage && !isProductCategoryPage;
+  const hasWhiteBg = isScrolled || isProductCategoryPage || isOtherPage;
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        isScrolled
+      className={`fixed w-full top-0 left-0 right-0 z-[100] transition-all duration-300 ${
+        hasWhiteBg
           ? "bg-white shadow-lg"
           : isOverHero
-          ? "bg-transparent"
-          : isProductCategoryPage
           ? "bg-transparent"
           : "bg-primary shadow-md"
       }`}
     >
-      <div className="container-custom">
-        <div className="flex items-center justify-between py-4">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
+          <Link to="/" className="flex items-center flex-shrink-0">
             <div className="flex flex-col">
               <span
-                className={`text-xl md:text-2xl font-heading font-bold transition-colors ${
-                  isOverHero || isProductCategoryPage
+                className={`text-xl md:text-2xl font-heading font-bold transition-colors leading-tight ${
+                  hasWhiteBg
+                    ? "text-primary"
+                    : isOverHero
                     ? "text-white"
-                    : shouldShowGreenBg
-                    ? "text-white"
-                    : "text-primary"
+                    : "text-white"
                 }`}
               >
                 Sri Haritha
               </span>
               <span
-                className={`text-xs md:text-sm transition-colors ${
-                  isOverHero || isProductCategoryPage
+                className={`text-xs md:text-sm transition-colors leading-tight ${
+                  hasWhiteBg
+                    ? "text-gray-600"
+                    : isOverHero
                     ? "text-white/90"
-                    : shouldShowGreenBg
-                    ? "text-white/90"
-                    : "text-gray-600"
+                    : "text-white/90"
                 }`}
               >
                 Agro Food Products
@@ -81,58 +81,46 @@ const Header: React.FC = () => {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center space-x-6">
+          {/* Desktop Navigation - Centered */}
+          <nav className="hidden lg:flex items-center justify-center space-x-8 flex-1">
             <Link
               to="/"
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
                 location.pathname === "/"
-                  ? isOverHero || isProductCategoryPage
-                    ? "text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white font-semibold"
-                    : "text-primary font-semibold"
-                  : isOverHero || isProductCategoryPage
-                  ? "text-white hover:text-accent"
-                  : shouldShowGreenBg
-                  ? "text-white hover:text-accent"
-                  : "text-gray-700 hover:text-primary"
+                  ? hasWhiteBg
+                    ? "text-primary font-semibold"
+                    : "text-white font-semibold"
+                  : hasWhiteBg
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-white/80"
               }`}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
                 location.pathname === "/about"
-                  ? isOverHero || isProductCategoryPage
-                    ? "text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white font-semibold"
-                    : "text-primary font-semibold"
-                  : isOverHero || isProductCategoryPage
-                  ? "text-white hover:text-accent"
-                  : shouldShowGreenBg
-                  ? "text-white hover:text-accent"
-                  : "text-gray-700 hover:text-primary"
+                  ? hasWhiteBg
+                    ? "text-primary font-semibold"
+                    : "text-white font-semibold"
+                  : hasWhiteBg
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-white/80"
               }`}
             >
               About Us
             </Link>
             <Link
               to="/contract-manufacturing"
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
                 location.pathname === "/contract-manufacturing"
-                  ? isOverHero || isProductCategoryPage
-                    ? "text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white font-semibold"
-                    : "text-primary font-semibold"
-                  : isOverHero || isProductCategoryPage
-                  ? "text-white hover:text-accent"
-                  : shouldShowGreenBg
-                  ? "text-white hover:text-accent"
-                  : "text-gray-700 hover:text-primary"
+                  ? hasWhiteBg
+                    ? "text-primary font-semibold"
+                    : "text-white font-semibold"
+                  : hasWhiteBg
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-white/80"
               }`}
             >
               Contract Manufacturing
@@ -145,18 +133,14 @@ const Header: React.FC = () => {
               onMouseLeave={() => setIsProductsDropdownOpen(false)}
             >
               <button
-                className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
+                className={`flex items-center space-x-1 text-sm font-medium transition-colors whitespace-nowrap ${
                   location.pathname.startsWith("/products")
-                    ? isOverHero || isProductCategoryPage
-                      ? "text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white font-semibold"
-                      : "text-primary font-semibold"
-                    : isOverHero || isProductCategoryPage
-                    ? "text-white hover:text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white hover:text-accent"
-                    : "text-gray-700 hover:text-primary"
+                    ? hasWhiteBg
+                      ? "text-primary font-semibold"
+                      : "text-white font-semibold"
+                    : hasWhiteBg
+                    ? "text-gray-700 hover:text-primary"
+                    : "text-white hover:text-white/80"
                 }`}
               >
                 <span>Products</span>
@@ -164,7 +148,7 @@ const Header: React.FC = () => {
               </button>
 
               <div
-                className={`absolute top-full left-0 w-64 transition-all duration-200 z-50 pt-1 ${
+                className={`absolute top-full left-0 w-64 transition-all duration-200 z-[110] pt-1 ${
                   isProductsDropdownOpen
                     ? "opacity-100 visible pointer-events-auto"
                     : "opacity-0 invisible pointer-events-none"
@@ -192,58 +176,53 @@ const Header: React.FC = () => {
 
             <Link
               to="/avasya"
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
                 location.pathname === "/avasya"
-                  ? isOverHero || isProductCategoryPage
-                    ? "text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white font-semibold"
-                    : "text-primary font-semibold"
-                  : isOverHero || isProductCategoryPage
-                  ? "text-white hover:text-accent"
-                  : shouldShowGreenBg
-                  ? "text-white hover:text-accent"
-                  : "text-gray-700 hover:text-primary"
+                  ? hasWhiteBg
+                    ? "text-primary font-semibold"
+                    : "text-white font-semibold"
+                  : hasWhiteBg
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-white/80"
               }`}
             >
               Avasya
             </Link>
             <Link
               to="/quality"
-              className={`text-sm font-medium transition-colors ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap ${
                 location.pathname === "/quality"
-                  ? isOverHero || isProductCategoryPage
-                    ? "text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white font-semibold"
-                    : "text-primary font-semibold"
-                  : isOverHero || isProductCategoryPage
-                  ? "text-white hover:text-accent"
-                  : shouldShowGreenBg
-                  ? "text-white hover:text-accent"
-                  : "text-gray-700 hover:text-primary"
+                  ? hasWhiteBg
+                    ? "text-primary font-semibold"
+                    : "text-white font-semibold"
+                  : hasWhiteBg
+                  ? "text-gray-700 hover:text-primary"
+                  : "text-white hover:text-white/80"
               }`}
             >
               Quality & Infrastructure
             </Link>
-            <Link
-              to="/contact"
-              className="bg-accent text-primary px-6 py-2.5 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm"
+            <button
+              onClick={() => {
+                // Will trigger contact modal
+                const event = new CustomEvent("openContactModal");
+                window.dispatchEvent(event);
+              }}
+              className="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-sm whitespace-nowrap ml-4"
             >
               Contact / Enquiry
-            </Link>
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden p-2 transition-colors ${
-              isOverHero || isProductCategoryPage
-                ? "text-white hover:text-accent"
-                : shouldShowGreenBg
-                ? "text-white hover:text-accent"
-                : "text-gray-700 hover:text-primary"
+            className={`lg:hidden p-2 transition-colors flex-shrink-0 ${
+              hasWhiteBg
+                ? "text-gray-700 hover:text-primary"
+                : "text-white hover:text-white/80"
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? (
               <X className="w-6 h-6" />
@@ -252,178 +231,152 @@ const Header: React.FC = () => {
             )}
           </button>
         </div>
+      </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav
-            className={`lg:hidden pb-4 mt-2 pt-4 transition-colors ${
-              isOverHero || isProductCategoryPage
-                ? "border-t border-white/20"
-                : shouldShowGreenBg
-                ? "border-t border-white/20"
-                : "border-t border-gray-100"
+      {/* Mobile Navigation Modal */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 bg-black/50 z-[90] lg:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          {/* Modal */}
+          <div
+            className={`fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-[100] lg:hidden transform transition-transform duration-300 ease-out ${
+              isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
+            style={{
+              transform: isMenuOpen ? "translateX(0)" : "translateX(100%)",
+            }}
           >
-            <div className="flex flex-col space-y-3">
-              <Link
-                to="/"
-                className={`text-sm font-medium transition-colors py-2 ${
-                  location.pathname === "/"
-                    ? isOverHero || isProductCategoryPage
-                      ? "text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white font-semibold"
-                      : "text-primary font-semibold"
-                    : isOverHero || isProductCategoryPage
-                    ? "text-white hover:text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white hover:text-accent"
-                    : "text-gray-700 hover:text-primary"
-                }`}
+            {/* Modal Header */}
+            <div className="bg-primary text-white p-6 flex items-center justify-between">
+              <h2 className="text-xl font-heading font-bold">Menu</h2>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                aria-label="Close menu"
               >
-                Home
-              </Link>
-              <Link
-                to="/about"
-                className={`text-sm font-medium transition-colors py-2 ${
-                  location.pathname === "/about"
-                    ? isOverHero || isProductCategoryPage
-                      ? "text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white font-semibold"
-                      : "text-primary font-semibold"
-                    : isOverHero || isProductCategoryPage
-                    ? "text-white hover:text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white hover:text-accent"
-                    : "text-gray-700 hover:text-primary"
-                }`}
-              >
-                About Us
-              </Link>
-              <Link
-                to="/contract-manufacturing"
-                className={`text-sm font-medium transition-colors py-2 ${
-                  location.pathname === "/contract-manufacturing"
-                    ? isOverHero || isProductCategoryPage
-                      ? "text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white font-semibold"
-                      : "text-primary font-semibold"
-                    : isOverHero || isProductCategoryPage
-                    ? "text-white hover:text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white hover:text-accent"
-                    : "text-gray-700 hover:text-primary"
-                }`}
-              >
-                Contract Manufacturing
-              </Link>
+                <X className="w-6 h-6" />
+              </button>
+            </div>
 
-              {/* Products Mobile */}
-              <div>
-                <button
-                  onClick={() => setIsProductsOpen(!isProductsOpen)}
-                  className={`flex items-center justify-between w-full text-sm font-medium transition-colors py-2 ${
-                    location.pathname.startsWith("/products")
-                      ? isOverHero || isProductCategoryPage
-                        ? "text-accent"
-                        : shouldShowGreenBg
-                        ? "text-white font-semibold"
-                        : "text-primary font-semibold"
-                      : isOverHero || isProductCategoryPage
-                      ? "text-white hover:text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white hover:text-accent"
-                      : "text-gray-700 hover:text-primary"
+            {/* Modal Content */}
+            <nav className="flex-1 overflow-y-auto p-6">
+              <div className="flex flex-col space-y-1">
+                <Link
+                  to="/"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-base font-medium transition-colors py-3 px-4 rounded-lg ${
+                    location.pathname === "/"
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-text hover:bg-secondary"
                   }`}
                 >
-                  <span>Products</span>
-                  <ChevronDown
-                    className={`w-4 h-4 transition-transform ${
-                      isProductsOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </button>
-                {isProductsOpen && (
-                  <div className="pl-4 mt-2 space-y-2">
-                    <Link
-                      to="/products"
-                      className={`block text-sm py-1 transition-colors ${
-                        isOverHero || isProductCategoryPage
-                          ? "text-white/80 hover:text-accent"
-                          : shouldShowGreenBg
-                          ? "text-white/80 hover:text-accent"
-                          : "text-gray-600 hover:text-primary"
-                      }`}
-                    >
-                      All Products
-                    </Link>
-                    {productCategories.map((category) => (
-                      <Link
-                        key={category.path}
-                        to={category.path}
-                        className={`block text-sm py-1 transition-colors ${
-                          isOverHero || isProductCategoryPage
-                            ? "text-white/80 hover:text-accent"
-                            : shouldShowGreenBg
-                            ? "text-white/80 hover:text-accent"
-                            : "text-gray-600 hover:text-primary"
-                        }`}
-                      >
-                        {category.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+                  Home
+                </Link>
+                <Link
+                  to="/about"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-base font-medium transition-colors py-3 px-4 rounded-lg ${
+                    location.pathname === "/about"
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-text hover:bg-secondary"
+                  }`}
+                >
+                  About Us
+                </Link>
+                <Link
+                  to="/contract-manufacturing"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-base font-medium transition-colors py-3 px-4 rounded-lg ${
+                    location.pathname === "/contract-manufacturing"
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-text hover:bg-secondary"
+                  }`}
+                >
+                  Contract Manufacturing
+                </Link>
 
-              <Link
-                to="/avasya"
-                className={`text-sm font-medium transition-colors py-2 ${
-                  location.pathname === "/avasya"
-                    ? isOverHero || isProductCategoryPage
-                      ? "text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white font-semibold"
-                      : "text-primary font-semibold"
-                    : isOverHero || isProductCategoryPage
-                    ? "text-white hover:text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white hover:text-accent"
-                    : "text-gray-700 hover:text-primary"
-                }`}
-              >
-                Avasya
-              </Link>
-              <Link
-                to="/quality"
-                className={`text-sm font-medium transition-colors py-2 ${
-                  location.pathname === "/quality"
-                    ? isOverHero || isProductCategoryPage
-                      ? "text-accent"
-                      : shouldShowGreenBg
-                      ? "text-white font-semibold"
-                      : "text-primary font-semibold"
-                    : isOverHero || isProductCategoryPage
-                    ? "text-white hover:text-accent"
-                    : shouldShowGreenBg
-                    ? "text-white hover:text-accent"
-                    : "text-gray-700 hover:text-primary"
-                }`}
-              >
-                Quality & Infrastructure
-              </Link>
-              <Link
-                to="/contact"
-                className="bg-accent text-primary px-6 py-2.5 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm text-center mt-2"
-              >
-                Contact / Enquiry
-              </Link>
-            </div>
-          </nav>
-        )}
-      </div>
+                {/* Products Mobile */}
+                <div>
+                  <button
+                    onClick={() => setIsProductsOpen(!isProductsOpen)}
+                    className={`flex items-center justify-between w-full text-base font-medium transition-colors py-3 px-4 rounded-lg ${
+                      location.pathname.startsWith("/products")
+                        ? "bg-primary/10 text-primary font-semibold"
+                        : "text-text hover:bg-secondary"
+                    }`}
+                  >
+                    <span>Products</span>
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform ${
+                        isProductsOpen ? "rotate-180" : ""
+                      }`}
+                    />
+                  </button>
+                  {isProductsOpen && (
+                    <div className="pl-4 mt-1 space-y-1">
+                      <Link
+                        to="/products"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="block text-sm py-2 px-4 rounded-lg text-text-light hover:bg-secondary hover:text-primary transition-colors"
+                      >
+                        All Products
+                      </Link>
+                      {productCategories.map((category) => (
+                        <Link
+                          key={category.path}
+                          to={category.path}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="block text-sm py-2 px-4 rounded-lg text-text-light hover:bg-secondary hover:text-primary transition-colors"
+                        >
+                          {category.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                <Link
+                  to="/avasya"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-base font-medium transition-colors py-3 px-4 rounded-lg ${
+                    location.pathname === "/avasya"
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-text hover:bg-secondary"
+                  }`}
+                >
+                  Avasya
+                </Link>
+                <Link
+                  to="/quality"
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-base font-medium transition-colors py-3 px-4 rounded-lg ${
+                    location.pathname === "/quality"
+                      ? "bg-primary/10 text-primary font-semibold"
+                      : "text-text hover:bg-secondary"
+                  }`}
+                >
+                  Quality & Infrastructure
+                </Link>
+                <button
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    const event = new CustomEvent("openContactModal");
+                    window.dispatchEvent(event);
+                  }}
+                  className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-center mt-4 w-full"
+                >
+                  Contact / Enquiry
+                </button>
+              </div>
+            </nav>
+          </div>
+        </>
+      )}
     </header>
   );
 };

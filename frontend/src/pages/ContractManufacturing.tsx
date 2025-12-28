@@ -3,19 +3,15 @@ import { Link } from "react-router-dom";
 import {
   CheckCircle,
   ArrowRight,
-  FileCheck,
-  Users,
   Package,
   Truck,
   Factory,
   ShieldCheck,
   Sparkles,
-  Settings,
   Award,
-  Globe,
   ChevronDown,
   ChevronUp,
-  TrendingUp,
+  Palette,
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -84,7 +80,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Manufacture under your brand name with custom formulations, packaging, and labeling as per your specifications.",
       icon: Package,
-      color: "bg-primary-light",
+      color: "bg-earth",
     },
     {
       title: "Product Development",
@@ -98,7 +94,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Various packaging formats including pouches, boxes, jars, and custom packaging options to match your brand.",
       icon: Package,
-      color: "bg-primary-light",
+      color: "bg-earth",
     },
     {
       title: "Compliance Support",
@@ -112,50 +108,66 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Stringent quality control at every stage of production with detailed testing and documentation.",
       icon: Award,
-      color: "bg-primary-light",
+      color: "bg-earth",
     },
   ];
 
   const process = [
     {
       step: 1,
-      title: "Initial Enquiry & Consultation",
+      title: "Custom Recipe Formulation",
       description:
-        "Share your product requirements, target market, volume needs, and business goals. We'll assess feasibility and provide initial guidance.",
-      icon: FileCheck,
-      color: "bg-primary",
-    },
-    {
-      step: 2,
-      title: "Formulation & Development",
-      description:
-        "Our food scientists develop or refine the recipe to meet your specifications, including nutritional targets and taste profiles.",
+        "Owing to years of experience manufacturing millet and cereal-based products, we are well versed with the modus operandi. We will carefully customize your product recipe in accordance with your taste and nutrient preferences.",
       icon: Sparkles,
       color: "bg-primary",
     },
     {
-      step: 3,
-      title: "Pilot Batch & Testing",
+      step: 2,
+      title: "Manufacturing",
       description:
-        "Small batch production for testing, approval, and quality verification. We refine based on your feedback.",
-      icon: Settings,
-      color: "bg-primary-light",
-    },
-    {
-      step: 4,
-      title: "Finalization & Agreement",
-      description:
-        "Confirm specifications, packaging design, labeling requirements, pricing, and production timeline. Sign manufacturing agreement.",
-      icon: CheckCircle,
+        "We are an FSSAI and GMP certified organisation, producing goods that hold the highest level of quality control and authenticity. Our vastly experienced manufacturing team will help create products replicating the formulated recipe in a standardized process.",
+      icon: Factory,
       color: "bg-primary",
     },
     {
-      step: 5,
-      title: "Scale Production & Delivery",
+      step: 3,
+      title: "Package and Design",
       description:
-        "Full-scale production begins with regular quality checks. Timely delivery to your location with complete documentation.",
+        "Marketing is the most challenging and pivotal aspect of creating and sustaining a brand. We will create distinctive packages and unique product designs to kick-start your brand and accelerate sustenance.",
+      icon: Palette,
+      color: "bg-earth",
+    },
+    {
+      step: 4,
+      title: "Distribution",
+      description:
+        "Timely and well-packaged distribution is the key to customer satisfaction and the enhancement of growth of sales. Our distribution department with its vast network and practice will majorly assist in the expeditious distribution of products with punctuality.",
       icon: Truck,
-      color: "bg-primary-light",
+      color: "bg-earth",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      title: "Quality Control",
+      description:
+        "Our products go through vigorous testings and quality checks because we believe that our clients and their customers deserve only the best.",
+      icon: ShieldCheck,
+      color: "bg-primary",
+    },
+    {
+      title: "Superior Packaging",
+      description:
+        "We are revered all over India for careful & smart packaging that protects your products and enhances brand appeal.",
+      icon: Package,
+      color: "bg-earth",
+    },
+    {
+      title: "Premium Raw Material",
+      description:
+        "We never compromise on the quality of the material. Our clientele consists of India's leading brands because we source and use only the finest ingredients.",
+      icon: Award,
+      color: "bg-earth",
     },
   ];
 
@@ -170,20 +182,11 @@ const ContractManufacturing: React.FC = () => {
     "Custom Formulations",
   ];
 
-  const industries = [
-    { name: "FMCG & D2C Brands", icon: TrendingUp },
-    { name: "Retail Chains & Supermarkets", icon: Package },
-    { name: "Health & Wellness Brands", icon: Award },
-    { name: "Institutions & Schools", icon: Users },
-    { name: "Hotels & Restaurants", icon: Factory },
-    { name: "Export Companies", icon: Globe },
-  ];
-
   const faqs = [
     {
       question: "What is the minimum order quantity (MOQ)?",
       answer:
-        "MOQ varies by product category and customization level. Typically ranges from 500 kg to 1000 kg per SKU. For standard products, we can work with lower volumes. Contact us for specific requirements based on your product type.",
+        "MOQ varies by product category and customization level. We're flexible and work with clients to find solutions that meet their needs. For Avasya products, the minimum order is 20 packs per product. For contract manufacturing, please contact us to discuss your specific requirements, and we'll provide MOQ details tailored to your product type.",
     },
     {
       question: "What is the typical lead time?",
@@ -214,61 +217,255 @@ const ContractManufacturing: React.FC = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d"
-            alt="Contract Manufacturing"
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary-dark/95"></div>
-        <div className="container-custom relative z-10">
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-              <Factory className="w-5 h-5 text-white" />
-              <span className="text-sm font-semibold text-white">
-                FSSAI Certified Manufacturing
-              </span>
+      {/* Certificates Banner - Desktop Only */}
+      <section className="hidden md:block bg-primary text-white py-4 border-b-2 border-primary-dark">
+        <div className="container-custom">
+          <div className="flex items-center justify-center space-x-8">
+            <div className="flex items-center space-x-2">
+              <ShieldCheck className="w-5 h-5" />
+              <span className="font-semibold">FSSAI Certified</span>
             </div>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white">
-              End-to-End Contract Manufacturing
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-              Partner with us to bring your millet-based food product vision to
-              life. From formulation to packaging, we handle it all.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-5">
-              <Link
-                to="/contact"
-                className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
-              >
-                <span>Submit Your Project Brief</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
-              <Link
-                to="/products"
-                className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
-              >
-                <span>View Our Products</span>
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+            <div className="w-px h-6 bg-white/30"></div>
+            <div className="flex items-center space-x-2">
+              <Award className="w-5 h-5" />
+              <span className="font-semibold">GMP Certified</span>
+            </div>
+            <div className="w-px h-6 bg-white/30"></div>
+            <div className="flex items-center space-x-2">
+              <CheckCircle className="w-5 h-5" />
+              <span className="font-semibold">ISO Standards</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* What We Offer */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-              What We Offer
+      {/* Hero Section */}
+      <section className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary">
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1556910103-1c02745aae4d"
+            alt="Contract Manufacturing"
+            className="w-full h-full object-cover opacity-15"
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/95 via-primary-dark/90 to-primary/85"></div>
+        <div className="container-custom relative z-10">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="inline-flex items-center space-x-3 mb-8 px-5 py-2.5 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-lg">
+              <Factory className="w-5 h-5 text-white" />
+              <span className="text-sm font-semibold text-white">
+                FSSAI & GMP Certified Manufacturing
+              </span>
+            </div>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-8 text-white leading-tight text-shadow-soft">
+              Build A Brand In Matter Of Weeks
+            </h1>
+            <p className="text-xl md:text-2xl mb-6 text-white/95 leading-relaxed max-w-4xl mx-auto font-medium">
+              With our unmatchable expertise and state-of-the-art manufacturing
+              facility, start your FMCG & millet-based food business in a matter
+              of weeks. We'll plan everything for you, from recipe to label
+              designs.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-5 justify-center mt-10">
+              <button
+                onClick={() => {
+                  const event = new CustomEvent("openContactModal");
+                  window.dispatchEvent(event);
+                }}
+                className="group bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-3 transform"
+              >
+                <span>Get Started Today</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button
+                onClick={() => {
+                  const event = new CustomEvent("openContactModal");
+                  window.dispatchEvent(event);
+                }}
+                className="border-2 border-white/50 bg-white/15 backdrop-blur-md text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white/25 hover:border-white/70 transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center space-x-2"
+              >
+                <span>Request Sample</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How To Start Your Own Brand */}
+      <section className="section-padding bg-gradient-to-b from-white via-secondary/30 to-white relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-earth rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider px-5 py-2.5 bg-primary/10 rounded-full">
+                Our Process
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-6 leading-tight">
+              How To Start Your Own Brand
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Comprehensive contract manufacturing services tailored to your
-              needs
+            <p className="text-xl text-text-light max-w-3xl mx-auto">
+              A streamlined process designed to help you launch your brand
+              quickly and efficiently
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto" ref={processRef}>
+            <div className="grid md:grid-cols-2 gap-8">
+              {process.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div key={index} className="process-step relative group">
+                    <div className="bg-white rounded-2xl p-8 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-2">
+                      <div className="flex items-start space-x-6 mb-6">
+                        <div
+                          className={`${item.color} w-20 h-20 rounded-2xl flex items-center justify-center text-white shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 flex-shrink-0`}
+                        >
+                          <Icon className="w-10 h-10 text-white" />
+                        </div>
+                        <div className="flex-1">
+                          <div className="text-sm font-semibold text-primary mb-2 uppercase tracking-wider">
+                            Step {item.step}
+                          </div>
+                          <h3 className="text-2xl font-bold text-text mb-4 group-hover:text-primary transition-colors">
+                            {item.title}
+                          </h3>
+                        </div>
+                      </div>
+                      <p className="text-base text-text-light leading-relaxed">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl floating-shape"></div>
+        <div
+          className="absolute bottom-0 right-1/4 w-96 h-96 bg-primary-dark/20 rounded-full blur-3xl floating-shape"
+          style={{ animationDelay: "2s" }}
+        ></div>
+
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-semibold text-white uppercase tracking-wider px-5 py-2.5 bg-primary-dark/40 rounded-full backdrop-blur-sm border border-white/20">
+                Our Strengths
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-shadow-soft">
+              Why Choose Us?
+            </h2>
+            <p className="text-xl md:text-2xl text-white/95 max-w-3xl mx-auto leading-relaxed">
+              We are a progressive, fast-moving health goods manufacturer. We
+              are a health-driven company but we also excel in taste, we
+              understand that there has to be a combination of wellness and
+              taste. Our manufactured goods are worth savoring.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {whyChooseUs.map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative bg-primary-dark/30 backdrop-blur-md rounded-2xl p-8 border-2 border-white/20 hover:border-white/40 transition-all duration-500 hover:bg-primary-dark/40 hover:scale-105 hover:shadow-2xl"
+                >
+                  <div className="relative">
+                    <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                      <Icon className="w-10 h-10 text-white" />
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 text-center">
+                      {item.title}
+                    </h3>
+                    <p className="text-white/95 leading-relaxed text-center">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Products We Manufacture */}
+      <section className="section-padding bg-gradient-to-br from-secondary/30 to-white relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-earth rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider px-5 py-2.5 bg-primary/10 rounded-full">
+                Product Range
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
+              Products We Manufacture
+            </h2>
+            <p className="text-xl text-text-light max-w-3xl mx-auto">
+              A comprehensive range of millet and cereal-based products for your
+              brand
+            </p>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {productTypes.map((product, index) => (
+                <div
+                  key={index}
+                  className="flex items-start space-x-4 bg-white rounded-xl p-6 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group"
+                >
+                  <div className="bg-primary/10 group-hover:bg-primary/20 rounded-lg p-2 transition-colors">
+                    <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
+                  </div>
+                  <span className="text-lg text-text font-semibold group-hover:text-primary transition-colors">
+                    {product}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <Link
+              to="/contact"
+              className="inline-flex items-center space-x-2 text-primary font-semibold hover:text-primary-dark transition-colors text-lg"
+            >
+              <span>Request Sample Products</span>
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Contract & Third Party Manufacturing */}
+      <section className="section-padding bg-white relative overflow-hidden">
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider px-5 py-2.5 bg-primary/10 rounded-full">
+                Our Services
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
+              Contract & Third Party Manufacturing
+            </h2>
+            <p className="text-xl text-text-light max-w-3xl mx-auto">
+              Comprehensive manufacturing services tailored to your brand needs
             </p>
           </div>
           <div
@@ -280,17 +477,17 @@ const ContractManufacturing: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="offering-card card hover:shadow-card-hover transition-all duration-300 group"
+                  className="offering-card bg-white rounded-2xl p-8 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2"
                 >
                   <div
-                    className={`${offering.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform`}
+                    className={`${offering.color} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 text-white shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
                   >
-                    <Icon className="w-8 h-8" />
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  <h3 className="text-2xl font-bold text-text mb-4 group-hover:text-primary transition-colors">
                     {offering.title}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-text-light leading-relaxed">
                     {offering.description}
                   </p>
                 </div>
@@ -300,125 +497,25 @@ const ContractManufacturing: React.FC = () => {
         </div>
       </section>
 
-      {/* Product Types */}
-      <section className="section-padding bg-gradient-to-br from-secondary/30 to-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-              Product Types We Can Manufacture
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Wide range of millet and cereal-based products for your brand
-            </p>
-          </div>
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-4">
-              {productTypes.map((product, index) => (
-                <div
-                  key={index}
-                  className="flex items-start space-x-3 bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all"
-                >
-                  <CheckCircle className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                  <span className="text-lg text-gray-700 font-medium">
-                    {product}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Process */}
-      <section className="section-padding bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
-              Our Manufacturing Process
-            </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              A streamlined process from concept to delivery
-            </p>
-          </div>
-          <div className="max-w-5xl mx-auto" ref={processRef}>
-            <div className="relative">
-              {/* Timeline line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-primary/20 hidden md:block"></div>
-              <div className="space-y-12">
-                {process.map((item) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={item.step}
-                      className="process-step relative flex items-start space-x-6"
-                    >
-                      <div className="flex-shrink-0 relative z-10">
-                        <div
-                          className={`${item.color} w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-lg shadow-lg`}
-                        >
-                          {item.step}
-                        </div>
-                      </div>
-                      <div className="flex-1 card hover:shadow-card-hover transition-all duration-300">
-                        <div className="flex items-start space-x-4">
-                          <Icon className="w-8 h-8 text-primary flex-shrink-0" />
-                          <div>
-                            <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                              {item.title}
-                            </h3>
-                            <p className="text-gray-700 leading-relaxed">
-                              {item.description}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Industries We Serve */}
-      <section className="section-padding bg-primary text-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-              Industries & Clients We Serve
-            </h2>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Trusted manufacturing partner across diverse industries
-            </p>
-          </div>
-          <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {industries.map((industry, index) => {
-                const Icon = industry.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-4 bg-white/10 backdrop-blur-sm px-6 py-5 rounded-xl hover:bg-white/20 transition-all border border-white/20"
-                  >
-                    <Icon className="w-6 h-6 flex-shrink-0" />
-                    <span className="text-lg font-medium">{industry.name}</span>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className="section-padding bg-gradient-to-br from-white via-secondary/10 to-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
+      <section className="section-padding bg-gradient-to-br from-white via-secondary/20 to-white relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-earth rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-semibold text-primary uppercase tracking-wider px-5 py-2.5 bg-primary/10 rounded-full">
+                FAQ
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6 leading-tight">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-xl text-text-light max-w-3xl mx-auto">
               Common questions about our contract manufacturing services
             </p>
           </div>
@@ -426,19 +523,19 @@ const ContractManufacturing: React.FC = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="card border-2 border-gray-100 hover:border-primary/30 transition-all"
+                className="bg-white rounded-xl p-6 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300"
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full flex items-center justify-between text-left p-4"
+                  className="w-full flex items-center justify-between text-left"
                 >
-                  <h3 className="text-xl font-bold text-gray-900 pr-4">
+                  <h3 className="text-xl font-bold text-text pr-4 group-hover:text-primary transition-colors">
                     {faq.question}
                   </h3>
                   {openFaqIndex === index ? (
                     <ChevronUp className="w-6 h-6 text-primary flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-6 h-6 text-gray-400 flex-shrink-0" />
+                    <ChevronDown className="w-6 h-6 text-text-light flex-shrink-0" />
                   )}
                 </button>
                 <div
@@ -446,7 +543,7 @@ const ContractManufacturing: React.FC = () => {
                     openFaqIndex === index ? "max-h-96 mt-4" : "max-h-0"
                   }`}
                 >
-                  <p className="text-gray-700 leading-relaxed px-4 pb-4">
+                  <p className="text-text-light leading-relaxed">
                     {faq.answer}
                   </p>
                 </div>
@@ -457,30 +554,52 @@ const ContractManufacturing: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-            Ready to Start Your Project?
+      <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-full h-full opacity-10">
+          <div className="absolute top-20 left-20 w-64 h-64 bg-primary-dark rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-20 w-64 h-64 bg-primary rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="container-custom text-center relative z-10">
+          <div className="inline-block mb-6">
+            <span className="text-sm font-semibold text-white uppercase tracking-wider px-5 py-2.5 bg-primary-dark/40 rounded-full backdrop-blur-sm border border-white/20">
+              Get Started
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-8 text-shadow-soft leading-tight">
+            Ready to Build Your Brand?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Contact us today to discuss your contract manufacturing requirements.
-            We'll guide you through every step from concept to delivery.
+          <p className="text-xl md:text-2xl text-white/95 mb-4 max-w-3xl mx-auto leading-relaxed">
+            We'd be delighted to discuss your contract manufacturing
+            requirements. Our team is here to guide you through every step, from
+            initial concept to final delivery.
+          </p>
+          <p className="text-lg text-white/90 mb-10 max-w-3xl mx-auto leading-relaxed">
+            Please reach out to us for pricing information and to learn more
+            about how we can support your business. We look forward to hearing
+            from you.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
-            <Link
-              to="/contact"
-              className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+            <button
+              onClick={() => {
+                const event = new CustomEvent("openContactModal");
+                window.dispatchEvent(event);
+              }}
+              className="group bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-3 transform"
             >
               <span>Get in Touch</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              to="/products"
-              className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <button
+              onClick={() => {
+                const event = new CustomEvent("openContactModal");
+                window.dispatchEvent(event);
+              }}
+              className="border-2 border-white/50 bg-white/15 backdrop-blur-md text-white px-10 py-5 rounded-xl font-semibold text-lg hover:bg-white/25 hover:border-white/70 transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center space-x-2"
             >
-              <span>View Our Products</span>
-              <ArrowRight className="w-5 h-5" />
-            </Link>
+              <span>Request Sample</span>
+            </button>
           </div>
         </div>
       </section>

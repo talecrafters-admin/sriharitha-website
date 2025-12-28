@@ -192,7 +192,7 @@ const Avasya: React.FC = () => {
             {product.description}
           </p>
 
-          {/* Price and Add to Cart - Modern inline layout */}
+          {/* Net Weight and Contact for Pricing */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
             <div className="flex flex-col">
               <span className="text-xs text-gray-400 mb-0.5">Net Wt.</span>
@@ -202,9 +202,10 @@ const Avasya: React.FC = () => {
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">
-                <p className="text-2xl font-bold text-primary leading-none">
-                  ₹{product.price}
+                <p className="text-sm font-semibold text-primary leading-none mb-1">
+                  MOQ: 20 packs
                 </p>
+                <p className="text-xs text-gray-500">Contact for pricing</p>
               </div>
               {quantity > 0 ? (
                 <div className="flex items-center gap-2 bg-primary/10 rounded-full px-2 py-1.5">
@@ -229,7 +230,7 @@ const Avasya: React.FC = () => {
               ) : (
                 <button
                   onClick={() => addToCart(product, 1)}
-                  className="w-10 h-10 rounded-full bg-accent text-primary flex items-center justify-center hover:bg-accent-gold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
+                  className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
                   aria-label="Add to cart"
                 >
                   <ShoppingCart className="w-5 h-5" />
@@ -272,6 +273,12 @@ const Avasya: React.FC = () => {
             <p className="text-xl md:text-2xl mb-2 text-gray-800 font-medium">
               Eat Healthy Stay Healthy
             </p>
+            <p className="text-base md:text-lg text-gray-600 mt-4">
+              <strong>Minimum Order Quantity:</strong> 20 packs per product
+            </p>
+            <p className="text-sm md:text-base text-gray-600 mt-2">
+              Ideal for Railways, Airlines, Corporate Gifting, and Custom Kits
+            </p>
           </div>
         </div>
       </section>
@@ -279,7 +286,7 @@ const Avasya: React.FC = () => {
       {/* Cart Button - Floating */}
       <button
         onClick={() => setIsCartOpen(true)}
-        className="fixed bottom-8 right-8 z-40 bg-accent text-primary w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-accent-gold transition-all duration-300 transform hover:scale-110"
+        className="fixed bottom-8 right-8 z-40 bg-primary text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-primary-dark transition-all duration-300 transform hover:scale-110"
       >
         <ShoppingCart className="w-6 h-6" />
         {getTotalItems() > 0 && (
@@ -342,8 +349,8 @@ const Avasya: React.FC = () => {
                           {item.product.netWeight}
                         </p>
                         <div className="flex items-center justify-between">
-                          <p className="text-lg font-bold text-primary">
-                            ₹{item.product.price}
+                          <p className="text-sm font-medium text-gray-600">
+                            Contact for pricing
                           </p>
                           <div className="flex items-center space-x-2">
                             <button
@@ -385,20 +392,22 @@ const Avasya: React.FC = () => {
           {/* Cart Footer */}
           {cart.length > 0 && (
             <div className="border-t border-gray-200 p-6 bg-gray-50">
-              <div className="flex items-center justify-between mb-4">
-                <span className="text-lg font-semibold text-gray-700">
-                  Total:
-                </span>
-                <span className="text-2xl font-bold text-primary">
-                  ₹{getTotalPrice()}
-                </span>
+              <div className="mb-4 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                <p className="text-sm text-gray-700 mb-2">
+                  We'll provide pricing based on your order quantity and
+                  requirements.
+                </p>
+                <p className="text-sm font-semibold text-primary">
+                  Please fill out the form below and we'll get back to you with
+                  a quote.
+                </p>
               </div>
               <button
                 onClick={() => {
                   setShowOrderForm(true);
                   setIsCartOpen(false);
                 }}
-                className="w-full bg-accent text-primary px-6 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Proceed to Order
               </button>
@@ -579,15 +588,21 @@ const Avasya: React.FC = () => {
                           <span className="text-gray-700">
                             {item.product.name} x {item.quantity}
                           </span>
-                          <span className="font-semibold">
-                            ₹{item.product.price * item.quantity}
+                          <span className="text-sm text-gray-500">
+                            Pricing on request
                           </span>
                         </div>
                       ))}
                     </div>
-                    <div className="border-t border-gray-300 pt-2 flex justify-between font-bold text-lg">
-                      <span>Total:</span>
-                      <span className="text-primary">₹{getTotalPrice()}</span>
+                    <div className="border-t border-gray-300 pt-4 mt-4">
+                      <p className="text-sm text-gray-600 mb-2">
+                        We'll provide detailed pricing based on your order
+                        quantity and specific requirements.
+                      </p>
+                      <p className="text-sm font-semibold text-primary">
+                        Please complete the form below and we'll send you a
+                        customized quote.
+                      </p>
                     </div>
                   </div>
 
@@ -739,7 +754,7 @@ const Avasya: React.FC = () => {
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 bg-accent text-primary px-6 py-3 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="flex-1 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
                     >
                       Submit Order
                     </button>
@@ -762,7 +777,7 @@ const Avasya: React.FC = () => {
               The principles that guide every Avasya product
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
             <div className="card hover:shadow-card-hover transition-all duration-300 group text-center">
               <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
                 <Heart className="w-10 h-10" />
@@ -777,7 +792,7 @@ const Avasya: React.FC = () => {
               </p>
             </div>
             <div className="card hover:shadow-card-hover transition-all duration-300 group text-center">
-              <div className="bg-primary-light w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div className="bg-earth w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
                 <Leaf className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -802,6 +817,33 @@ const Avasya: React.FC = () => {
                 generations.
               </p>
             </div>
+          </div>
+          <div className="max-w-3xl mx-auto text-center bg-secondary/50 rounded-xl p-8 border border-secondary-dark/20">
+            <h3 className="text-2xl font-heading font-bold text-primary mb-4">
+              Perfect For Your Business Needs
+            </h3>
+            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+              Avasya products are ideal for bulk orders and institutional
+              partnerships. We welcome inquiries from:
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+                <p className="font-semibold text-primary">Railways</p>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+                <p className="font-semibold text-primary">Airlines</p>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+                <p className="font-semibold text-primary">Gift Kits</p>
+              </div>
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+                <p className="font-semibold text-primary">Corporate Gifting</p>
+              </div>
+            </div>
+            <p className="text-sm text-gray-600 mt-6">
+              For pricing and bulk order inquiries, please contact us. We'd be
+              happy to discuss your requirements.
+            </p>
           </div>
         </div>
       </section>

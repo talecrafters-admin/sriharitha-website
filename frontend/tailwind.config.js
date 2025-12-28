@@ -5,26 +5,34 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: "#1B7A3D",
-          dark: "#155A2E",
-          light: "#2D8650",
-          lighter: "#3FA05F",
+          DEFAULT: "#025F38", // Rich green
+          dark: "#014029", // Darker green
+          light: "#037A4A", // Lighter green
+        },
+        earth: {
+          DEFAULT: "#3D2817", // Dark rich chocolate brown
+          light: "#5A3E2B", // Lighter chocolate
+          dark: "#2A1A0F", // Darker chocolate
+        },
+        terracotta: {
+          DEFAULT: "#C97D60", // Warm terracotta
+          light: "#D99A82", // Light terracotta
         },
         secondary: {
-          DEFAULT: "#F4E8D3",
-          dark: "#E8D4B8",
+          DEFAULT: "#F5F1E8", // Warm cream
+          dark: "#E8E0D1", // Slightly darker cream
         },
         accent: {
-          DEFAULT: "#FFD700",
-          warm: "#5A3E2B",
-          gold: "#FFC107",
+          DEFAULT: "#D4A574", // Warm golden beige
+          dark: "#B8905F", // Darker accent
         },
         background: {
-          DEFAULT: "#FAF7F2",
+          DEFAULT: "#FBF9F5", // Warm off-white
           white: "#FFFFFF",
         },
         text: {
-          DEFAULT: "#2C2C2C",
+          DEFAULT: "#2C2416", // Warm dark brown
+          light: "#5C4E3A", // Lighter text
         },
       },
       fontFamily: {
@@ -36,9 +44,10 @@ module.exports = {
         xl: "20px",
       },
       boxShadow: {
-        card: "0 4px 20px rgba(27, 122, 61, 0.08)",
-        "card-hover": "0 8px 30px rgba(27, 122, 61, 0.12)",
-        modern: "0 2px 8px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.06)",
+        card: "0 2px 12px rgba(2, 95, 56, 0.06)",
+        "card-hover": "0 4px 20px rgba(2, 95, 56, 0.1)",
+        modern: "0 1px 4px rgba(0, 0, 0, 0.03), 0 4px 16px rgba(0, 0, 0, 0.05)",
+        earthy: "0 2px 8px rgba(61, 40, 23, 0.08)",
       },
       spacing: {
         18: "4.5rem",
