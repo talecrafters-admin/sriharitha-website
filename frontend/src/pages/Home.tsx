@@ -519,10 +519,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* Who We Are */}
-      <section className="section-padding bg-gradient-to-b from-white via-secondary/50 to-secondary earthy-texture relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-b from-white via-secondary/50 to-secondary relative overflow-hidden subtle-pattern">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-earth/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
 
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto text-center">
@@ -553,11 +553,11 @@ const Home: React.FC = () => {
       </section>
 
       {/* Product Categories */}
-      <section className="section-padding bg-gradient-to-b from-white to-secondary/30 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-b from-white to-secondary/30 relative overflow-hidden subtle-lines">
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-72 h-72 bg-earth rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-72 h-72 bg-primary rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -594,7 +594,7 @@ const Home: React.FC = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     {/* Decorative corner */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-earth/20 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/20 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
 
                   {/* Content */}
