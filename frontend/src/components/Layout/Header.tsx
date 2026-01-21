@@ -14,6 +14,8 @@ const Header: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
+    // Check initial scroll position
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -37,24 +39,23 @@ const Header: React.FC = () => {
   const isProductCategoryPage =
     location.pathname.startsWith("/products/") &&
     location.pathname !== "/products";
-  const shouldShowGreenBg = !isScrolled && !isProductCategoryPage && isHomePage;
   const isOtherPage = !isHomePage && !isProductCategoryPage;
   const hasWhiteBg = isScrolled || isProductCategoryPage || isOtherPage;
 
   return (
     <header
       className={`fixed w-full top-0 left-0 right-0 z-[100] transition-all duration-300 ${
-        hasWhiteBg
-          ? "bg-white shadow-lg"
-          : isOverHero
+        isOverHero
           ? "bg-transparent"
+          : hasWhiteBg
+          ? "bg-white shadow-lg"
           : "bg-primary shadow-md"
       }`}
     >
-      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12">
+        <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
-          <Link to="/" className="flex items-center flex-shrink-0">
+          <Link to="/" className="flex items-center flex-shrink-0 mr-4 md:mr-8">
             <div className="flex flex-col">
               <span
                 className={`text-xl md:text-2xl font-heading font-bold transition-colors leading-tight ${
@@ -82,45 +83,45 @@ const Header: React.FC = () => {
           </Link>
 
           {/* Desktop Navigation - Centered */}
-          <nav className="hidden lg:flex items-center justify-center space-x-8 flex-1">
+          <nav className="hidden lg:flex items-center justify-center space-x-6 xl:space-x-8 flex-1 max-w-4xl mx-auto">
             <Link
               to="/"
-              className={`text-sm font-medium transition-colors whitespace-nowrap ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1.5 rounded-md ${
                 location.pathname === "/"
                   ? hasWhiteBg
-                    ? "text-primary font-semibold"
-                    : "text-white font-semibold"
+                    ? "text-primary font-semibold bg-primary/5"
+                    : "text-white font-semibold bg-white/10"
                   : hasWhiteBg
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-white/80"
+                  ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                  : "text-white hover:text-white/90 hover:bg-white/10"
               }`}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className={`text-sm font-medium transition-colors whitespace-nowrap ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1.5 rounded-md ${
                 location.pathname === "/about"
                   ? hasWhiteBg
-                    ? "text-primary font-semibold"
-                    : "text-white font-semibold"
+                    ? "text-primary font-semibold bg-primary/5"
+                    : "text-white font-semibold bg-white/10"
                   : hasWhiteBg
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-white/80"
+                  ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                  : "text-white hover:text-white/90 hover:bg-white/10"
               }`}
             >
               About Us
             </Link>
             <Link
               to="/contract-manufacturing"
-              className={`text-sm font-medium transition-colors whitespace-nowrap ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1.5 rounded-md ${
                 location.pathname === "/contract-manufacturing"
                   ? hasWhiteBg
-                    ? "text-primary font-semibold"
-                    : "text-white font-semibold"
+                    ? "text-primary font-semibold bg-primary/5"
+                    : "text-white font-semibold bg-white/10"
                   : hasWhiteBg
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-white/80"
+                  ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                  : "text-white hover:text-white/90 hover:bg-white/10"
               }`}
             >
               Contract Manufacturing
@@ -133,14 +134,14 @@ const Header: React.FC = () => {
               onMouseLeave={() => setIsProductsDropdownOpen(false)}
             >
               <button
-                className={`flex items-center space-x-1 text-sm font-medium transition-colors whitespace-nowrap ${
+                className={`flex items-center space-x-1 text-sm font-medium transition-colors whitespace-nowrap px-2 py-1.5 rounded-md ${
                   location.pathname.startsWith("/products")
                     ? hasWhiteBg
-                      ? "text-primary font-semibold"
-                      : "text-white font-semibold"
+                      ? "text-primary font-semibold bg-primary/5"
+                      : "text-white font-semibold bg-white/10"
                     : hasWhiteBg
-                    ? "text-gray-700 hover:text-primary"
-                    : "text-white hover:text-white/80"
+                    ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                    : "text-white hover:text-white/90 hover:bg-white/10"
                 }`}
               >
                 <span>Products</span>
@@ -176,28 +177,28 @@ const Header: React.FC = () => {
 
             <Link
               to="/avasya"
-              className={`text-sm font-medium transition-colors whitespace-nowrap ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1.5 rounded-md ${
                 location.pathname === "/avasya"
                   ? hasWhiteBg
-                    ? "text-primary font-semibold"
-                    : "text-white font-semibold"
+                    ? "text-primary font-semibold bg-primary/5"
+                    : "text-white font-semibold bg-white/10"
                   : hasWhiteBg
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-white/80"
+                  ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                  : "text-white hover:text-white/90 hover:bg-white/10"
               }`}
             >
               Avasya
             </Link>
             <Link
               to="/quality"
-              className={`text-sm font-medium transition-colors whitespace-nowrap ${
+              className={`text-sm font-medium transition-colors whitespace-nowrap px-2 py-1.5 rounded-md ${
                 location.pathname === "/quality"
                   ? hasWhiteBg
-                    ? "text-primary font-semibold"
-                    : "text-white font-semibold"
+                    ? "text-primary font-semibold bg-primary/5"
+                    : "text-white font-semibold bg-white/10"
                   : hasWhiteBg
-                  ? "text-gray-700 hover:text-primary"
-                  : "text-white hover:text-white/80"
+                  ? "text-gray-700 hover:text-primary hover:bg-primary/5"
+                  : "text-white hover:text-white/90 hover:bg-white/10"
               }`}
             >
               Quality & Infrastructure
@@ -208,7 +209,7 @@ const Header: React.FC = () => {
                 const event = new CustomEvent("openContactModal");
                 window.dispatchEvent(event);
               }}
-              className="bg-primary text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-sm whitespace-nowrap ml-4"
+              className="bg-primary text-white px-5 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-sm whitespace-nowrap ml-6 xl:ml-8"
             >
               Contact / Enquiry
             </button>

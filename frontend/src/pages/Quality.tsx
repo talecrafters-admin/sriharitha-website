@@ -445,7 +445,7 @@ const Quality: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Schedule a Visit</span>
               <ArrowRight className="w-5 h-5" />

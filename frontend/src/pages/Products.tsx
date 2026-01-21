@@ -127,7 +127,7 @@ const Products: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Request Catalogue</span>
               <ArrowRight className="w-5 h-5" />
@@ -293,7 +293,7 @@ const Products: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Request Product Specifications</span>
               <ArrowRight className="w-5 h-5" />

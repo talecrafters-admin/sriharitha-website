@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import founderImage from "../assets/images/Anu.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -313,8 +314,12 @@ const About: React.FC = () => {
             </div>
             <div className="card hover:shadow-card-hover transition-all duration-300">
               <div className="flex flex-col md:flex-row items-start space-y-6 md:space-y-0 md:space-x-8">
-                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary to-primary-light flex items-center justify-center flex-shrink-0 shadow-lg">
-                  <Users className="w-16 h-16 text-white" />
+                <div className="w-full md:w-64 h-64 md:h-auto md:aspect-square rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-4 border-primary/20">
+                  <img
+                    src={founderImage}
+                    alt="Mrs. K P Annapurna"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="flex-1">
                   <h3 className="text-3xl font-heading font-bold text-gray-900 mb-2">
@@ -443,7 +448,7 @@ const About: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-accent text-primary px-8 py-4 rounded-xl font-semibold hover:bg-accent-gold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Get In Touch</span>
               <ArrowRight className="w-5 h-5" />

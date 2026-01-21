@@ -47,7 +47,7 @@ module.exports = {
         card: "0 2px 12px rgba(2, 95, 56, 0.06)",
         "card-hover": "0 4px 20px rgba(2, 95, 56, 0.1)",
         modern: "0 1px 4px rgba(0, 0, 0, 0.03), 0 4px 16px rgba(0, 0, 0, 0.05)",
-        earthy: "0 2px 8px rgba(61, 40, 23, 0.08)",
+        earthy: "0 2px 8px rgba(2, 95, 56, 0.08)",
       },
       spacing: {
         18: "4.5rem",

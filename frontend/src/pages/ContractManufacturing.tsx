@@ -80,7 +80,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Manufacture under your brand name with custom formulations, packaging, and labeling as per your specifications.",
       icon: Package,
-      color: "bg-earth",
+      color: "bg-primary",
     },
     {
       title: "Product Development",
@@ -94,7 +94,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Various packaging formats including pouches, boxes, jars, and custom packaging options to match your brand.",
       icon: Package,
-      color: "bg-earth",
+      color: "bg-primary",
     },
     {
       title: "Compliance Support",
@@ -108,7 +108,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Stringent quality control at every stage of production with detailed testing and documentation.",
       icon: Award,
-      color: "bg-earth",
+      color: "bg-primary",
     },
   ];
 
@@ -135,7 +135,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Marketing is the most challenging and pivotal aspect of creating and sustaining a brand. We will create distinctive packages and unique product designs to kick-start your brand and accelerate sustenance.",
       icon: Palette,
-      color: "bg-earth",
+      color: "bg-primary",
     },
     {
       step: 4,
@@ -143,7 +143,7 @@ const ContractManufacturing: React.FC = () => {
       description:
         "Timely and well-packaged distribution is the key to customer satisfaction and the enhancement of growth of sales. Our distribution department with its vast network and practice will majorly assist in the expeditious distribution of products with punctuality.",
       icon: Truck,
-      color: "bg-earth",
+      color: "bg-primary",
     },
   ];
 
@@ -160,14 +160,14 @@ const ContractManufacturing: React.FC = () => {
       description:
         "We are revered all over India for careful & smart packaging that protects your products and enhances brand appeal.",
       icon: Package,
-      color: "bg-earth",
+      color: "bg-primary",
     },
     {
       title: "Premium Raw Material",
       description:
         "We never compromise on the quality of the material. Our clientele consists of India's leading brands because we source and use only the finest ingredients.",
       icon: Award,
-      color: "bg-earth",
+      color: "bg-primary",
     },
   ];
 
@@ -296,7 +296,7 @@ const ContractManufacturing: React.FC = () => {
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-earth rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -405,7 +405,7 @@ const ContractManufacturing: React.FC = () => {
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-earth rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">
@@ -502,7 +502,7 @@ const ContractManufacturing: React.FC = () => {
         {/* Background decoration */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-earth rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
         </div>
 
         <div className="container-custom relative z-10">

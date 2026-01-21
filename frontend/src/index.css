@@ -50,7 +50,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-accent text-text px-8 py-4 rounded-xl font-bold text-lg hover:bg-accent-dark transition-all duration-300 shadow-2xl hover:scale-105 transform;
+    @apply bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 transform;
     position: relative;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -101,11 +101,11 @@
   }
 
   .gradient-earth {
-    @apply bg-gradient-to-br from-primary via-primary-dark to-earth;
+    @apply bg-gradient-to-br from-primary via-primary-dark to-primary;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary via-earth to-primary-dark bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-primary-dark to-primary bg-clip-text text-transparent;
   }
 
   .subtle-pattern {

@@ -28,7 +28,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/about"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   About Us
                 </Link>
@@ -36,7 +36,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/contract-manufacturing"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Contract Manufacturing
                 </Link>
@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/products"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Products
                 </Link>
@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/avasya"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Avasya Brand
                 </Link>
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/quality"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Quality & Infrastructure
                 </Link>
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/products/breakfast-cereals"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Breakfast Cereals
                 </Link>
@@ -83,7 +83,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/products/breakfast-mixes"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Breakfast Mixes
                 </Link>
@@ -91,7 +91,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/products/beverage-mixes"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Beverage Mixes
                 </Link>
@@ -99,7 +99,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/products/energy-bytes"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Energy Bytes
                 </Link>
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
               <li>
                 <Link
                   to="/products/spice-powders"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   Spice Powders
                 </Link>
@@ -134,16 +134,9 @@ const Footer: React.FC = () => {
                 <div>
                   <a
                     href="tel:+919885704670"
-                    className="hover:text-accent transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     +91 98857 04670
-                  </a>
-                  <br />
-                  <a
-                    href="tel:+919885704400"
-                    className="hover:text-accent transition-colors"
-                  >
-                    +91 98857 04400
                   </a>
                 </div>
               </li>
@@ -151,7 +144,7 @@ const Footer: React.FC = () => {
                 <Mail className="w-4 h-4 flex-shrink-0" />
                 <a
                   href="mailto:sriharithaagrofood@gmail.com"
-                  className="hover:text-accent transition-colors"
+                  className="hover:text-primary transition-colors"
                 >
                   sriharithaagrofood@gmail.com
                 </a>
@@ -172,7 +165,7 @@ const Footer: React.FC = () => {
               href="https://www.talecrafters.in"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-accent transition-colors underline"
+              className="hover:text-primary transition-colors underline"
             >
               TaleCrafters
             </a>
