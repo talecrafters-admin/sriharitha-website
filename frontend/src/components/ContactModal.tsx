@@ -213,7 +213,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-2.5 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary transition-colors text-sm"
-                    placeholder="+91 1234567890"
+                    placeholder="9885704833"
                   />
                 </div>
 

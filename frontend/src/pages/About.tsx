@@ -243,7 +243,10 @@ const About: React.FC = () => {
             </div>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Sri Haritha Agro Food Products Pvt. Ltd. was founded in 2018 with
+                Prior to starting Sri Haritha Agro Food Products Pvt. Ltd., the founder operated under <strong>Mathesis - Food Products Division</strong>, successfully manufacturing and supplying products to Government Feeding Projects including Mid-day Meal programs, Tribal Feeding Projects, and bulk supplies to educational institutions like NRI Colleges and Sri Chaitanya Group of Colleges. This experience provided deep insights into large-scale food production and institutional requirements.
+              </p>
+              <p>
+                Sri Haritha Agro Food Products Pvt. Ltd. was incorporated in 2018 with
                 a vision to bring the nutritional benefits of millets and
                 traditional cereals to modern consumers. Starting from a small unit
                 in Hyderabad, we have grown into a trusted manufacturer serving
@@ -329,16 +332,16 @@ const About: React.FC = () => {
                     Chief Executive Officer
                   </p>
                   <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                    Under the visionary leadership of Mrs. K P Annapurna, Sri
+                    Mrs. K P Annapurna quit her job at IBM to pursue her entrepreneurial dream. Under her visionary leadership, Sri
                     Haritha has established itself as a trusted name in
-                    millet-based food manufacturing. Her commitment to quality,
+                    millet-based food manufacturing, aiming for an annual turnover of Rs. 25 crore. Her commitment to quality,
                     nutrition, and sustainability drives every aspect of our
                     business.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     With a deep understanding of both traditional food wisdom and
                     modern manufacturing practices, she has built a company that
-                    successfully bridges heritage and innovation.
+                    successfully bridges heritage and innovation. As featured in <a href="https://30stades.com/enterprise/this-mba-quit-ibm-to-start-millet-business-avasya-clocks-rs25-crore-annual-turnover-6924908" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">30Stades</a>, her journey from corporate life to millet entrepreneurship is an inspiration to many.
                   </p>
                 </div>
               </div>

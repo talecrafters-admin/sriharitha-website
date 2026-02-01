@@ -189,10 +189,10 @@ const Contact: React.FC = () => {
                       <h3 className="font-bold text-gray-900 mb-2">Phone</h3>
                       <p className="text-gray-700">
                         <a
-                          href="tel:+919885704670"
+                          href="tel:+919885704833"
                           className="hover:text-primary transition-colors font-medium"
                         >
-                          +91 98857 04670
+                          +91 98857 04833
                         </a>
                         <br />
                         <a
@@ -314,7 +314,7 @@ const Contact: React.FC = () => {
                         onChange={handleChange}
                         required
                         className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-primary transition-colors"
-                        placeholder="+91 1234567890"
+                        placeholder="9885704833"
                       />
                     </div>
 

@@ -836,6 +836,124 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* TESTIMONIALS / SUCCESS STORIES */}
+      <section className="section-padding bg-gradient-to-br from-primary/5 via-white to-secondary/10 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-secondary/10 to-transparent"></div>
+        
+        <div className="container-custom relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-6 leading-tight">
+              Happy Customers
+            </h2>
+            <p className="text-xl text-text-light max-w-2xl mx-auto font-medium">
+              Trusted by brands and businesses across India
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Testimonial 1 - Chetna */}
+              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                {/* Decorative corner */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Quote icon */}
+                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">"</div>
+                
+                <div className="relative z-10">
+                  {/* Testimonial text */}
+                  <p className="text-base text-text-light leading-relaxed mb-6 italic">
+                    "We, as farmers with extensive millet cultivation, sought to diversify into value-added products and discovered Sri Haritha Agro Food Products. Their streamlined operations stand out for their exceptional taste and quality. Notably, their products strike the perfect balance between health and taste, underscoring the courage of health-conscious consumers in choosing them. We extend our best wishes to them for their continued success and growth."
+                  </p>
+                  
+                  {/* Customer info */}
+                  <div className="flex items-center space-x-4 pt-6 border-t border-secondary-dark/20">
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-primary mb-1">Chetna</h4>
+                      <p className="text-sm text-text-light">Co-Founder</p>
+                      <p className="text-sm font-semibold text-text">Ayurtree Naturals</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial 2 - Priyanka */}
+              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                {/* Decorative corner */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Quote icon */}
+                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">"</div>
+                
+                <div className="relative z-10">
+                  {/* Testimonial text */}
+                  <p className="text-base text-text-light leading-relaxed mb-6 italic">
+                    "I am extremely pleased with my experience with Sri Haritha Agro Food Products. Their steadfast commitment to integrity is evident in every interaction, fostering invaluable trust. The quality of their products is exceptional, demonstrating a dedication to sourcing premium materials and ensuring customer satisfaction. This unwavering commitment has streamlined our business operations. I wholeheartedly recommend Sri Haritha Agro Food for their integrity, top-notch quality, and punctuality."
+                  </p>
+                  
+                  {/* Customer info */}
+                  <div className="flex items-center space-x-4 pt-6 border-t border-secondary-dark/20">
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-primary mb-1">Priyanka</h4>
+                      <p className="text-sm text-text-light">Co-Founder</p>
+                      <p className="text-sm font-semibold text-text">Miller Bank</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Testimonial 3 - Amar */}
+              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+                {/* Decorative corner */}
+                <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                
+                {/* Quote icon */}
+                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">"</div>
+                
+                <div className="relative z-10">
+                  {/* Testimonial text */}
+                  <p className="text-base text-text-light leading-relaxed mb-6 italic">
+                    "Committed people. Quality products."
+                  </p>
+                  
+                  {/* Customer info */}
+                  <div className="flex items-center space-x-4 pt-6 border-t border-secondary-dark/20">
+                    <div className="flex-1">
+                      <h4 className="text-lg font-bold text-primary mb-1">Amar</h4>
+                      <p className="text-sm text-text-light">Founder</p>
+                      <p className="text-sm font-semibold text-text">Med C Pharma</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional trust indicators */}
+            <div className="mt-12 text-center">
+              <p className="text-lg text-text-light mb-4 font-medium">
+                Trusted by brands, institutions, and nutrition programs across India
+              </p>
+              <div className="flex flex-wrap justify-center gap-6">
+                <div className="bg-white rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
+                  <p className="text-2xl font-bold text-primary">500+</p>
+                  <p className="text-sm text-text-light">Happy Clients</p>
+                </div>
+                <div className="bg-white rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
+                  <p className="text-2xl font-bold text-primary">7+ Years</p>
+                  <p className="text-sm text-text-light">Experience</p>
+                </div>
+                <div className="bg-white rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
+                  <p className="text-2xl font-bold text-primary">FSSAI</p>
+                  <p className="text-sm text-text-light">Certified</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* HOW IT WORKS */}
       <section className="section-padding bg-gradient-to-b from-white via-secondary/10 to-white relative overflow-hidden">
         {/* Subtle pattern */}
@@ -953,13 +1071,13 @@ const Home: React.FC = () => {
                   
                   <div className="space-y-4 pt-6 border-t border-secondary-dark/20">
                     <a
-                      href="tel:+919885704670"
+                      href="tel:+919885704833"
                       className="group flex items-center space-x-3 text-primary hover:text-primary-dark transition-colors"
                     >
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary transition-all duration-300">
                         <Phone className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
                       </div>
-                      <span className="font-semibold">+91 98857 04670</span>
+                      <span className="font-semibold">+91 98857 04833</span>
                     </a>
                     <a
                       href="mailto:sriharithaagrofood@gmail.com"
