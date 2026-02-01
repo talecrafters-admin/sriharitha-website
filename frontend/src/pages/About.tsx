@@ -105,6 +105,12 @@ const About: React.FC = () => {
 
   const milestones = [
     {
+      year: "Pre-2018",
+      title: "Mathesis - Food Products Division",
+      description:
+        "Prior to incorporation, the founder operated under Mathesis - Food Products Division, manufacturing and supplying products to Government Feeding Projects (Mid-day Meal, Tribal Feeding Projects) and bulk supplies to educational institutions like NRI Colleges and Sri Chaitanya Group of Colleges.",
+    },
+    {
       year: "2018",
       title: "Company Incorporation",
       description:
