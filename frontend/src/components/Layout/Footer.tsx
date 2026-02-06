@@ -1,19 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
+import logoWhite from "../../assets/images/branding/logo-white.png";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary-dark text-white pt-16 pb-12">
+    <footer className="bg-primary-dark text-warmWhite pt-16 pb-12">
       <div className="container-custom">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <h3 className="text-white font-heading font-bold text-xl mb-4">
-              Sri Haritha Agro Food Products
-            </h3>
+            <img
+              src={logoWhite}
+              alt="Sri Haritha Agro Food Products"
+              className="h-12 w-auto mb-4"
+              style={{ maxWidth: '200px' }}
+            />
             <p className="text-sm mb-4">
               Trusted manufacturer of Ready-to-Eat and Ready-to-Cook millet &
               cereal-based food products since 2018.
@@ -23,7 +27,7 @@ const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-warmWhite font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
@@ -70,7 +74,7 @@ const Footer: React.FC = () => {
 
           {/* Products */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Our Products</h4>
+            <h4 className="text-warmWhite font-semibold mb-4">Our Products</h4>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
@@ -117,7 +121,7 @@ const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-white font-semibold mb-4">Contact Us</h4>
+            <h4 className="text-warmWhite font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
@@ -154,7 +158,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/20 mt-8 pt-8 text-center text-sm text-white/80">
+        <div className="border-t border-warmWhite/20 mt-8 pt-8 text-center text-sm text-warmWhite/80">
           <p>
             &copy; {currentYear} Sri Haritha Agro Food Products Pvt. Ltd. All
             rights reserved.

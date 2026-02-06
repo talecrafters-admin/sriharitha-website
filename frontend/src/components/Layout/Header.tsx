@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
+import logo from "../../assets/images/branding/logo.png";
+import logoWhite from "../../assets/images/branding/logo-white.png";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +34,6 @@ const Header: React.FC = () => {
     { name: "Soup Mixes", path: "/products/soup-mixes" },
     { name: "Energy Bytes (Snacks)", path: "/products/energy-bytes" },
     { name: "Spice Powders", path: "/products/spice-powders" },
-    { name: "Flours & Grits", path: "/products/flours-grits" },
   ];
 
   const isOverHero = isHomePage && !isScrolled;
@@ -48,7 +49,7 @@ const Header: React.FC = () => {
         isOverHero
           ? "bg-transparent"
           : hasWhiteBg
-          ? "bg-white shadow-lg"
+          ? "bg-[#fef7e7] shadow-lg"
           : "bg-primary shadow-md"
       }`}
     >
@@ -56,30 +57,12 @@ const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20 md:h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center flex-shrink-0 mr-4 md:mr-8">
-            <div className="flex flex-col">
-              <span
-                className={`text-xl md:text-2xl font-heading font-bold transition-colors leading-tight ${
-                  hasWhiteBg
-                    ? "text-primary"
-                    : isOverHero
-                    ? "text-white"
-                    : "text-white"
-                }`}
-              >
-                Sri Haritha
-              </span>
-              <span
-                className={`text-xs md:text-sm transition-colors leading-tight ${
-                  hasWhiteBg
-                    ? "text-gray-600"
-                    : isOverHero
-                    ? "text-white/90"
-                    : "text-white/90"
-                }`}
-              >
-                Agro Food Products
-              </span>
-            </div>
+            <img
+              src={hasWhiteBg ? logo : logoWhite}
+              alt="Sri Haritha Agro Food Products"
+              className="h-10 md:h-12 w-auto transition-opacity duration-300"
+              style={{ maxWidth: '200px' }}
+            />
           </Link>
 
           {/* Desktop Navigation - Centered */}
@@ -90,10 +73,10 @@ const Header: React.FC = () => {
                 location.pathname === "/"
                   ? hasWhiteBg
                     ? "text-primary font-semibold bg-primary/5"
-                    : "text-white font-semibold bg-white/10"
+                    : "text-warmWhite font-semibold bg-warmWhite/10"
                   : hasWhiteBg
                   ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                  : "text-white hover:text-white/90 hover:bg-white/10"
+                  : "text-warmWhite hover:text-warmWhite/90 hover:bg-warmWhite/10"
               }`}
             >
               Home
@@ -104,10 +87,10 @@ const Header: React.FC = () => {
                 location.pathname === "/about"
                   ? hasWhiteBg
                     ? "text-primary font-semibold bg-primary/5"
-                    : "text-white font-semibold bg-white/10"
+                    : "text-warmWhite font-semibold bg-warmWhite/10"
                   : hasWhiteBg
                   ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                  : "text-white hover:text-white/90 hover:bg-white/10"
+                  : "text-warmWhite hover:text-warmWhite/90 hover:bg-warmWhite/10"
               }`}
             >
               About Us
@@ -118,10 +101,10 @@ const Header: React.FC = () => {
                 location.pathname === "/contract-manufacturing"
                   ? hasWhiteBg
                     ? "text-primary font-semibold bg-primary/5"
-                    : "text-white font-semibold bg-white/10"
+                    : "text-warmWhite font-semibold bg-warmWhite/10"
                   : hasWhiteBg
                   ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                  : "text-white hover:text-white/90 hover:bg-white/10"
+                  : "text-warmWhite hover:text-warmWhite/90 hover:bg-warmWhite/10"
               }`}
             >
               Contract Manufacturing
@@ -138,10 +121,10 @@ const Header: React.FC = () => {
                   location.pathname.startsWith("/products")
                     ? hasWhiteBg
                       ? "text-primary font-semibold bg-primary/5"
-                      : "text-white font-semibold bg-white/10"
+                      : "text-warmWhite font-semibold bg-warmWhite/10"
                     : hasWhiteBg
                     ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                    : "text-white hover:text-white/90 hover:bg-white/10"
+                    : "text-warmWhite hover:text-warmWhite/90 hover:bg-warmWhite/10"
                 }`}
               >
                 <span>Products</span>
@@ -155,7 +138,7 @@ const Header: React.FC = () => {
                     : "opacity-0 invisible pointer-events-none"
                 }`}
               >
-                <div className="bg-white shadow-lg rounded-lg py-2 border border-gray-100">
+                <div className="bg-[#fef7e7] shadow-lg rounded-lg py-2 border border-gray-100">
                   <Link
                     to="/products"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-secondary hover:text-primary"
@@ -181,10 +164,10 @@ const Header: React.FC = () => {
                 location.pathname === "/avasya"
                   ? hasWhiteBg
                     ? "text-primary font-semibold bg-primary/5"
-                    : "text-white font-semibold bg-white/10"
+                    : "text-warmWhite font-semibold bg-warmWhite/10"
                   : hasWhiteBg
                   ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                  : "text-white hover:text-white/90 hover:bg-white/10"
+                  : "text-warmWhite hover:text-warmWhite/90 hover:bg-warmWhite/10"
               }`}
             >
               Avasya
@@ -195,10 +178,10 @@ const Header: React.FC = () => {
                 location.pathname === "/quality"
                   ? hasWhiteBg
                     ? "text-primary font-semibold bg-primary/5"
-                    : "text-white font-semibold bg-white/10"
+                    : "text-warmWhite font-semibold bg-warmWhite/10"
                   : hasWhiteBg
                   ? "text-gray-700 hover:text-primary hover:bg-primary/5"
-                  : "text-white hover:text-white/90 hover:bg-white/10"
+                  : "text-warmWhite hover:text-warmWhite/90 hover:bg-warmWhite/10"
               }`}
             >
               Quality & Infrastructure
@@ -209,7 +192,7 @@ const Header: React.FC = () => {
                 const event = new CustomEvent("openContactModal");
                 window.dispatchEvent(event);
               }}
-              className="bg-primary text-white px-5 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-sm whitespace-nowrap ml-6 xl:ml-8"
+              className="bg-primary text-warmWhite px-5 xl:px-6 py-2.5 xl:py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-sm whitespace-nowrap ml-6 xl:ml-8"
             >
               Contact / Enquiry
             </button>
@@ -220,7 +203,7 @@ const Header: React.FC = () => {
             className={`lg:hidden p-2 transition-colors flex-shrink-0 ${
               hasWhiteBg
                 ? "text-gray-700 hover:text-primary"
-                : "text-white hover:text-white/80"
+                : "text-warmWhite hover:text-warmWhite/80"
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
@@ -245,7 +228,7 @@ const Header: React.FC = () => {
 
           {/* Modal */}
           <div
-            className={`fixed top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl z-[100] lg:hidden transform transition-transform duration-300 ease-out ${
+            className={`fixed top-0 right-0 h-full w-full max-w-sm bg-[#fef7e7] shadow-2xl z-[100] lg:hidden transform transition-transform duration-300 ease-out ${
               isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
             style={{
@@ -253,11 +236,11 @@ const Header: React.FC = () => {
             }}
           >
             {/* Modal Header */}
-            <div className="bg-primary text-white p-6 flex items-center justify-between">
+            <div className="bg-primary text-warmWhite p-6 flex items-center justify-between">
               <h2 className="text-xl font-heading font-bold">Menu</h2>
               <button
                 onClick={() => setIsMenuOpen(false)}
-                className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                className="w-10 h-10 rounded-full bg-warmWhite/20 hover:bg-warmWhite/30 flex items-center justify-center transition-colors"
                 aria-label="Close menu"
               >
                 <X className="w-6 h-6" />
@@ -369,7 +352,7 @@ const Header: React.FC = () => {
                     const event = new CustomEvent("openContactModal");
                     window.dispatchEvent(event);
                   }}
-                  className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-center mt-4 w-full"
+                  className="bg-primary text-warmWhite px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl text-center mt-4 w-full"
                 >
                   Contact / Enquiry
                 </button>

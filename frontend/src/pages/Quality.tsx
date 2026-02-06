@@ -77,7 +77,7 @@ const Quality: React.FC = () => {
       color: "bg-primary-light",
     },
     {
-      title: "Finished Goods Testing",
+      title: "Finished Product Testing",
       description:
         "Final products tested for quality, taste, nutritional parameters, and shelf-life to meet all specifications.",
       icon: Microscope,
@@ -155,12 +155,13 @@ const Quality: React.FC = () => {
       category: "Product Types",
       icon: Package,
       items: [
-        "Breakfast mixes & cereals",
         "Instant mixes & ready-to-cook",
-        "Extruded & baked snacks",
+        "Breakfast cereals",
+        "Millet & cereal-based snacks",
+        "Energy bars",
+        "Millet & cereal noodles",
         "Soups & porridge mixes",
         "Spice powders & masalas",
-        "Flours & grits",
       ],
     },
     {
@@ -190,17 +191,17 @@ const Quality: React.FC = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary-dark/95"></div>
         <div className="container-custom relative z-10 text-center">
-          <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-            <ShieldCheck className="w-5 h-5 text-white" />
-            <span className="text-sm font-semibold text-white">
+          <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-warmWhite/10 backdrop-blur-sm rounded-full border border-warmWhite/20">
+            <ShieldCheck className="w-5 h-5 text-warmWhite" />
+            <span className="text-sm font-semibold text-warmWhite">
               FSSAI Certified
             </span>
           </div>
-          <ShieldCheck className="w-20 h-20 mx-auto mb-6 text-white" />
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white">
+          <ShieldCheck className="w-20 h-20 mx-auto mb-6 text-warmWhite" />
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-warmWhite">
             Quality & Infrastructure
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-warmWhite/90 leading-relaxed">
             Committed to manufacturing excellence through world-class
             infrastructure and rigorous quality controls
           </p>
@@ -208,11 +209,11 @@ const Quality: React.FC = () => {
       </section>
 
       {/* FSSAI Certification */}
-      <section className="section-padding bg-white -mt-20 relative z-10">
+      <section className="section-padding bg-[#fef7e7] -mt-20 relative z-10">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="card hover:shadow-card-hover transition-all duration-300 text-center">
-              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg">
+              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-warmWhite shadow-lg">
                 <Award className="w-10 h-10" />
               </div>
               <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -234,7 +235,7 @@ const Quality: React.FC = () => {
       </section>
 
       {/* Facility Overview */}
-      <section className="section-padding bg-gradient-to-br from-secondary/30 to-white">
+      <section className="section-padding bg-gradient-to-br from-secondary/30 to-background-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -258,7 +259,7 @@ const Quality: React.FC = () => {
                 {facilityFeatures.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-start space-x-3 bg-white rounded-xl p-4 shadow-card"
+                    className="flex items-start space-x-3 bg-[#fef7e7] rounded-xl p-4 shadow-card"
                   >
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 font-medium">{feature}</span>
@@ -283,7 +284,7 @@ const Quality: React.FC = () => {
       </section>
 
       {/* Quality Control Process */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -305,7 +306,7 @@ const Quality: React.FC = () => {
                   className="quality-card card hover:shadow-card-hover transition-all duration-300 group"
                 >
                   <div
-                    className={`${point.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform`}
+                    className={`${point.color} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform`}
                   >
                     <Icon className="w-8 h-8" />
                   </div>
@@ -323,7 +324,7 @@ const Quality: React.FC = () => {
       </section>
 
       {/* Hygiene & Safety */}
-      <section className="section-padding bg-primary text-white">
+      <section className="section-padding bg-primary text-warmWhite">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -331,7 +332,7 @@ const Quality: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
                 Hygiene & Safety Standards
               </h2>
-              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+              <p className="text-xl text-warmWhite/90 max-w-3xl mx-auto">
                 We maintain the highest standards of hygiene and safety throughout
                 our manufacturing process
               </p>
@@ -340,14 +341,14 @@ const Quality: React.FC = () => {
               {hygieneStandards.map((standard, index) => (
                 <div
                   key={index}
-                  className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 hover:bg-white/20 transition-all"
+                  className="bg-warmWhite/10 backdrop-blur-sm p-6 rounded-xl border border-warmWhite/20 hover:bg-warmWhite/20 transition-all"
                 >
                   <h3 className="font-bold text-2xl mb-4">{standard.title}</h3>
                   <ul className="space-y-3">
                     {standard.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className="flex items-start space-x-3 text-white/90"
+                        className="flex items-start space-x-3 text-warmWhite/90"
                       >
                         <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
                         <span>{item}</span>
@@ -362,7 +363,7 @@ const Quality: React.FC = () => {
       </section>
 
       {/* Manufacturing Capabilities */}
-      <section className="section-padding bg-gradient-to-br from-white via-secondary/10 to-white">
+      <section className="section-padding bg-gradient-to-br from-background-white via-secondary/10 to-background-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -432,12 +433,12 @@ const Quality: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary text-white">
+      <section className="section-padding bg-primary text-warmWhite">
         <div className="container-custom text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
             Experience Our Quality Standards
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-warmWhite/90 mb-8 max-w-3xl mx-auto leading-relaxed">
             Visit our facility or request product samples to see our quality
             standards firsthand. We're proud to showcase our manufacturing
             excellence.
@@ -445,14 +446,14 @@ const Quality: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Schedule a Visit</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/products"
-              className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
+              className="border-2 border-warmWhite/30 bg-warmWhite/10 backdrop-blur-sm text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-warmWhite/20 transition-all inline-flex items-center justify-center space-x-2"
             >
               <span>View Our Products</span>
               <ArrowRight className="w-5 h-5" />

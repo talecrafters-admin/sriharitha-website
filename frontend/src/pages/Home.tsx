@@ -3,26 +3,17 @@ import { Link } from "react-router-dom";
 import {
   ArrowRight,
   CheckCircle,
-  Download,
   Factory,
   Users,
   Award,
   ShieldCheck,
-  ChevronLeft,
-  ChevronRight,
   Package,
   TrendingUp,
-  Globe,
-  Star,
   ChevronDown,
   ChevronUp,
   MessageCircle,
   MapPin,
   Sparkles,
-  Send,
-  X,
-  Settings,
-  Truck,
   Phone,
   Building2,
   ShoppingBag,
@@ -98,7 +89,7 @@ const Home: React.FC = () => {
     },
     {
       name: "Instant Mixes",
-      description: "Quick, convenient, nutritious formulations",
+      description: "Porridge mix, millet & cereal noodles, energy bars",
       image: placeholderImage,
     },
     {
@@ -114,11 +105,6 @@ const Home: React.FC = () => {
     {
       name: "Spice Powders",
       description: "Traditional blends for everyday cooking",
-      image: placeholderImage,
-    },
-    {
-      name: "Flours & Grits",
-      description: "Whole grain flours & coarse grits",
       image: placeholderImage,
     },
   ];
@@ -259,7 +245,7 @@ const Home: React.FC = () => {
       badge: null,
       title: "End-to-End Manufacturing of Millet & Cereal Foods",
       description:
-        "Breakfast mixes • Breakfast cereals • Instant mixes • Snacks • Soups • Spice powders • Flours & grits",
+        "Instant mixes • Breakfast cereals • Snacks • Millet & cereal noodles • Energy bars",
       ctaText: "View Product Range",
       ctaLink: "/products",
       cta2Text: null,
@@ -416,25 +402,25 @@ const Home: React.FC = () => {
               <div className="container-custom relative z-10 h-full flex items-center px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl w-full" ref={index === 0 ? heroRef : null}>
                   {slide.badge && (
-                    <div className="inline-flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6 px-3 sm:px-5 py-1.5 sm:py-2.5 bg-white/15 backdrop-blur-md rounded-full border border-white/30 shadow-lg">
-                      <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
-                      <span className="text-xs sm:text-sm font-semibold text-white">
+                    <div className="inline-flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6 px-3 sm:px-5 py-1.5 sm:py-2.5 bg-warmWhite/15 backdrop-blur-md rounded-full border border-warmWhite/30 shadow-lg">
+                      <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-warmWhite flex-shrink-0" />
+                      <span className="text-xs sm:text-sm font-semibold text-warmWhite">
                         {slide.badge}
                       </span>
                     </div>
                   )}
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold mb-4 sm:mb-6 leading-tight text-white text-shadow-soft">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-heading font-bold mb-4 sm:mb-6 leading-tight text-warmWhite text-shadow-soft">
                     {slide.title}
                   </h1>
                   {slide.description && (
-                    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white/95 leading-relaxed max-w-2xl">
+                    <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-warmWhite/95 leading-relaxed max-w-2xl">
                       {slide.description}
                     </p>
                   )}
                   <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <Link
                       to={slide.ctaLink}
-                      className="group bg-primary text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-2 sm:space-x-3 transform"
+                      className="group bg-primary text-warmWhite px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-bold text-sm sm:text-base md:text-lg hover:bg-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-2 sm:space-x-3 transform"
                     >
                       <span className="text-center">{slide.ctaText}</span>
                       <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
@@ -442,7 +428,7 @@ const Home: React.FC = () => {
                     {slide.cta2Text && (
                       <Link
                         to={slide.cta2Link}
-                        className="border-2 border-white/50 bg-white/15 backdrop-blur-md text-white px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-white/25 hover:border-white/70 transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center space-x-2"
+                        className="border-2 border-warmWhite/50 bg-warmWhite/15 backdrop-blur-md text-warmWhite px-6 sm:px-8 md:px-10 py-3 sm:py-4 md:py-5 rounded-xl font-semibold text-sm sm:text-base md:text-lg hover:bg-warmWhite/25 hover:border-warmWhite/70 transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center space-x-2"
                       >
                         <span className="text-center">{slide.cta2Text}</span>
                       </Link>
@@ -463,7 +449,7 @@ const Home: React.FC = () => {
               className={`transition-all duration-300 rounded-full ${
                 index === currentSlide
                   ? "bg-primary w-6 sm:w-8 h-2"
-                  : "bg-white/50 hover:bg-white/70 w-2 h-2"
+                  : "bg-warmWhite/50 hover:bg-warmWhite/70 w-2 h-2"
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -473,22 +459,22 @@ const Home: React.FC = () => {
         {/* Navigation Arrows - Hidden on mobile, visible on larger screens */}
         <button
           onClick={prevSlide}
-          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full items-center justify-center transition-all duration-300 hover:scale-110"
+          className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-warmWhite/20 hover:bg-warmWhite/30 backdrop-blur-md rounded-full items-center justify-center transition-all duration-300 hover:scale-110"
           aria-label="Previous slide"
         >
-          <ArrowRight className="w-6 h-6 text-white rotate-180" />
+          <ArrowRight className="w-6 h-6 text-warmWhite rotate-180" />
         </button>
         <button
           onClick={nextSlide}
-          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-full items-center justify-center transition-all duration-300 hover:scale-110"
+          className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-warmWhite/20 hover:bg-warmWhite/30 backdrop-blur-md rounded-full items-center justify-center transition-all duration-300 hover:scale-110"
           aria-label="Next slide"
         >
-          <ArrowRight className="w-6 h-6 text-white" />
+          <ArrowRight className="w-6 h-6 text-warmWhite" />
         </button>
       </section>
 
       {/* WHAT WE MANUFACTURE */}
-      <section className="section-padding bg-gradient-to-b from-white via-secondary/10 to-white relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-b from-background-white via-secondary/10 to-background-white relative overflow-hidden">
         {/* Decorative background elements */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute top-20 left-10 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -507,7 +493,7 @@ const Home: React.FC = () => {
               {productCategoriesList.map((category, index) => (
                 <div
                   key={index}
-                  className="group relative rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden bg-white"
+                  className="group relative rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden bg-[#fef7e7]"
                   style={{
                     backgroundImage: `url(${category.image})`,
                     backgroundSize: 'cover',
@@ -516,7 +502,7 @@ const Home: React.FC = () => {
                   }}
                 >
                   {/* Gradient overlay for better text readability - lighter overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/50 via-white/40 to-white/35 group-hover:from-white/40 group-hover:via-white/30 group-hover:to-white/25 transition-all duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-warmWhite/50 via-warmWhite/40 to-warmWhite/35 group-hover:from-warmWhite/40 group-hover:via-warmWhite/30 group-hover:to-warmWhite/25 transition-all duration-500"></div>
                   
                   {/* Decorative gradient on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
@@ -541,7 +527,7 @@ const Home: React.FC = () => {
             <div className="text-center">
               <Link
                 to="/products"
-                className="group inline-flex items-center space-x-3 bg-primary text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                className="group inline-flex items-center space-x-3 bg-primary text-warmWhite px-10 py-5 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
                 <span>View Full Product Range</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -552,7 +538,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* WHO WE WORK WITH */}
-      <section className="section-padding bg-white relative overflow-hidden">
+      <section className="section-padding bg-[#fef7e7] relative overflow-hidden">
         {/* Subtle pattern background */}
         <div className="absolute inset-0 opacity-[0.02] subtle-lines"></div>
         
@@ -573,7 +559,7 @@ const Home: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className="group relative bg-gradient-to-br from-white to-secondary/20 rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
+                    className="group relative bg-gradient-to-br from-background-white to-secondary/20 rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 overflow-hidden"
                   >
                     {/* Background gradient on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -581,7 +567,7 @@ const Home: React.FC = () => {
                     <div className="relative z-10 flex items-start space-x-5">
                       {/* Icon container */}
                       <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                        <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors duration-300" />
+                        <Icon className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors duration-300" />
                       </div>
                       
                       {/* Content */}
@@ -603,7 +589,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* WHAT WE DO FOR BRANDS */}
-      <section className="section-padding bg-gradient-to-b from-secondary/10 via-white to-secondary/10 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-b from-secondary/10 via-background-white to-secondary/10 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-primary/5 to-transparent"></div>
         <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent"></div>
@@ -622,7 +608,7 @@ const Home: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center overflow-hidden"
+                    className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center overflow-hidden"
                   >
                     {/* Animated background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -632,7 +618,7 @@ const Home: React.FC = () => {
                       <div className="relative inline-flex mb-6">
                         <div className="absolute inset-0 bg-primary/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div className="relative bg-gradient-to-br from-primary/10 to-primary/5 w-20 h-20 rounded-2xl flex items-center justify-center mx-auto group-hover:bg-primary group-hover:scale-110 transition-all duration-500 shadow-lg group-hover:shadow-xl">
-                          <Icon className="w-10 h-10 text-primary group-hover:text-white transition-colors duration-300" />
+                          <Icon className="w-10 h-10 text-primary group-hover:text-warmWhite transition-colors duration-300" />
                         </div>
                       </div>
                       
@@ -653,10 +639,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* WHY SRI HARITHA */}
-      <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-warmWhite relative overflow-hidden">
         {/* Animated background elements */}
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl floating-shape"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full blur-3xl floating-shape" style={{ animationDelay: "2s" }}></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-warmWhite/5 rounded-full blur-3xl floating-shape"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-warmWhite/5 rounded-full blur-3xl floating-shape" style={{ animationDelay: "2s" }}></div>
         
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
@@ -668,38 +654,38 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             {/* Leadership Section */}
             <div className="mb-12">
-              <div className="bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-3xl p-8 md:p-12 hover:border-white/40 hover:bg-white/15 transition-all duration-500 overflow-hidden relative group">
+              <div className="bg-warmWhite/10 backdrop-blur-md border-2 border-warmWhite/20 rounded-3xl p-8 md:p-12 hover:border-warmWhite/40 hover:bg-warmWhite/15 transition-all duration-500 overflow-hidden relative group">
                 {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute top-0 right-0 w-64 h-64 bg-warmWhite/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-warmWhite/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center space-x-3 mb-6">
-                    <Award className="w-8 h-8 text-white/90" />
-                    <h3 className="text-2xl md:text-3xl font-bold text-white">
+                    <Award className="w-8 h-8 text-warmWhite/90" />
+                    <h3 className="text-2xl md:text-3xl font-bold text-warmWhite">
                       Leadership
                     </h3>
                   </div>
                   
-                  <p className="text-lg md:text-xl text-white/90 mb-8 font-medium leading-relaxed">
+                  <p className="text-lg md:text-xl text-warmWhite/90 mb-8 font-medium leading-relaxed">
                     {leadership.title}
                   </p>
                   
                   <div className="grid md:grid-cols-3 gap-8 items-start">
                     {/* Leader Info */}
                     <div className="md:col-span-1">
-                      <div className="bg-white/10 rounded-2xl p-6 border border-white/20 backdrop-blur-sm group-hover:bg-white/15 transition-all duration-300">
-                        <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 border-4 border-white/30 group-hover:border-white/50 transition-all duration-300 shadow-xl">
+                      <div className="bg-warmWhite/10 rounded-2xl p-6 border border-warmWhite/20 backdrop-blur-sm group-hover:bg-warmWhite/15 transition-all duration-300">
+                        <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 border-4 border-warmWhite/30 group-hover:border-warmWhite/50 transition-all duration-300 shadow-xl">
                           <img
                             src={founderImage}
                             alt={leadership.name}
                             className="w-full h-full object-cover"
                           />
                         </div>
-                        <h4 className="text-xl font-bold text-white text-center mb-2">
+                        <h4 className="text-xl font-bold text-warmWhite text-center mb-2">
                           {leadership.name}
                         </h4>
-                        <p className="text-base text-white/80 text-center">
+                        <p className="text-base text-warmWhite/80 text-center">
                           {leadership.role}
                         </p>
                       </div>
@@ -708,27 +694,27 @@ const Home: React.FC = () => {
                     {/* Description and Quote */}
                     <div className="md:col-span-2 space-y-6">
                       <div className="space-y-4">
-                        <p className="text-base md:text-lg text-white/95 leading-relaxed">
+                        <p className="text-base md:text-lg text-warmWhite/95 leading-relaxed">
                           {leadership.description}
                         </p>
-                        <p className="text-base md:text-lg text-white/90 leading-relaxed">
+                        <p className="text-base md:text-lg text-warmWhite/90 leading-relaxed">
                           {leadership.additional}
                         </p>
                       </div>
                       
                       {/* Quote Section */}
-                      <div className="bg-white/10 rounded-2xl p-6 md:p-8 border-2 border-white/30 backdrop-blur-sm relative overflow-hidden">
+                      <div className="bg-warmWhite/10 rounded-2xl p-6 md:p-8 border-2 border-warmWhite/30 backdrop-blur-sm relative overflow-hidden">
                         {/* Decorative quote marks */}
-                        <div className="absolute top-4 left-4 text-white/20 text-6xl font-serif leading-none">"</div>
-                        <div className="absolute bottom-4 right-4 text-white/20 text-6xl font-serif leading-none rotate-180">"</div>
+                        <div className="absolute top-4 left-4 text-warmWhite/20 text-6xl font-serif leading-none">"</div>
+                        <div className="absolute bottom-4 right-4 text-warmWhite/20 text-6xl font-serif leading-none rotate-180">"</div>
                         
                         <div className="relative z-10">
-                          <p className="text-lg md:text-xl text-white/95 italic leading-relaxed mb-4 font-medium">
+                          <p className="text-lg md:text-xl text-warmWhite/95 italic leading-relaxed mb-4 font-medium">
                             {leadership.quote}
                           </p>
-                          <div className="flex items-center space-x-2 pt-4 border-t border-white/20">
-                            <div className="w-1 h-8 bg-white/50 rounded"></div>
-                            <p className="text-base text-white/80 font-semibold">
+                          <div className="flex items-center space-x-2 pt-4 border-t border-warmWhite/20">
+                            <div className="w-1 h-8 bg-warmWhite/50 rounded"></div>
+                            <p className="text-base text-warmWhite/80 font-semibold">
                               — {leadership.name}
                             </p>
                           </div>
@@ -745,23 +731,23 @@ const Home: React.FC = () => {
               {whyChooseUs.map((item, index) => (
                 <div
                   key={index}
-                  className="group relative bg-white/10 backdrop-blur-md border-2 border-white/20 rounded-2xl p-6 md:p-8 hover:border-white/40 hover:bg-white/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl overflow-hidden"
+                  className="group relative bg-warmWhite/10 backdrop-blur-md border-2 border-warmWhite/20 rounded-2xl p-6 md:p-8 hover:border-warmWhite/40 hover:bg-warmWhite/15 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl overflow-hidden"
                 >
                   {/* Decorative corner */}
-                  <div className="absolute top-0 right-0 w-24 h-24 bg-white/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-warmWhite/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   
                   {/* Content */}
                   <div className="flex items-start space-x-4 relative z-10">
-                    <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
-                      <CheckCircle className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                    <div className="flex-shrink-0 w-10 h-10 bg-warmWhite/20 rounded-xl flex items-center justify-center group-hover:bg-warmWhite/30 group-hover:scale-110 transition-all duration-300">
+                      <CheckCircle className="w-6 h-6 text-warmWhite group-hover:scale-110 transition-transform duration-300" />
                     </div>
-                    <p className="text-lg md:text-xl text-white/95 leading-relaxed font-medium group-hover:text-white transition-colors duration-300 flex-1">
+                    <p className="text-lg md:text-xl text-warmWhite/95 leading-relaxed font-medium group-hover:text-warmWhite transition-colors duration-300 flex-1">
                       {item}
                     </p>
                   </div>
                   
                   {/* Hover gradient effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-warmWhite/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
               ))}
             </div>
@@ -770,7 +756,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* AVASYA */}
-      <section className="section-padding bg-gradient-to-br from-white via-secondary/20 to-secondary/30 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-background-white via-secondary/20 to-secondary/30 relative overflow-hidden">
         {/* Decorative background */}
         <div className="absolute inset-0 opacity-[0.03]">
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
@@ -795,9 +781,9 @@ const Home: React.FC = () => {
             
             {/* Feature cards grid */}
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
+              <div className="group bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <CheckCircle className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                  <CheckCircle className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                 </div>
                 <h3 className="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">
                   Proven Formulations
@@ -806,16 +792,16 @@ const Home: React.FC = () => {
               
               <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <TrendingUp className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                  <TrendingUp className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                 </div>
                 <h3 className="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">
                   Market-Tested Products
                 </h3>
               </div>
               
-              <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
+              <div className="group bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <ShieldCheck className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                  <ShieldCheck className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                 </div>
                 <h3 className="text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">
                   Consistent Quality Standards
@@ -826,7 +812,7 @@ const Home: React.FC = () => {
             <div className="text-center">
               <Link
                 to="/avasya"
-                className="group inline-flex items-center space-x-3 bg-primary text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
+                className="group inline-flex items-center space-x-3 bg-primary text-warmWhite px-10 py-5 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform"
               >
                 <span>Explore Avasya Products</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -837,7 +823,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* TESTIMONIALS / SUCCESS STORIES */}
-      <section className="section-padding bg-gradient-to-br from-primary/5 via-white to-secondary/10 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-primary/5 via-background-white to-secondary/10 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-secondary/10 to-transparent"></div>
@@ -855,7 +841,7 @@ const Home: React.FC = () => {
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {/* Testimonial 1 - Chetna */}
-              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
@@ -880,7 +866,7 @@ const Home: React.FC = () => {
               </div>
 
               {/* Testimonial 2 - Priyanka */}
-              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
@@ -905,7 +891,7 @@ const Home: React.FC = () => {
               </div>
 
               {/* Testimonial 3 - Amar */}
-              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
@@ -936,15 +922,15 @@ const Home: React.FC = () => {
                 Trusted by brands, institutions, and nutrition programs across India
               </p>
               <div className="flex flex-wrap justify-center gap-6">
-                <div className="bg-white rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
+                <div className="bg-[#fef7e7] rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
                   <p className="text-2xl font-bold text-primary">500+</p>
                   <p className="text-sm text-text-light">Happy Clients</p>
                 </div>
-                <div className="bg-white rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
+                <div className="bg-[#fef7e7] rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
                   <p className="text-2xl font-bold text-primary">7+ Years</p>
                   <p className="text-sm text-text-light">Experience</p>
                 </div>
-                <div className="bg-white rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
+                <div className="bg-[#fef7e7] rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
                   <p className="text-2xl font-bold text-primary">FSSAI</p>
                   <p className="text-sm text-text-light">Certified</p>
                 </div>
@@ -955,7 +941,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="section-padding bg-gradient-to-b from-white via-secondary/10 to-white relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-b from-background-white via-secondary/10 to-background-white relative overflow-hidden">
         {/* Subtle pattern */}
         <div className="absolute inset-0 opacity-[0.02] subtle-pattern"></div>
         
@@ -978,7 +964,7 @@ const Home: React.FC = () => {
                 {howItWorks.map((_, index) => (
                   <div
                     key={index}
-                    className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-white shadow-lg"
+                    className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-warmWhite shadow-lg"
                     style={{ left: `${(index * 100) / (howItWorks.length - 1)}%` }}
                   ></div>
                 ))}
@@ -996,9 +982,9 @@ const Home: React.FC = () => {
                         <div className="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-gradient-to-b from-primary/40 to-primary/20 z-0"></div>
                       )}
                       
-                      <div className="group relative bg-white rounded-2xl p-6 lg:p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full">
+                      <div className="group relative bg-[#fef7e7] rounded-2xl p-6 lg:p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full">
                         {/* Step number badge - top center */}
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-white font-bold text-lg shadow-xl z-20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
+                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-warmWhite font-bold text-lg shadow-xl z-20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                           {step.step}
                         </div>
                         
@@ -1006,7 +992,7 @@ const Home: React.FC = () => {
                         <div className="pt-6">
                           {/* Icon */}
                           <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                            <Icon className="w-8 h-8 text-primary group-hover:text-white transition-colors" />
+                            <Icon className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                           </div>
                           
                           {/* Title */}
@@ -1036,7 +1022,7 @@ const Home: React.FC = () => {
 
 
       {/* Visit Our Facility */}
-      <section className="section-padding bg-gradient-to-br from-secondary/20 via-white to-secondary/20 relative overflow-hidden">
+      <section className="section-padding bg-gradient-to-br from-secondary/20 via-background-white to-secondary/20 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
         
@@ -1054,10 +1040,10 @@ const Home: React.FC = () => {
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               {/* Contact Info Card */}
               <div className="space-y-6">
-                <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl">
+                <div className="group bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl">
                   <div className="flex items-center space-x-3 mb-6">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <MapPin className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                      <MapPin className="w-6 h-6 text-primary group-hover:text-warmWhite transition-colors" />
                     </div>
                     <h3 className="text-2xl font-bold text-text">Address</h3>
                   </div>
@@ -1075,7 +1061,7 @@ const Home: React.FC = () => {
                       className="group flex items-center space-x-3 text-primary hover:text-primary-dark transition-colors"
                     >
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary transition-all duration-300">
-                        <Phone className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+                        <Phone className="w-5 h-5 text-primary group-hover:text-warmWhite transition-colors" />
                       </div>
                       <span className="font-semibold">+91 98857 04833</span>
                     </a>
@@ -1084,7 +1070,7 @@ const Home: React.FC = () => {
                       className="group flex items-center space-x-3 text-primary hover:text-primary-dark transition-colors"
                     >
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary transition-all duration-300">
-                        <MessageCircle className="w-5 h-5 text-primary group-hover:text-white transition-colors" />
+                        <MessageCircle className="w-5 h-5 text-primary group-hover:text-warmWhite transition-colors" />
                       </div>
                       <span className="font-semibold">sriharithaagrofood@gmail.com</span>
                     </a>
@@ -1093,7 +1079,7 @@ const Home: React.FC = () => {
                 
                 <Link
                   to="/contact"
-                  className="group inline-flex items-center space-x-3 bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform w-full justify-center"
+                  className="group inline-flex items-center space-x-3 bg-primary text-warmWhite px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform w-full justify-center"
                 >
                   <span>Schedule a Visit</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -1121,7 +1107,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* FAQs */}
-      <section className="section-padding bg-white relative overflow-hidden">
+      <section className="section-padding bg-[#fef7e7] relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.02] subtle-pattern"></div>
         
@@ -1137,7 +1123,7 @@ const Home: React.FC = () => {
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className="group bg-white rounded-2xl border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 overflow-hidden hover:shadow-xl"
+                  className="group bg-[#fef7e7] rounded-2xl border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 overflow-hidden hover:shadow-xl"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
@@ -1173,9 +1159,9 @@ const Home: React.FC = () => {
       </section>
 
       {/* FINAL CTA */}
-      {/* <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-white relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl floating-shape"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl floating-shape" style={{ animationDelay: "2s" }}></div>
+      {/* <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-warmWhite relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-warmWhite/10 rounded-full blur-3xl floating-shape"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-warmWhite/10 rounded-full blur-3xl floating-shape" style={{ animationDelay: "2s" }}></div>
         
         <div className="container-custom text-center relative z-10">
           <div className="max-w-4xl mx-auto">
@@ -1183,7 +1169,7 @@ const Home: React.FC = () => {
               Looking to Build or Scale a Millet Product Line?
             </h2>
             
-            <p className="text-xl md:text-2xl mb-12 text-white/95 max-w-3xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl mb-12 text-warmWhite/95 max-w-3xl mx-auto leading-relaxed font-medium">
               Partner with a manufacturer that understands millets, nutrition and
               commercial scalability.
             </p>
@@ -1194,7 +1180,7 @@ const Home: React.FC = () => {
                   const event = new CustomEvent("openContactModal");
                   window.dispatchEvent(event);
                 }}
-                className="group bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform inline-flex items-center justify-center space-x-3"
+                className="group bg-[#fef7e7] text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform inline-flex items-center justify-center space-x-3"
               >
                 <span>Discuss Bulk / OEM Requirement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -1204,7 +1190,7 @@ const Home: React.FC = () => {
                   const event = new CustomEvent("openContactModal");
                   window.dispatchEvent(event);
                 }}
-                className="group border-2 border-white/50 bg-white/15 backdrop-blur-md text-white px-10 py-5 rounded-xl font-bold text-lg hover:bg-white/25 hover:border-white/70 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform inline-flex items-center justify-center space-x-3"
+                className="group border-2 border-warmWhite/50 bg-warmWhite/15 backdrop-blur-md text-warmWhite px-10 py-5 rounded-xl font-bold text-lg hover:bg-warmWhite/25 hover:border-warmWhite/70 transition-all shadow-xl hover:shadow-2xl hover:scale-105 transform inline-flex items-center justify-center space-x-3"
               >
                 <Download className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
                 <span>Download Product Catalogue</span>

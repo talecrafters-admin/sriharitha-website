@@ -6,7 +6,6 @@ import {
   Send,
   CheckCircle,
   Clock,
-  ArrowRight,
 } from "lucide-react";
 import emailjs from "@emailjs/browser";
 import { gsap } from "gsap";
@@ -141,10 +140,10 @@ const Contact: React.FC = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary-dark/95"></div>
         <div className="container-custom relative z-10 text-center">
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-warmWhite">
             Get in Touch
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-warmWhite/90 leading-relaxed">
             Ready to discuss your bulk requirements or contract manufacturing
             needs? We're here to help.
           </p>
@@ -152,7 +151,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="section-padding bg-gradient-to-b from-white via-secondary/10 to-white">
+      <section className="section-padding bg-gradient-to-b from-background-white via-secondary/10 to-background-white">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Information */}
@@ -228,7 +227,7 @@ const Contact: React.FC = () => {
                 <div className="contact-item card bg-primary/5 border-2 border-primary/20 hover:shadow-card-hover transition-all duration-300">
                   <div className="flex items-start space-x-4">
                     <div className="bg-primary w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Clock className="w-6 h-6 text-white" />
+                      <Clock className="w-6 h-6 text-warmWhite" />
                     </div>
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">
@@ -417,7 +416,7 @@ const Contact: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none w-full md:w-auto"
+                    className="bg-primary text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none w-full md:w-auto"
                   >
                     {isSubmitting ? (
                       <>
@@ -438,7 +437,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Map Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">

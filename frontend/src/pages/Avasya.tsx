@@ -148,7 +148,7 @@ const Avasya: React.FC = () => {
     };
 
     return (
-      <div className="product-card bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50 group">
+      <div className="product-card bg-[#fef7e7] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50 group">
         {/* Image Container - Modern style with full visibility */}
         <div
           ref={imageRef}
@@ -169,11 +169,11 @@ const Avasya: React.FC = () => {
             }}
           />
           {product.inStock && (
-            <div className="absolute top-3 right-3 bg-primary/90 backdrop-blur-sm text-white px-2.5 py-1 rounded-full text-xs font-semibold z-10">
+            <div className="absolute top-3 right-3 bg-primary/90 backdrop-blur-sm text-warmWhite px-2.5 py-1 rounded-full text-xs font-semibold z-10">
               In Stock
             </div>
           )}
-          <div className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-white px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity">
+          <div className="absolute bottom-3 left-3 bg-black/50 backdrop-blur-sm text-warmWhite px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity">
             Click to zoom
           </div>
         </div>
@@ -211,7 +211,7 @@ const Avasya: React.FC = () => {
                 <div className="flex items-center gap-2 bg-primary/10 rounded-full px-2 py-1.5">
                   <button
                     onClick={() => updateQuantity(product.id, quantity - 1)}
-                    className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-7 h-7 rounded-full bg-primary text-warmWhite flex items-center justify-center hover:bg-primary-dark transition-colors shadow-sm"
                     aria-label="Decrease quantity"
                   >
                     <Minus className="w-3.5 h-3.5" />
@@ -221,7 +221,7 @@ const Avasya: React.FC = () => {
                   </span>
                   <button
                     onClick={() => addToCart(product, 1)}
-                    className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors shadow-sm"
+                    className="w-7 h-7 rounded-full bg-primary text-warmWhite flex items-center justify-center hover:bg-primary-dark transition-colors shadow-sm"
                     aria-label="Increase quantity"
                   >
                     <Plus className="w-3.5 h-3.5" />
@@ -230,7 +230,7 @@ const Avasya: React.FC = () => {
               ) : (
                 <button
                   onClick={() => addToCart(product, 1)}
-                  className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
+                  className="w-10 h-10 rounded-full bg-primary text-warmWhite flex items-center justify-center hover:bg-primary-dark transition-all duration-300 shadow-md hover:shadow-lg hover:scale-110"
                   aria-label="Add to cart"
                 >
                   <ShoppingCart className="w-5 h-5" />
@@ -258,7 +258,7 @@ const Avasya: React.FC = () => {
       </section>
 
       {/* Brand Info Section - Compact */}
-      <section className="bg-white py-8 border-b border-gray-200">
+      <section className="bg-[#fef7e7] py-8 border-b border-gray-200">
         <div className="container-custom">
           <div className="text-center">
             <div className="inline-flex items-center space-x-3 mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
@@ -286,11 +286,11 @@ const Avasya: React.FC = () => {
       {/* Cart Button - Floating */}
       <button
         onClick={() => setIsCartOpen(true)}
-        className="fixed bottom-8 right-8 z-40 bg-primary text-white w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-primary-dark transition-all duration-300 transform hover:scale-110"
+        className="fixed bottom-8 right-8 z-40 bg-primary text-warmWhite w-16 h-16 rounded-full shadow-2xl flex items-center justify-center hover:bg-primary-dark transition-all duration-300 transform hover:scale-110"
       >
         <ShoppingCart className="w-6 h-6" />
         {getTotalItems() > 0 && (
-          <span className="absolute -top-2 -right-2 bg-primary text-white w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center">
+          <span className="absolute -top-2 -right-2 bg-primary text-warmWhite w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center">
             {getTotalItems()}
           </span>
         )}
@@ -298,17 +298,17 @@ const Avasya: React.FC = () => {
 
       {/* Cart Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-[#fef7e7] shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="h-full flex flex-col">
           {/* Cart Header */}
-          <div className="bg-primary text-white p-6 flex items-center justify-between">
+          <div className="bg-primary text-warmWhite p-6 flex items-center justify-between">
             <h2 className="text-2xl font-bold">Shopping Cart</h2>
             <button
               onClick={() => setIsCartOpen(false)}
-              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-full bg-warmWhite/20 hover:bg-warmWhite/30 flex items-center justify-center transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -360,7 +360,7 @@ const Avasya: React.FC = () => {
                                   item.quantity - 1
                                 )
                               }
-                              className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors"
+                              className="w-7 h-7 rounded-full bg-primary text-warmWhite flex items-center justify-center hover:bg-primary-dark transition-colors"
                             >
                               <Minus className="w-3 h-3" />
                             </button>
@@ -369,7 +369,7 @@ const Avasya: React.FC = () => {
                             </span>
                             <button
                               onClick={() => addToCart(item.product, 1)}
-                              className="w-7 h-7 rounded-full bg-primary text-white flex items-center justify-center hover:bg-primary-dark transition-colors"
+                              className="w-7 h-7 rounded-full bg-primary text-warmWhite flex items-center justify-center hover:bg-primary-dark transition-colors"
                             >
                               <Plus className="w-3 h-3" />
                             </button>
@@ -407,7 +407,7 @@ const Avasya: React.FC = () => {
                   setShowOrderForm(true);
                   setIsCartOpen(false);
                 }}
-                className="w-full bg-primary text-white px-6 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+                className="w-full bg-primary text-warmWhite px-6 py-4 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 Proceed to Order
               </button>
@@ -425,7 +425,7 @@ const Avasya: React.FC = () => {
       )}
 
       {/* Products Section */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           {/* Filters */}
           <div className="mb-8">
@@ -447,7 +447,7 @@ const Avasya: React.FC = () => {
                   onClick={() => setSelectedCategory("All")}
                   className={`px-4 py-2 rounded-xl font-medium whitespace-nowrap transition-all ${
                     selectedCategory === "All"
-                      ? "bg-primary text-white"
+                      ? "bg-primary text-warmWhite"
                       : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                   }`}
                 >
@@ -459,7 +459,7 @@ const Avasya: React.FC = () => {
                     onClick={() => setSelectedCategory(category)}
                     className={`px-4 py-2 rounded-xl font-medium whitespace-nowrap transition-all ${
                       selectedCategory === category
-                        ? "bg-primary text-white"
+                        ? "bg-primary text-warmWhite"
                         : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                     }`}
                   >
@@ -510,13 +510,13 @@ const Avasya: React.FC = () => {
             }}
           >
             <div
-              className="w-[90vw] max-w-3xl h-[90vh] max-h-[700px] bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-200 pointer-events-auto"
+              className="w-[90vw] max-w-3xl h-[90vh] max-h-[700px] bg-[#fef7e7] rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-200 pointer-events-auto"
               onMouseLeave={() => setZoomedImage(null)}
             >
               <div className="relative w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-12">
                 <button
                   onClick={() => setZoomedImage(null)}
-                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-colors z-10 backdrop-blur-sm"
+                  className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/60 hover:bg-black/80 text-warmWhite flex items-center justify-center transition-colors z-10 backdrop-blur-sm"
                   aria-label="Close zoom"
                 >
                   <X className="w-5 h-5" />
@@ -534,7 +534,7 @@ const Avasya: React.FC = () => {
                   }}
                 />
               </div>
-              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium">
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-warmWhite px-4 py-2 rounded-full text-sm font-medium">
                 {zoomedImage.name}
               </div>
             </div>
@@ -550,12 +550,12 @@ const Avasya: React.FC = () => {
             onClick={() => setShowOrderForm(false)}
           ></div>
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="bg-primary text-white p-6 flex items-center justify-between sticky top-0">
+            <div className="bg-[#fef7e7] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+              <div className="bg-primary text-warmWhite p-6 flex items-center justify-between sticky top-0">
                 <h2 className="text-2xl font-bold">Create Order</h2>
                 <button
                   onClick={() => setShowOrderForm(false)}
-                  className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                  className="w-10 h-10 rounded-full bg-warmWhite/20 hover:bg-warmWhite/30 flex items-center justify-center transition-colors"
                 >
                   <X className="w-5 h-5" />
                 </button>
@@ -754,7 +754,7 @@ const Avasya: React.FC = () => {
                     </button>
                     <button
                       type="submit"
-                      className="flex-1 bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
+                      className="flex-1 bg-primary text-warmWhite px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl"
                     >
                       Submit Order
                     </button>
@@ -767,7 +767,7 @@ const Avasya: React.FC = () => {
       )}
 
       {/* Brand Philosophy Section */}
-      <section className="section-padding bg-gradient-to-br from-secondary/30 to-white">
+      <section className="section-padding bg-gradient-to-br from-secondary/30 to-background-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -779,7 +779,7 @@ const Avasya: React.FC = () => {
           </div>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-12">
             <div className="card hover:shadow-card-hover transition-all duration-300 group text-center">
-              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform">
                 <Heart className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -792,7 +792,7 @@ const Avasya: React.FC = () => {
               </p>
             </div>
             <div className="card hover:shadow-card-hover transition-all duration-300 group text-center">
-              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform">
                 <Leaf className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -805,7 +805,7 @@ const Avasya: React.FC = () => {
               </p>
             </div>
             <div className="card hover:shadow-card-hover transition-all duration-300 group text-center">
-              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div className="bg-primary w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform">
                 <Users className="w-10 h-10" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -827,16 +827,16 @@ const Avasya: React.FC = () => {
               partnerships. We welcome inquiries from:
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Railways</p>
               </div>
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Airlines</p>
               </div>
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Gift Kits</p>
               </div>
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Corporate Gifting</p>
               </div>
             </div>

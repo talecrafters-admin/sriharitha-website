@@ -50,7 +50,7 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 transform;
+    @apply bg-primary text-warmWhite px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 transform;
     position: relative;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -68,7 +68,7 @@
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(254, 250, 242, 0.2);
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
   }
@@ -79,11 +79,11 @@
   }
 
   .btn-secondary {
-    @apply border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all duration-300;
+    @apply border-2 border-primary text-primary px-8 py-4 rounded-lg font-semibold hover:bg-primary hover:text-warmWhite transition-all duration-300;
   }
 
   .btn-white {
-    @apply bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-background-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl;
   }
 
   .card {

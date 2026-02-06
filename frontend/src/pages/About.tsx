@@ -5,13 +5,9 @@ import {
   Heart,
   Users,
   TrendingUp,
-  Award,
   ShieldCheck,
-  Factory,
   ArrowRight,
   Calendar,
-  Package,
-  Globe,
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -99,8 +95,7 @@ const About: React.FC = () => {
   const stats = [
     { number: 7, suffix: " Years", label: "Experience", icon: Calendar },
     { number: 500, suffix: "+", label: "Happy Clients", icon: Users },
-    { number: 50, suffix: "+", label: "Team Members", icon: Users },
-    { number: 15, suffix: "+", label: "Export Markets", icon: Globe },
+    { number: 30, suffix: "+", label: "Team Members", icon: Users },
   ];
 
   const milestones = [
@@ -186,23 +181,23 @@ const About: React.FC = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary-dark/95"></div>
         <div className="container-custom relative z-10 text-center">
-          <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-            <ShieldCheck className="w-5 h-5 text-white" />
-            <span className="text-sm font-semibold text-white">
+          <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-warmWhite/10 backdrop-blur-sm rounded-full border border-warmWhite/20">
+            <ShieldCheck className="w-5 h-5 text-warmWhite" />
+            <span className="text-sm font-semibold text-warmWhite">
               FSSAI Certified | Since 2018
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-warmWhite">
             About Sri Haritha
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-warmWhite/90 leading-relaxed">
             Transforming traditional grains into modern nutrition since 2018
           </p>
         </div>
       </section>
 
       {/* Statistics Section */}
-      <section className="section-padding bg-white -mt-20 relative z-10">
+      <section className="section-padding bg-[#fef7e7] -mt-20 relative z-10">
         <div className="container-custom">
           <div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
@@ -235,7 +230,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Journey */}
-      <section className="section-padding bg-gradient-to-b from-white via-secondary/10 to-white">
+      <section className="section-padding bg-gradient-to-b from-background-white via-secondary/10 to-background-white">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -253,8 +248,8 @@ const About: React.FC = () => {
               </p>
               <p>
                 Sri Haritha Agro Food Products Pvt. Ltd. was incorporated in 2018 with
-                a vision to bring the nutritional benefits of millets and
-                traditional cereals to modern consumers. Starting from a small unit
+                a vision to bring the nutritional benefits of millets & cereals
+                to modern consumers. Starting from a small unit
                 in Hyderabad, we have grown into a trusted manufacturer serving
                 brands, institutions, and retailers across India.
               </p>
@@ -263,11 +258,11 @@ const About: React.FC = () => {
                 traditional foods accessible and convenient for today's busy
                 lifestyles? The answer led us to develop a comprehensive range of
                 Ready-to-Eat and Ready-to-Cook products that combine the goodness of
-                millets with modern food technology.
+                millets & cereals with modern food technology.
               </p>
               <p>
-                Today, we manufacture over 50+ SKUs across breakfast mixes,
-                cereals, instant mixes, snacks, soups, spice powders, and flours -
+                Today, we manufacture over 50+ SKUs across instant mixes,
+                breakfast cereals, snacks, millet & cereal noodles, and energy bars -
                 all backed by FSSAI certification and stringent quality controls.
               </p>
             </div>
@@ -276,11 +271,11 @@ const About: React.FC = () => {
       </section>
 
       {/* Vision & Mission */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="card hover:shadow-card-hover transition-all duration-300 group">
-              <div className="bg-primary w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div className="bg-primary w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform">
                 <Target className="w-8 h-8" />
               </div>
               <h3 className="text-3xl font-heading font-bold text-primary mb-4">
@@ -293,7 +288,7 @@ const About: React.FC = () => {
               </p>
             </div>
             <div className="card hover:shadow-card-hover transition-all duration-300 group">
-              <div className="bg-primary-light w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform">
+              <div className="bg-primary-light w-16 h-16 rounded-2xl flex items-center justify-center mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform">
                 <Heart className="w-8 h-8" />
               </div>
               <h3 className="text-3xl font-heading font-bold text-primary mb-4">
@@ -310,7 +305,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Leadership */}
-      <section className="section-padding bg-gradient-to-br from-secondary/30 to-white">
+      <section className="section-padding bg-gradient-to-br from-secondary/30 to-background-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -357,7 +352,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Timeline */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -378,7 +373,7 @@ const About: React.FC = () => {
                     className="timeline-item relative flex items-start space-x-6"
                   >
                     <div className="flex-shrink-0 relative z-10">
-                      <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                      <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-warmWhite font-bold text-lg shadow-lg">
                         {index + 1}
                       </div>
                     </div>
@@ -405,7 +400,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Our Values */}
-      <section className="section-padding bg-gradient-to-br from-secondary/30 to-white">
+      <section className="section-padding bg-gradient-to-br from-secondary/30 to-background-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -427,7 +422,7 @@ const About: React.FC = () => {
                   className="value-card card hover:shadow-card-hover transition-all duration-300 group text-center"
                 >
                   <div
-                    className={`${value.color} w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white shadow-lg group-hover:scale-110 transition-transform`}
+                    className={`${value.color} w-20 h-20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-warmWhite shadow-lg group-hover:scale-110 transition-transform`}
                   >
                     <Icon className="w-10 h-10" />
                   </div>
@@ -445,26 +440,26 @@ const About: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-primary text-white">
+      <section className="section-padding bg-primary text-warmWhite">
         <div className="container-custom text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
             Partner With Us
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-warmWhite/90 mb-8 max-w-3xl mx-auto">
             Join us in our mission to make healthy, nutritious food accessible to
             everyone. Let's build something great together.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Get In Touch</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/contract-manufacturing"
-              className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
+              className="border-2 border-warmWhite/30 bg-warmWhite/10 backdrop-blur-sm text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-warmWhite/20 transition-all inline-flex items-center justify-center space-x-2"
             >
               <span>Explore Services</span>
               <ArrowRight className="w-5 h-5" />

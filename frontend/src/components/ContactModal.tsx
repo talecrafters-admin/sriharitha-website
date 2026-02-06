@@ -133,16 +133,16 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className={`bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
+          className={`bg-[#fef7e7] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
             isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
           }`}
         >
           {/* Header */}
-          <div className="sticky top-0 bg-primary text-white p-6 flex items-center justify-between rounded-t-2xl z-10">
+          <div className="sticky top-0 bg-primary text-warmWhite p-6 flex items-center justify-between rounded-t-2xl z-10">
             <h2 className="text-2xl font-heading font-bold">Contact Us</h2>
             <button
               onClick={onClose}
-              className="w-10 h-10 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+              className="w-10 h-10 rounded-full bg-warmWhite/20 hover:bg-warmWhite/30 flex items-center justify-center transition-colors"
               aria-label="Close modal"
             >
               <X className="w-6 h-6" />
@@ -303,7 +303,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 bg-primary text-white px-6 py-3 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="flex-1 bg-primary text-warmWhite px-6 py-3 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span>Sending...</span>

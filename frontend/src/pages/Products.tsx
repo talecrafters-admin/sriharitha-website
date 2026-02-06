@@ -111,30 +111,30 @@ const Products: React.FC = () => {
         </div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/95 to-primary-dark/95"></div>
         <div className="container-custom relative z-10 text-center">
-          <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20">
-            <ShieldCheck className="w-5 h-5 text-white" />
-            <span className="text-sm font-semibold text-white">
+          <div className="inline-flex items-center space-x-3 mb-6 px-4 py-2 bg-warmWhite/10 backdrop-blur-sm rounded-full border border-warmWhite/20">
+            <ShieldCheck className="w-5 h-5 text-warmWhite" />
+            <span className="text-sm font-semibold text-warmWhite">
               FSSAI Certified Products
             </span>
           </div>
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-white">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 text-warmWhite">
             Our Products
           </h1>
-          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 leading-relaxed mb-8">
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-warmWhite/90 leading-relaxed mb-8">
             Explore our wide range of millet and cereal-based Ready-to-Eat and
             Ready-to-Cook food products
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Request Catalogue</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/contract-manufacturing"
-              className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
+              className="border-2 border-warmWhite/30 bg-warmWhite/10 backdrop-blur-sm text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-warmWhite/20 transition-all inline-flex items-center justify-center space-x-2"
             >
               <span>Bulk Enquiry</span>
               <ArrowRight className="w-5 h-5" />
@@ -144,7 +144,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="section-padding bg-white -mt-20 relative z-10">
+      <section className="section-padding bg-[#fef7e7] -mt-20 relative z-10">
         <div className="container-custom">
           <div
             className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
@@ -177,7 +177,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Overview */}
-      <section className="section-padding bg-gradient-to-b from-white via-secondary/10 to-white">
+      <section className="section-padding bg-gradient-to-b from-background-white via-secondary/10 to-background-white">
         <div className="container-custom">
           <div className="max-w-5xl mx-auto text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -202,7 +202,7 @@ const Products: React.FC = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all"
+                  className="flex items-center space-x-3 bg-[#fef7e7] rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all"
                 >
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-gray-700 font-medium">{feature}</span>
@@ -214,7 +214,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Category Grid */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -232,7 +232,7 @@ const Products: React.FC = () => {
               <Link
                 key={category.id}
                 to={`/products/${category.slug}`}
-                className="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
+                className="group relative bg-[#fef7e7] rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
               >
                 {/* Image Container with Overlay */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
@@ -242,10 +242,10 @@ const Products: React.FC = () => {
                     className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                  <div className="absolute top-4 right-4 bg-warmWhite/90 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
                     <ArrowRight className="w-5 h-5 text-primary" />
                   </div>
-                  <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                  <div className="absolute bottom-4 left-4 bg-warmWhite/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
                     <span className="text-sm font-semibold text-primary">
                       {category.products.length} Products
                     </span>
@@ -259,7 +259,7 @@ const Products: React.FC = () => {
                       {category.name}
                     </h3>
                     <div className="ml-4 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                      <Package className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
+                      <Package className="w-6 h-6 text-primary group-hover:text-warmWhite transition-colors" />
                     </div>
                   </div>
                   <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
@@ -280,12 +280,12 @@ const Products: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="section-padding bg-gradient-to-br from-primary to-primary-dark text-white">
+      <section className="section-padding bg-gradient-to-br from-primary to-primary-dark text-warmWhite">
         <div className="container-custom text-center">
           <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">
             Interested in Bulk Orders or Private Label?
           </h2>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-warmWhite/90 mb-8 max-w-3xl mx-auto leading-relaxed">
             All our products are available for bulk supply and private label
             manufacturing. Contact us to discuss your requirements and get
             customized pricing.
@@ -293,14 +293,14 @@ const Products: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
               to="/contact"
-              className="bg-primary text-white px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
+              className="bg-primary text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 inline-flex items-center justify-center space-x-2"
             >
               <span>Request Product Specifications</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               to="/contract-manufacturing"
-              className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all inline-flex items-center justify-center space-x-2"
+              className="border-2 border-warmWhite/30 bg-warmWhite/10 backdrop-blur-sm text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-warmWhite/20 transition-all inline-flex items-center justify-center space-x-2"
             >
               <span>Learn About Contract Manufacturing</span>
               <ArrowRight className="w-5 h-5" />

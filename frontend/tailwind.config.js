@@ -28,11 +28,16 @@ module.exports = {
         },
         background: {
           DEFAULT: "#FBF9F5", // Warm off-white
-          white: "#FFFFFF",
+          white: "#fef7e7", // Cream
         },
         text: {
           DEFAULT: "#2C2416", // Warm dark brown
           light: "#5C4E3A", // Lighter text
+          warm: "#fefaf2", // Warm white for text on dark backgrounds
+        },
+        warmWhite: {
+          DEFAULT: "#fefaf2", // Warm white
+          light: "#fffcf7", // Lighter warm white
         },
       },
       fontFamily: {

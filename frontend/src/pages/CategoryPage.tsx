@@ -44,7 +44,7 @@ const CategoryPage: React.FC = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categoryData.products.map((product) => (
@@ -136,7 +136,7 @@ const CategoryPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-white">
+      <section className="section-padding bg-[#fef7e7]">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
             Request Product Specifications
