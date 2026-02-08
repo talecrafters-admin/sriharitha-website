@@ -148,7 +148,7 @@ const Avasya: React.FC = () => {
     };
 
     return (
-      <div className="product-card bg-[#fef7e7] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50 group">
+      <div className="product-card bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-200/50 group">
         {/* Image Container - Modern style with full visibility */}
         <div
           ref={imageRef}
@@ -192,7 +192,7 @@ const Avasya: React.FC = () => {
             {product.description}
           </p>
 
-          {/* Net Weight and Contact for Pricing */}
+          {/* Net Weight and Price */}
           <div className="flex items-center justify-between pt-4 border-t border-gray-100">
             <div className="flex flex-col">
               <span className="text-xs text-gray-400 mb-0.5">Net Wt.</span>
@@ -203,9 +203,11 @@ const Avasya: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="text-right">
                 <p className="text-sm font-semibold text-primary leading-none mb-1">
-                  MOQ: 20 packs
+                  {product.price > 0 ? `₹${product.price}/-` : 'Contact for pricing'}
                 </p>
-                <p className="text-xs text-gray-500">Contact for pricing</p>
+                {product.price > 0 && (
+                  <p className="text-xs text-gray-500">MOQ: 20 packs</p>
+                )}
               </div>
               {quantity > 0 ? (
                 <div className="flex items-center gap-2 bg-primary/10 rounded-full px-2 py-1.5">
@@ -258,7 +260,7 @@ const Avasya: React.FC = () => {
       </section>
 
       {/* Brand Info Section - Compact */}
-      <section className="bg-[#fef7e7] py-8 border-b border-gray-200">
+      <section className="bg-white py-8 border-b border-gray-200">
         <div className="container-custom">
           <div className="text-center">
             <div className="inline-flex items-center space-x-3 mb-4 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
@@ -298,7 +300,7 @@ const Avasya: React.FC = () => {
 
       {/* Cart Sidebar */}
       <div
-        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-[#fef7e7] shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-full md:w-96 bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${
           isCartOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -350,7 +352,9 @@ const Avasya: React.FC = () => {
                         </p>
                         <div className="flex items-center justify-between">
                           <p className="text-sm font-medium text-gray-600">
-                            Contact for pricing
+                            {item.product.price > 0
+                              ? `₹${item.product.price * item.quantity}/-`
+                              : 'Contact for pricing'}
                           </p>
                           <div className="flex items-center space-x-2">
                             <button
@@ -392,10 +396,17 @@ const Avasya: React.FC = () => {
           {/* Cart Footer */}
           {cart.length > 0 && (
             <div className="border-t border-gray-200 p-6 bg-gray-50">
+              {getTotalPrice() > 0 && (
+                <div className="flex justify-between items-center mb-4 text-lg font-semibold text-gray-900">
+                  <span>Subtotal</span>
+                  <span className="text-primary">₹{getTotalPrice()}/-</span>
+                </div>
+              )}
               <div className="mb-4 p-4 bg-primary/5 rounded-lg border border-primary/20">
                 <p className="text-sm text-gray-700 mb-2">
-                  We'll provide pricing based on your order quantity and
-                  requirements.
+                  {getTotalPrice() > 0
+                    ? "Fill out the form below and we'll get back to you to confirm your order."
+                    : "We'll provide pricing based on your order quantity and requirements."}
                 </p>
                 <p className="text-sm font-semibold text-primary">
                   Please fill out the form below and we'll get back to you with
@@ -425,7 +436,7 @@ const Avasya: React.FC = () => {
       )}
 
       {/* Products Section */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           {/* Filters */}
           <div className="mb-8">
@@ -510,7 +521,7 @@ const Avasya: React.FC = () => {
             }}
           >
             <div
-              className="w-[90vw] max-w-3xl h-[90vh] max-h-[700px] bg-[#fef7e7] rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-200 pointer-events-auto"
+              className="w-[90vw] max-w-3xl h-[90vh] max-h-[700px] bg-white rounded-3xl shadow-2xl overflow-hidden border-4 border-gray-200 pointer-events-auto"
               onMouseLeave={() => setZoomedImage(null)}
             >
               <div className="relative w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-12">
@@ -550,7 +561,7 @@ const Avasya: React.FC = () => {
             onClick={() => setShowOrderForm(false)}
           ></div>
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="bg-[#fef7e7] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-primary text-warmWhite p-6 flex items-center justify-between sticky top-0">
                 <h2 className="text-2xl font-bold">Create Order</h2>
                 <button
@@ -799,7 +810,7 @@ const Avasya: React.FC = () => {
                 Food as Therapy
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                Traditional grains like millets have therapeutic properties. We
+                Traditional grains like millets and cereals have therapeutic properties. We
                 harness this wisdom to create foods that heal and energize
                 naturally.
               </p>
@@ -812,7 +823,7 @@ const Avasya: React.FC = () => {
                 Community & Planet
               </h3>
               <p className="text-gray-700 leading-relaxed">
-                By choosing millets and local crops, we support sustainable
+                By choosing millets, cereals and local crops, we support sustainable
                 farming and contribute to a healthier planet for future
                 generations.
               </p>
@@ -827,16 +838,16 @@ const Avasya: React.FC = () => {
               partnerships. We welcome inquiries from:
             </p>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Railways</p>
               </div>
-              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Airlines</p>
               </div>
-              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Gift Kits</p>
               </div>
-              <div className="bg-[#fef7e7] rounded-lg p-4 border border-secondary-dark/20">
+              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
                 <p className="font-semibold text-primary">Corporate Gifting</p>
               </div>
             </div>

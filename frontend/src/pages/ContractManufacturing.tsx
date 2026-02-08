@@ -263,7 +263,7 @@ const ContractManufacturing: React.FC = () => {
             </h1>
             <p className="text-xl md:text-2xl mb-6 text-warmWhite/95 leading-relaxed max-w-4xl mx-auto font-medium">
               With our unmatchable expertise and state-of-the-art manufacturing
-              facility, start your FMCG & millet-based food business in a matter
+              facility, start your FMCG & millet and cereal-based food business in a matter
               of weeks. We'll plan everything for you, from recipe to label
               designs.
             </p>
@@ -273,7 +273,7 @@ const ContractManufacturing: React.FC = () => {
                   const event = new CustomEvent("openContactModal");
                   window.dispatchEvent(event);
                 }}
-                className="group bg-[#fef7e7] text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-3 transform"
+                className="group bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-3 transform"
               >
                 <span>Get Started Today</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -321,7 +321,7 @@ const ContractManufacturing: React.FC = () => {
                 const Icon = item.icon;
                 return (
                   <div key={index} className="process-step relative group">
-                    <div className="bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-2">
+                    <div className="bg-white rounded-2xl p-8 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 h-full transform hover:-translate-y-2">
                       <div className="flex items-start space-x-6 mb-6">
                         <div
                           className={`${item.color} w-20 h-20 rounded-2xl flex items-center justify-center text-warmWhite shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 flex-shrink-0`}
@@ -429,7 +429,7 @@ const ContractManufacturing: React.FC = () => {
               {productTypes.map((product, index) => (
                 <div
                   key={index}
-                  className="flex items-start space-x-4 bg-[#fef7e7] rounded-xl p-6 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group"
+                  className="flex items-start space-x-4 bg-white rounded-xl p-6 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300 group"
                 >
                   <div className="bg-primary/10 group-hover:bg-primary/20 rounded-lg p-2 transition-colors">
                     <CheckCircle className="w-6 h-6 text-primary flex-shrink-0" />
@@ -454,7 +454,7 @@ const ContractManufacturing: React.FC = () => {
       </section>
 
       {/* Contract & Third Party Manufacturing */}
-      <section className="section-padding bg-[#fef7e7] relative overflow-hidden">
+      <section className="section-padding bg-white relative overflow-hidden">
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <div className="inline-block mb-6">
@@ -478,7 +478,7 @@ const ContractManufacturing: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="offering-card bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2"
+                  className="offering-card bg-white rounded-2xl p-8 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-2xl transition-all duration-500 group transform hover:-translate-y-2"
                 >
                   <div
                     className={`${offering.color} w-20 h-20 rounded-2xl flex items-center justify-center mb-6 text-warmWhite shadow-xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500`}
@@ -524,7 +524,7 @@ const ContractManufacturing: React.FC = () => {
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-[#fef7e7] rounded-xl p-6 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-xl p-6 border-2 border-secondary-dark/20 hover:border-primary/40 hover:shadow-xl transition-all duration-300"
               >
                 <button
                   onClick={() => toggleFaq(index)}
@@ -587,7 +587,7 @@ const ContractManufacturing: React.FC = () => {
                 const event = new CustomEvent("openContactModal");
                 window.dispatchEvent(event);
               }}
-              className="group bg-[#fef7e7] text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-3 transform"
+              className="group bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:scale-105 inline-flex items-center justify-center space-x-3 transform"
             >
               <span>Get in Touch</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

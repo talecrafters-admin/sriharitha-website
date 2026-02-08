@@ -44,7 +44,7 @@ const CategoryPage: React.FC = () => {
       </section>
 
       {/* Products Grid */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {categoryData.products.map((product) => (
@@ -68,22 +68,17 @@ const CategoryPage: React.FC = () => {
                       {product.packSize}
                     </span>
                   </div>
-                  {product.price && (
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <p className="text-2xl font-bold text-primary">
-                          ₹{product.price.toLocaleString()}
-                        </p>
-                        <p className="text-xs text-gray-500">{product.priceUnit || 'per unit'}</p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-lg font-semibold text-primary">
+                      Contact for pricing
+                    </p>
+                    {product.moq && (
+                      <div className="text-right">
+                        <p className="text-sm font-semibold text-gray-700">MOQ</p>
+                        <p className="text-sm text-primary font-medium">{product.moq}</p>
                       </div>
-                      {product.moq && (
-                        <div className="text-right">
-                          <p className="text-sm font-semibold text-gray-700">MOQ</p>
-                          <p className="text-sm text-primary font-medium">{product.moq}</p>
-                        </div>
-                      )}
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
                 {product.features && product.features.length > 0 && (
                   <div className="space-y-2 mb-4">
@@ -136,7 +131,7 @@ const CategoryPage: React.FC = () => {
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-6">
             Request Product Specifications

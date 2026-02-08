@@ -28,7 +28,12 @@ import hero3 from "../assets/images/hero-3.jpg";
 import hero4 from "../assets/images/hero-4.jpg";
 import hero5 from "../assets/images/hero-5.jpg";
 import hero6 from "../assets/images/hero-6.jpg";
-import placeholderImage from "../assets/images/products/neptune-placeholder.jpg";
+import product1 from "../assets/images/products/Breakfast-Cereals.jpeg";
+import product2 from "../assets/images/products/Breakfast-mix.jpeg";
+import product3 from "../assets/images/products/Energy-bytes.jpeg";
+import product4 from "../assets/images/products/noodles.png";
+import product5 from "../assets/images/products/bars.webp";
+import product6 from "../assets/images/products/spice-powders.webp";
 import founderImage from "../assets/images/Anu.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -54,10 +59,9 @@ const Home: React.FC = () => {
           duration: 0.8,
           stagger: 0.2,
           ease: "power3.out",
-        }
+        },
       );
     }
-
 
     // Parallax effects for sections
     const parallaxSections = document.querySelectorAll(".parallax-section");
@@ -75,43 +79,50 @@ const Home: React.FC = () => {
     });
   }, []);
 
-
   const productCategoriesList = [
     {
+      name: "Instant Mix",
+      description:
+        "1) Breakfast mix  2) Beverages Mix  3) Soups and Porridge mixes",
+      path: "/products/instant-mix",
+      image: product2,
+    },
+    {
       name: "Breakfast Cereals",
-      description: "Millet flakes & cereal blends",
-      image: placeholderImage,
-    },
-    {
-      name: "Breakfast Mixes",
-      description: "Idli, dosa, upma, pongal & health mixes",
-      image: placeholderImage,
-    },
-    {
-      name: "Instant Mixes",
-      description: "Porridge mix, millet & cereal noodles, energy bars",
-      image: placeholderImage,
+      description: "1) Millet & Cereal Flakes  2) Muesli's",
+      path: "/products/breakfast-cereals",
+      image: product1,
     },
     {
       name: "Millet Snacks",
-      description: "Energy Bytes & baked snack formats",
-      image: placeholderImage,
+      description: "1) Extruded Snacks  2) Traditional Snacks  3) Trail mix",
+      path: "/products/energy-bytes",
+      image: product3,
     },
     {
-      name: "Soup Mixes",
-      description: "Wholesome, ready-to-prepare soups",
-      image: placeholderImage,
+      name: "Millet Noodles",
+      description: "",
+      path: "/products/millet-noodles",
+      image: product4,
+    },
+    {
+      name: "Bars",
+      description:
+        "1) Peanut Bars  2) Sesame Bars  3) Fruit & Nut Bars  4) Millet Bars  5) Other Protein bars",
+      path: "/products/bars",
+      image: product5,
     },
     {
       name: "Spice Powders",
-      description: "Traditional blends for everyday cooking",
-      image: placeholderImage,
+      description: "",
+      path: "/products/spice-powders",
+      image: product6,
     },
   ];
 
   const whoWeWorkWith = [
     {
-      text: "FMCG & D2C brands launching or scaling millet products",
+      text: "FMCG & D2C brands launching or scaling millet and cereal products",
       icon: ShoppingBag,
     },
     {
@@ -161,15 +172,19 @@ const Home: React.FC = () => {
     "FSSAI-certified facility and strict quality processes",
     "Proven bulk and institutional supply capability",
     "An in-house brand that validates every formulation we build",
+    "Custom formulation and private label support for your brand",
   ];
 
   const leadership = {
     title: "Visionary leadership driving innovation and excellence",
     name: "Mrs. K P Annapurna",
     role: "Chief Executive Officer",
-    description: "Under the visionary leadership of Mrs. K P Annapurna, Sri Haritha has established itself as a trusted name in millet-based food manufacturing. Her commitment to quality, nutrition, and sustainability drives every aspect of our business.",
-    additional: "With a deep understanding of both traditional food wisdom and modern manufacturing practices, she has built a company that successfully bridges heritage and innovation.",
-    quote: "Our mission is to bring the goodness of traditional millets to modern tables, ensuring that every product we create nourishes both body and soul while honoring our rich culinary heritage.",
+    description:
+      "Under the visionary leadership of Mrs. K P Annapurna, Sri Haritha has established itself as a trusted name in millet and cereal-based food manufacturing. Her commitment to quality, nutrition, and sustainability drives every aspect of our business.",
+    additional:
+      "With a deep understanding of both traditional food wisdom and modern manufacturing practices, she has built a company that successfully bridges heritage and innovation.",
+    quote:
+      "Our mission is to bring the goodness of traditional millets and cereals to modern tables, ensuring that every product we create nourishes both body and soul while honoring our rich culinary heritage.",
   };
 
   const howItWorks = [
@@ -202,7 +217,8 @@ const Home: React.FC = () => {
         "We manufacture Ready-to-Eat and Ready-to-Cook millet & cereal-based foods including mixes, cereals, snacks, soups, spice powders and flours.",
     },
     {
-      question: "Do you offer contract manufacturing and private label services?",
+      question:
+        "Do you offer contract manufacturing and private label services?",
       answer:
         "Yes. We provide end-to-end contract manufacturing including formulation, bulk production and private label support.",
     },
@@ -226,7 +242,6 @@ const Home: React.FC = () => {
   const toggleFaq = (index: number) => {
     setOpenFaqIndex(openFaqIndex === index ? null : index);
   };
-
 
   const heroSlides = [
     {
@@ -256,7 +271,7 @@ const Home: React.FC = () => {
       badge: null,
       title: "A Reliable Partner for Bulk Supply & Contract Manufacturing",
       description:
-        "From formulation and piloting to large-scale production — we help you launch and scale millet food products with consistent quality.",
+        "From formulation and piloting to large-scale production — we help you launch and scale millet and cereal food products with consistent quality.",
       ctaText: "Start a Contract Manufacturing Enquiry",
       ctaLink: "/contract-manufacturing",
       cta2Text: null,
@@ -289,7 +304,7 @@ const Home: React.FC = () => {
       badge: null,
       title: "Looking to Build or Scale a Millet Product Line?",
       description:
-        "Partner with a manufacturer that understands millets, nutrition and commercial scalability.",
+        "Partner with a manufacturer that understands millets and cereals, nutrition and commercial scalability.",
       ctaText: "Enquire for Bulk / OEM",
       ctaLink: "/contact",
       cta2Text: "Download Catalogue",
@@ -313,7 +328,6 @@ const Home: React.FC = () => {
       }
     };
   }, [heroSlides.length]);
-
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -375,7 +389,9 @@ const Home: React.FC = () => {
             <div
               key={index}
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-                index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                index === currentSlide
+                  ? "opacity-100 z-10"
+                  : "opacity-0 z-0 pointer-events-none"
               }`}
             >
               {/* Background Image */}
@@ -400,7 +416,10 @@ const Home: React.FC = () => {
 
               {/* Content */}
               <div className="container-custom relative z-10 h-full flex items-center px-4 sm:px-6 lg:px-8">
-                <div className="max-w-4xl w-full" ref={index === 0 ? heroRef : null}>
+                <div
+                  className="max-w-4xl w-full"
+                  ref={index === 0 ? heroRef : null}
+                >
                   {slide.badge && (
                     <div className="inline-flex items-center space-x-2 sm:space-x-3 mb-4 sm:mb-6 px-3 sm:px-5 py-1.5 sm:py-2.5 bg-warmWhite/15 backdrop-blur-md rounded-full border border-warmWhite/30 shadow-lg">
                       <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-warmWhite flex-shrink-0" />
@@ -487,43 +506,62 @@ const Home: React.FC = () => {
               WHAT WE MANUFACTURE
             </h2>
           </div>
-          
+
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
               {productCategoriesList.map((category, index) => (
-                <div
+                <Link
                   key={index}
-                  className="group relative rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden bg-[#fef7e7]"
-                  style={{
-                    backgroundImage: `url(${category.image})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'no-repeat',
-                  }}
+                  to={category.path}
+                  className="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
                 >
-                  {/* Gradient overlay for better text readability - lighter overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-warmWhite/50 via-warmWhite/40 to-warmWhite/35 group-hover:from-warmWhite/40 group-hover:via-warmWhite/30 group-hover:to-warmWhite/25 transition-all duration-500"></div>
-                  
-                  {/* Decorative gradient on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                  
-                  <div className="relative z-10">
-                    <h3 className="text-2xl font-bold text-text mb-3 group-hover:text-primary transition-colors duration-300 drop-shadow-md">
-                      {category.name}
-                    </h3>
-                    <p className="text-base text-text-light leading-relaxed drop-shadow-md">
-                      {category.description}
-                    </p>
+                  {/* Image Container with Overlay */}
+                  <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="absolute top-4 right-4 bg-warmWhite/90 backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <ArrowRight className="w-5 h-5 text-primary" />
+                    </div>
+                    <div className="absolute bottom-4 left-4 bg-warmWhite/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
+                      <span className="text-sm font-semibold text-primary">
+                        View
+                      </span>
+                    </div>
                   </div>
-                  
-                  {/* Hover arrow indicator */}
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0 z-10">
-                    <ArrowRight className="w-5 h-5 text-primary" />
+
+                  {/* Content */}
+                  <div className="p-8">
+                    <div className="flex items-start justify-between mb-4">
+                      <h3 className="text-2xl font-heading font-bold text-gray-900 group-hover:text-primary transition-colors flex-1">
+                        {category.name}
+                      </h3>
+                      <div className="ml-4 w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <Package className="w-6 h-6 text-primary group-hover:text-warmWhite transition-colors" />
+                      </div>
+                    </div>
+                    {category.description ? (
+                      <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+                        {category.description}
+                      </p>
+                    ) : (
+                      <div className="mb-6" />
+                    )}
+                    <div className="flex items-center text-primary font-semibold group-hover:gap-3 transition-all">
+                      <span>Explore Category</span>
+                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
+                    </div>
                   </div>
-                </div>
+
+                  {/* Accent Border on Hover */}
+                  <div className="absolute inset-0 border-2 border-primary rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+                </Link>
               ))}
             </div>
-            
+
             <div className="text-center">
               <Link
                 to="/products"
@@ -538,10 +576,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* WHO WE WORK WITH */}
-      <section className="section-padding bg-[#fef7e7] relative overflow-hidden">
+      <section className="section-padding bg-white relative overflow-hidden">
         {/* Subtle pattern background */}
         <div className="absolute inset-0 opacity-[0.02] subtle-lines"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-4 leading-tight">
@@ -551,7 +589,7 @@ const Home: React.FC = () => {
               Built for Serious Buyers
             </p>
           </div>
-          
+
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-6">
               {whoWeWorkWith.map((item, index) => {
@@ -563,13 +601,13 @@ const Home: React.FC = () => {
                   >
                     {/* Background gradient on hover */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     <div className="relative z-10 flex items-start space-x-5">
                       {/* Icon container */}
                       <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                         <Icon className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors duration-300" />
                       </div>
-                      
+
                       {/* Content */}
                       <div className="flex-1 pt-1">
                         <p className="text-lg font-semibold text-text leading-relaxed group-hover:text-primary transition-colors duration-300">
@@ -577,7 +615,7 @@ const Home: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     {/* Decorative corner element */}
                     <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
@@ -593,14 +631,14 @@ const Home: React.FC = () => {
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-primary/5 to-transparent"></div>
         <div className="absolute bottom-0 right-0 w-1/3 h-1/2 bg-gradient-to-t from-primary/5 to-transparent"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-6 leading-tight">
               WHAT WE DO FOR BRANDS
             </h2>
           </div>
-          
+
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {manufacturingServices.map((service, index) => {
@@ -608,11 +646,11 @@ const Home: React.FC = () => {
                 return (
                   <div
                     key={index}
-                    className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center overflow-hidden"
+                    className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center overflow-hidden"
                   >
                     {/* Animated background gradient */}
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     <div className="relative z-10">
                       {/* Icon with animated container */}
                       <div className="relative inline-flex mb-6">
@@ -621,13 +659,13 @@ const Home: React.FC = () => {
                           <Icon className="w-10 h-10 text-primary group-hover:text-warmWhite transition-colors duration-300" />
                         </div>
                       </div>
-                      
+
                       {/* Service title */}
                       <p className="text-base font-bold text-text leading-relaxed group-hover:text-primary transition-colors duration-300">
                         {service.title}
                       </p>
                     </div>
-                    
+
                     {/* Decorative corner */}
                     <div className="absolute top-0 right-0 w-20 h-20 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
@@ -642,15 +680,18 @@ const Home: React.FC = () => {
       <section className="section-padding bg-gradient-to-br from-primary via-primary-dark to-primary text-warmWhite relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-warmWhite/5 rounded-full blur-3xl floating-shape"></div>
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-warmWhite/5 rounded-full blur-3xl floating-shape" style={{ animationDelay: "2s" }}></div>
-        
+        <div
+          className="absolute bottom-0 right-1/4 w-96 h-96 bg-warmWhite/5 rounded-full blur-3xl floating-shape"
+          style={{ animationDelay: "2s" }}
+        ></div>
+
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 text-shadow-soft">
               WHY SRI HARITHA
             </h2>
           </div>
-          
+
           <div className="max-w-6xl mx-auto">
             {/* Leadership Section */}
             <div className="mb-12">
@@ -658,7 +699,7 @@ const Home: React.FC = () => {
                 {/* Decorative elements */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-warmWhite/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute bottom-0 left-0 w-48 h-48 bg-warmWhite/5 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 <div className="relative z-10">
                   <div className="flex items-center space-x-3 mb-6">
                     <Award className="w-8 h-8 text-warmWhite/90" />
@@ -666,11 +707,11 @@ const Home: React.FC = () => {
                       Leadership
                     </h3>
                   </div>
-                  
+
                   <p className="text-lg md:text-xl text-warmWhite/90 mb-8 font-medium leading-relaxed">
                     {leadership.title}
                   </p>
-                  
+
                   <div className="grid md:grid-cols-3 gap-8 items-start">
                     {/* Leader Info */}
                     <div className="md:col-span-1">
@@ -690,7 +731,7 @@ const Home: React.FC = () => {
                         </p>
                       </div>
                     </div>
-                    
+
                     {/* Description and Quote */}
                     <div className="md:col-span-2 space-y-6">
                       <div className="space-y-4">
@@ -701,13 +742,17 @@ const Home: React.FC = () => {
                           {leadership.additional}
                         </p>
                       </div>
-                      
+
                       {/* Quote Section */}
                       <div className="bg-warmWhite/10 rounded-2xl p-6 md:p-8 border-2 border-warmWhite/30 backdrop-blur-sm relative overflow-hidden">
                         {/* Decorative quote marks */}
-                        <div className="absolute top-4 left-4 text-warmWhite/20 text-6xl font-serif leading-none">"</div>
-                        <div className="absolute bottom-4 right-4 text-warmWhite/20 text-6xl font-serif leading-none rotate-180">"</div>
-                        
+                        <div className="absolute top-4 left-4 text-warmWhite/20 text-6xl font-serif leading-none">
+                          "
+                        </div>
+                        <div className="absolute bottom-4 right-4 text-warmWhite/20 text-6xl font-serif leading-none rotate-180">
+                          "
+                        </div>
+
                         <div className="relative z-10">
                           <p className="text-lg md:text-xl text-warmWhite/95 italic leading-relaxed mb-4 font-medium">
                             {leadership.quote}
@@ -725,7 +770,7 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Why Choose Us Points */}
             <div className="grid md:grid-cols-2 gap-6">
               {whyChooseUs.map((item, index) => (
@@ -735,7 +780,7 @@ const Home: React.FC = () => {
                 >
                   {/* Decorative corner */}
                   <div className="absolute top-0 right-0 w-24 h-24 bg-warmWhite/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  
+
                   {/* Content */}
                   <div className="flex items-start space-x-4 relative z-10">
                     <div className="flex-shrink-0 w-10 h-10 bg-warmWhite/20 rounded-xl flex items-center justify-center group-hover:bg-warmWhite/30 group-hover:scale-110 transition-all duration-300">
@@ -745,7 +790,7 @@ const Home: React.FC = () => {
                       {item}
                     </p>
                   </div>
-                  
+
                   {/* Hover gradient effect */}
                   <div className="absolute inset-0 bg-gradient-to-r from-warmWhite/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </div>
@@ -762,7 +807,7 @@ const Home: React.FC = () => {
           <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
           <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-primary rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="container-custom relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
@@ -773,15 +818,15 @@ const Home: React.FC = () => {
                 Our In-House Millet Food Brand
               </p>
               <p className="text-lg text-text-light leading-relaxed max-w-3xl mx-auto">
-                Avasya represents our philosophy of "Essentials for Healthy Living."
-                Every product we manufacture is tested, refined and validated
-                through Avasya before being offered to our partners.
+                Avasya represents our philosophy of "Essentials for Healthy
+                Living." Every product we manufacture is tested, refined and
+                validated through Avasya before being offered to our partners.
               </p>
             </div>
-            
+
             {/* Feature cards grid */}
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <div className="group bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
+              <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                   <CheckCircle className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                 </div>
@@ -789,7 +834,7 @@ const Home: React.FC = () => {
                   Proven Formulations
                 </h3>
               </div>
-              
+
               <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                   <TrendingUp className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
@@ -798,8 +843,8 @@ const Home: React.FC = () => {
                   Market-Tested Products
                 </h3>
               </div>
-              
-              <div className="group bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
+
+              <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                   <ShieldCheck className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                 </div>
@@ -808,7 +853,7 @@ const Home: React.FC = () => {
                 </h3>
               </div>
             </div>
-            
+
             <div className="text-center">
               <Link
                 to="/avasya"
@@ -827,7 +872,7 @@ const Home: React.FC = () => {
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-secondary/10 to-transparent"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-6 leading-tight">
@@ -837,79 +882,113 @@ const Home: React.FC = () => {
               Trusted by brands and businesses across India
             </p>
           </div>
-          
+
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-3 gap-8">
               {/* Testimonial 1 - Chetna */}
-              <div className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Quote icon */}
-                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">"</div>
-                
+                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">
+                  "
+                </div>
+
                 <div className="relative z-10">
                   {/* Testimonial text */}
                   <p className="text-base text-text-light leading-relaxed mb-6 italic">
-                    "We, as farmers with extensive millet cultivation, sought to diversify into value-added products and discovered Sri Haritha Agro Food Products. Their streamlined operations stand out for their exceptional taste and quality. Notably, their products strike the perfect balance between health and taste, underscoring the courage of health-conscious consumers in choosing them. We extend our best wishes to them for their continued success and growth."
+                    "We, as farmers with extensive millet and cereal
+                    cultivation, sought to diversify into value-added products
+                    and discovered Sri Haritha Agro Food Products. Their
+                    streamlined operations stand out for their exceptional taste
+                    and quality. Notably, their products strike the perfect
+                    balance between health and taste, underscoring the courage
+                    of health-conscious consumers in choosing them. We extend
+                    our best wishes to them for their continued success and
+                    growth."
                   </p>
-                  
+
                   {/* Customer info */}
                   <div className="flex items-center space-x-4 pt-6 border-t border-secondary-dark/20">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-primary mb-1">Chetna</h4>
+                      <h4 className="text-lg font-bold text-primary mb-1">
+                        Chetna
+                      </h4>
                       <p className="text-sm text-text-light">Co-Founder</p>
-                      <p className="text-sm font-semibold text-text">Ayurtree Naturals</p>
+                      <p className="text-sm font-semibold text-text">
+                        Ayurtree Naturals
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Testimonial 2 - Priyanka */}
-              <div className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Quote icon */}
-                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">"</div>
-                
+                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">
+                  "
+                </div>
+
                 <div className="relative z-10">
                   {/* Testimonial text */}
                   <p className="text-base text-text-light leading-relaxed mb-6 italic">
-                    "I am extremely pleased with my experience with Sri Haritha Agro Food Products. Their steadfast commitment to integrity is evident in every interaction, fostering invaluable trust. The quality of their products is exceptional, demonstrating a dedication to sourcing premium materials and ensuring customer satisfaction. This unwavering commitment has streamlined our business operations. I wholeheartedly recommend Sri Haritha Agro Food for their integrity, top-notch quality, and punctuality."
+                    "I am extremely pleased with my experience with Sri Haritha
+                    Agro Food Products. Their steadfast commitment to integrity
+                    is evident in every interaction, fostering invaluable trust.
+                    The quality of their products is exceptional, demonstrating
+                    a dedication to sourcing premium materials and ensuring
+                    customer satisfaction. This unwavering commitment has
+                    streamlined our business operations. I wholeheartedly
+                    recommend Sri Haritha Agro Food for their integrity,
+                    top-notch quality, and punctuality."
                   </p>
-                  
+
                   {/* Customer info */}
                   <div className="flex items-center space-x-4 pt-6 border-t border-secondary-dark/20">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-primary mb-1">Priyanka</h4>
+                      <h4 className="text-lg font-bold text-primary mb-1">
+                        Priyanka
+                      </h4>
                       <p className="text-sm text-text-light">Co-Founder</p>
-                      <p className="text-sm font-semibold text-text">Miller Bank</p>
+                      <p className="text-sm font-semibold text-text">
+                        Miller Bank
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Testimonial 3 - Amar */}
-              <div className="group relative bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
+              <div className="group relative bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 overflow-hidden">
                 {/* Decorative corner */}
                 <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                
+
                 {/* Quote icon */}
-                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">"</div>
-                
+                <div className="absolute top-6 right-6 text-primary/10 text-6xl font-serif leading-none">
+                  "
+                </div>
+
                 <div className="relative z-10">
                   {/* Testimonial text */}
                   <p className="text-base text-text-light leading-relaxed mb-6 italic">
                     "Committed people. Quality products."
                   </p>
-                  
+
                   {/* Customer info */}
                   <div className="flex items-center space-x-4 pt-6 border-t border-secondary-dark/20">
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold text-primary mb-1">Amar</h4>
+                      <h4 className="text-lg font-bold text-primary mb-1">
+                        Amar
+                      </h4>
                       <p className="text-sm text-text-light">Founder</p>
-                      <p className="text-sm font-semibold text-text">Med C Pharma</p>
+                      <p className="text-sm font-semibold text-text">
+                        Med C Pharma
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -917,22 +996,31 @@ const Home: React.FC = () => {
             </div>
 
             {/* Additional trust indicators */}
-            <div className="mt-12 text-center">
-              <p className="text-lg text-text-light mb-4 font-medium">
+            <div className="mt-14 pt-12 border-t border-secondary-dark/20">
+              <p className="text-center text-xl text-text font-semibold mb-10 max-w-2xl mx-auto">
                 Trusted by brands, institutions, and nutrition programs across India
               </p>
-              <div className="flex flex-wrap justify-center gap-6">
-                <div className="bg-[#fef7e7] rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
-                  <p className="text-2xl font-bold text-primary">500+</p>
-                  <p className="text-sm text-text-light">Happy Clients</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <div className="flex flex-col items-center text-center bg-white rounded-2xl px-8 py-6 border-2 border-secondary-dark/10 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+                    <Users className="w-7 h-7 text-primary" />
+                  </div>
+                  <p className="text-3xl font-bold text-primary mb-1">500+</p>
+                  <p className="text-sm font-medium text-text-light">Happy Clients</p>
                 </div>
-                <div className="bg-[#fef7e7] rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
-                  <p className="text-2xl font-bold text-primary">7+ Years</p>
-                  <p className="text-sm text-text-light">Experience</p>
+                <div className="flex flex-col items-center text-center bg-white rounded-2xl px-8 py-6 border-2 border-secondary-dark/10 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+                    <Award className="w-7 h-7 text-primary" />
+                  </div>
+                  <p className="text-3xl font-bold text-primary mb-1">7+ Years</p>
+                  <p className="text-sm font-medium text-text-light">Experience</p>
                 </div>
-                <div className="bg-[#fef7e7] rounded-xl px-6 py-3 border border-secondary-dark/20 shadow-sm">
-                  <p className="text-2xl font-bold text-primary">FSSAI</p>
-                  <p className="text-sm text-text-light">Certified</p>
+                <div className="flex flex-col items-center text-center bg-white rounded-2xl px-8 py-6 border-2 border-secondary-dark/10 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
+                    <ShieldCheck className="w-7 h-7 text-primary" />
+                  </div>
+                  <p className="text-3xl font-bold text-primary mb-1">FSSAI</p>
+                  <p className="text-sm font-medium text-text-light">Certified</p>
                 </div>
               </div>
             </div>
@@ -944,7 +1032,7 @@ const Home: React.FC = () => {
       <section className="section-padding bg-gradient-to-b from-background-white via-secondary/10 to-background-white relative overflow-hidden">
         {/* Subtle pattern */}
         <div className="absolute inset-0 opacity-[0.02] subtle-pattern"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-6 leading-tight">
@@ -954,7 +1042,7 @@ const Home: React.FC = () => {
               From Idea to Bulk Production
             </p>
           </div>
-          
+
           <div className="max-w-6xl mx-auto">
             <div className="relative">
               {/* Connecting line for desktop - horizontal timeline */}
@@ -965,11 +1053,13 @@ const Home: React.FC = () => {
                   <div
                     key={index}
                     className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-warmWhite shadow-lg"
-                    style={{ left: `${(index * 100) / (howItWorks.length - 1)}%` }}
+                    style={{
+                      left: `${(index * 100) / (howItWorks.length - 1)}%`,
+                    }}
                   ></div>
                 ))}
               </div>
-              
+
               {/* Steps Grid */}
               <div className="grid lg:grid-cols-4 gap-6 lg:gap-4">
                 {howItWorks.map((step, index) => {
@@ -981,30 +1071,30 @@ const Home: React.FC = () => {
                       {!isLast && (
                         <div className="lg:hidden absolute top-20 left-1/2 -translate-x-1/2 w-0.5 h-6 bg-gradient-to-b from-primary/40 to-primary/20 z-0"></div>
                       )}
-                      
-                      <div className="group relative bg-[#fef7e7] rounded-2xl p-6 lg:p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full">
+
+                      <div className="group relative bg-white rounded-2xl p-6 lg:p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:-translate-y-2 h-full">
                         {/* Step number badge - top center */}
                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-gradient-to-br from-primary to-primary-dark rounded-full flex items-center justify-center text-warmWhite font-bold text-lg shadow-xl z-20 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500">
                           {step.step}
                         </div>
-                        
+
                         {/* Content */}
                         <div className="pt-6">
                           {/* Icon */}
                           <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                             <Icon className="w-8 h-8 text-primary group-hover:text-warmWhite transition-colors" />
                           </div>
-                          
+
                           {/* Title */}
                           <h3 className="text-lg lg:text-xl font-bold text-text text-center group-hover:text-primary transition-colors duration-300 leading-tight">
                             {step.title}
                           </h3>
                         </div>
-                        
+
                         {/* Hover gradient */}
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"></div>
                       </div>
-                      
+
                       {/* Arrow connector for desktop */}
                       {!isLast && (
                         <div className="hidden lg:block absolute top-20 -right-2 w-4 h-0.5 bg-primary/40 z-10">
@@ -1020,12 +1110,11 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-
       {/* Visit Our Facility */}
       <section className="section-padding bg-gradient-to-br from-secondary/20 via-background-white to-secondary/20 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-primary mb-4 leading-tight">
@@ -1035,12 +1124,12 @@ const Home: React.FC = () => {
               Located in the heart of Hyderabad's industrial area
             </p>
           </div>
-          
+
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 items-center">
               {/* Contact Info Card */}
               <div className="space-y-6">
-                <div className="group bg-[#fef7e7] rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl">
+                <div className="group bg-white rounded-2xl p-8 border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 hover:shadow-2xl">
                   <div className="flex items-center space-x-3 mb-6">
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                       <MapPin className="w-6 h-6 text-primary group-hover:text-warmWhite transition-colors" />
@@ -1048,13 +1137,13 @@ const Home: React.FC = () => {
                     <h3 className="text-2xl font-bold text-text">Address</h3>
                   </div>
                   <p className="text-base text-text leading-relaxed mb-6">
-                    Plot No. B-35, BHEL AIE,
+                    Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
                     <br />
-                    R.C. Puram, Hyderabad-502 032,
+                    Nandigaon, Bhanur, Sangareddy, Patancheru Mandal,
                     <br />
-                    Telangana, India
+                    Pin code 502300, Telangana, India
                   </p>
-                  
+
                   <div className="space-y-4 pt-6 border-t border-secondary-dark/20">
                     <a
                       href="tel:+919885704833"
@@ -1072,11 +1161,13 @@ const Home: React.FC = () => {
                       <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary transition-all duration-300">
                         <MessageCircle className="w-5 h-5 text-primary group-hover:text-warmWhite transition-colors" />
                       </div>
-                      <span className="font-semibold">sriharithaagrofood@gmail.com</span>
+                      <span className="font-semibold">
+                        sriharithaagrofood@gmail.com
+                      </span>
                     </a>
                   </div>
                 </div>
-                
+
                 <Link
                   to="/contact"
                   className="group inline-flex items-center space-x-3 bg-primary text-warmWhite px-8 py-4 rounded-xl font-bold text-lg hover:bg-primary-dark transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform w-full justify-center"
@@ -1085,13 +1176,13 @@ const Home: React.FC = () => {
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                 </Link>
               </div>
-              
+
               {/* Map */}
               <div className="relative rounded-2xl overflow-hidden shadow-2xl h-96 bg-secondary group hover:shadow-3xl transition-all duration-500">
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
                 <iframe
                   title="Sri Haritha Agro Food Products Location"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d78.3891!3d17.4489!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzU2LjAiTiA3OMKwMjMnMjAuOCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.677647355345!2d78.18873389682253!3d17.507003548588127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf1e2e38b7ebd%3A0x7cac81e6e62a3f64!2sALEAP%20Green%20Industrial%20Park!5e0!3m2!1sen!2sin!4v1770577292897!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -1107,10 +1198,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* FAQs */}
-      <section className="section-padding bg-[#fef7e7] relative overflow-hidden">
+      <section className="section-padding bg-white relative overflow-hidden">
         {/* Subtle background pattern */}
         <div className="absolute inset-0 opacity-[0.02] subtle-pattern"></div>
-        
+
         <div className="container-custom relative z-10">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -1118,12 +1209,12 @@ const Home: React.FC = () => {
                 FAQs
               </h2>
             </div>
-            
+
             <div className="space-y-4">
               {faqs.map((faq, index) => (
                 <div
                   key={index}
-                  className="group bg-[#fef7e7] rounded-2xl border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 overflow-hidden hover:shadow-xl"
+                  className="group bg-white rounded-2xl border-2 border-secondary-dark/10 hover:border-primary/30 transition-all duration-500 overflow-hidden hover:shadow-xl"
                 >
                   <button
                     onClick={() => toggleFaq(index)}
@@ -1170,7 +1261,7 @@ const Home: React.FC = () => {
             </h2>
             
             <p className="text-xl md:text-2xl mb-12 text-warmWhite/95 max-w-3xl mx-auto leading-relaxed font-medium">
-              Partner with a manufacturer that understands millets, nutrition and
+              Partner with a manufacturer that understands millets and cereals, nutrition and
               commercial scalability.
             </p>
             
@@ -1180,7 +1271,7 @@ const Home: React.FC = () => {
                   const event = new CustomEvent("openContactModal");
                   window.dispatchEvent(event);
                 }}
-                className="group bg-[#fef7e7] text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform inline-flex items-center justify-center space-x-3"
+                className="group bg-white text-primary px-10 py-5 rounded-xl font-bold text-lg hover:bg-secondary hover:text-primary-dark transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105 transform inline-flex items-center justify-center space-x-3"
               >
                 <span>Discuss Bulk / OEM Requirement</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
@@ -1199,7 +1290,6 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section> */}
-
     </div>
   );
 };

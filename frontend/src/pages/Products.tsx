@@ -8,15 +8,76 @@ import {
   TrendingUp,
   Award,
 } from "lucide-react";
-import { productCategories } from "../data/products";
+import { getCategoryBySlug } from "../data/products";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import product1 from "../assets/images/products/Breakfast-Cereals.jpeg";
+import product2 from "../assets/images/products/Breakfast-mix.jpeg";
+import product3 from "../assets/images/products/Energy-bytes.jpeg";
+import product4 from "../assets/images/products/noodles.png";
+import product5 from "../assets/images/products/bars.webp";
+import product6 from "../assets/images/products/spice-powders.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const categoryImageBySlug: Record<string, string> = {
+  "instant-mix": product2,
+  "breakfast-cereals": product1,
+  "energy-bytes": product3,
+  "millet-noodles": product4,
+  "bars": product5,
+  "spice-powders": product6,
+};
+
+// Same 6 categories as home screen, in same order
+const HOME_CATEGORY_SLUGS = [
+  null, // Instant Mix - no single slug, link to /products
+  "breakfast-cereals",
+  "energy-bytes", // Millet Snacks
+  "millet-noodles",
+  "bars",
+  "spice-powders",
+] as const;
+
 const Products: React.FC = () => {
   const categoriesRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
+
+  const displayCategories: Array<{
+    id: string;
+    name: string;
+    slug: string;
+    path: string;
+    description: string;
+    products: { length: number };
+    image: string;
+  }> = HOME_CATEGORY_SLUGS.map((slug, index) => {
+    if (slug === null) {
+      const bm = getCategoryBySlug("breakfast-mixes");
+      const bv = getCategoryBySlug("beverage-mixes");
+      const sm = getCategoryBySlug("soup-mixes");
+      const totalProducts = (bm?.products.length ?? 0) + (bv?.products.length ?? 0) + (sm?.products.length ?? 0);
+      return {
+        id: "instant-mix",
+        name: "Instant Mix",
+        slug: "instant-mix",
+        path: "/products/instant-mix",
+        description: "1) Breakfast mix  2) Beverages Mix  3) Soups and Porridge mixes",
+        products: { length: totalProducts },
+        image: product2,
+      };
+    }
+    const cat = getCategoryBySlug(slug);
+    const displayName = slug === "energy-bytes" ? "Millet Snacks" : (cat?.name ?? slug);
+    return {
+      id: cat?.id ?? slug,
+      name: displayName,
+      slug: cat?.slug ?? slug,
+      path: `/products/${slug}`,
+      description: cat?.description ?? "",
+      products: cat?.products ?? { length: 0 },
+      image: categoryImageBySlug[slug] ?? product1,
+    };
+  });
 
   useEffect(() => {
     // Category cards animation
@@ -38,53 +99,11 @@ const Products: React.FC = () => {
       );
     }
 
-    // Stats animation
-    if (statsRef.current) {
-      const counters = statsRef.current.querySelectorAll(".stat-number");
-      counters.forEach((counter) => {
-        const target = parseInt(counter.getAttribute("data-target") || "0");
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-
-        const updateCounter = () => {
-          current += increment;
-          if (current < target) {
-            counter.textContent = Math.floor(current).toLocaleString();
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target.toLocaleString();
-          }
-        };
-
-        ScrollTrigger.create({
-          trigger: counter,
-          start: "top 80%",
-          onEnter: () => {
-            if (!counter.classList.contains("counted")) {
-              counter.classList.add("counted");
-              updateCounter();
-            }
-          },
-        });
-      });
-    }
   }, []);
-
-  const categoryImages = [
-    "https://images.unsplash.com/photo-1589210032586-3e54debe41df",
-    "https://images.unsplash.com/photo-1603199476769-12b7c78485e2",
-    "https://images.pexels.com/photos/8933640/pexels-photo-8933640.jpeg",
-    "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
-    "https://images.unsplash.com/photo-1547592180-85f173990554",
-    "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg",
-    "https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg",
-    "https://images.unsplash.com/photo-1563139205-b6d0e303ad58",
-  ];
 
   const productStats = [
     { number: 50, suffix: "+", label: "Product SKUs", icon: Package },
-    { number: 7, suffix: "", label: "Product Categories", icon: TrendingUp },
+    { number: 6, suffix: "", label: "Product Categories", icon: TrendingUp },
     { number: 100, suffix: "%", label: "FSSAI Certified", icon: ShieldCheck },
     { number: 500, suffix: "+", label: "Happy Clients", icon: Award },
   ];
@@ -144,12 +163,9 @@ const Products: React.FC = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="section-padding bg-[#fef7e7] -mt-20 relative z-10">
+      <section className="section-padding bg-white -mt-20 relative z-10">
         <div className="container-custom">
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-            ref={statsRef}
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {productStats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -161,9 +177,7 @@ const Products: React.FC = () => {
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                    <span className="stat-number" data-target={stat.number}>
-                      0
-                    </span>
+                    {stat.number.toLocaleString()}
                     {stat.suffix}
                   </div>
                   <p className="text-lg text-gray-700 font-medium">
@@ -202,7 +216,7 @@ const Products: React.FC = () => {
               {features.map((feature, index) => (
                 <div
                   key={index}
-                  className="flex items-center space-x-3 bg-[#fef7e7] rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all"
+                  className="flex items-center space-x-3 bg-white rounded-xl p-4 shadow-card hover:shadow-card-hover transition-all"
                 >
                   <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
                   <span className="text-gray-700 font-medium">{feature}</span>
@@ -214,7 +228,7 @@ const Products: React.FC = () => {
       </section>
 
       {/* Category Grid */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -228,16 +242,16 @@ const Products: React.FC = () => {
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
             ref={categoriesRef}
           >
-            {productCategories.map((category, index) => (
+            {displayCategories.map((category) => (
               <Link
                 key={category.id}
-                to={`/products/${category.slug}`}
-                className="group relative bg-[#fef7e7] rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
+                to={category.path}
+                className="group relative bg-white rounded-3xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-500 transform hover:-translate-y-3 border border-gray-100 category-card"
               >
                 {/* Image Container with Overlay */}
                 <div className="relative aspect-[4/3] overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5">
                   <img
-                    src={categoryImages[index] || categoryImages[0]}
+                    src={category.image}
                     alt={category.name}
                     className="w-full h-full object-cover group-hover:scale-125 transition-transform duration-700"
                   />
@@ -262,9 +276,13 @@ const Products: React.FC = () => {
                       <Package className="w-6 h-6 text-primary group-hover:text-warmWhite transition-colors" />
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
-                    {category.description}
-                  </p>
+                  {category.description ? (
+                    <p className="text-gray-600 mb-6 leading-relaxed line-clamp-3">
+                      {category.description}
+                    </p>
+                  ) : (
+                    <div className="mb-6" />
+                  )}
                   <div className="flex items-center text-primary font-semibold group-hover:gap-3 transition-all">
                     <span>Explore Category</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />

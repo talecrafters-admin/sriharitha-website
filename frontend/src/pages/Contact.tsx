@@ -169,11 +169,11 @@ const Contact: React.FC = () => {
                     <div>
                       <h3 className="font-bold text-gray-900 mb-2">Address</h3>
                       <p className="text-gray-700 leading-relaxed">
-                        Plot No. B-35, BHEL AIE,
+                        Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
                         <br />
-                        R.C. Puram, Hyderabad-502 032,
+                        Nandigaon, Bhanur, Sangareddy, Patancheru Mandal,
                         <br />
-                        Telangana, India
+                        Pin code 502300, Telangana, India
                       </p>
                     </div>
                   </div>
@@ -437,7 +437,7 @@ const Contact: React.FC = () => {
       </section>
 
       {/* Map Section */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-8">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">
@@ -449,7 +449,7 @@ const Contact: React.FC = () => {
           </div>
           <div className="rounded-3xl overflow-hidden shadow-modern">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d78.12345678901234!3d17.12345678901234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDA3JzI0LjQiTiA3OMKwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2382.677647355345!2d78.18873389682253!3d17.507003548588127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbf1e2e38b7ebd%3A0x7cac81e6e62a3f64!2sALEAP%20Green%20Industrial%20Park!5e0!3m2!1sen!2sin!4v1770577292897!5m2!1sen!2sin"
               width="100%"
               height="500"
               style={{ border: 0 }}
@@ -464,8 +464,7 @@ const Contact: React.FC = () => {
             <div className="inline-flex items-center space-x-3 bg-primary/10 px-6 py-4 rounded-xl">
               <MapPin className="w-6 h-6 text-primary" />
               <p className="text-gray-700 font-medium">
-                Plot No. B-35, BHEL AIE, R.C. Puram, Hyderabad-502 032,
-                Telangana, India
+                Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy, Patancheru Mandal, Pin code 502300, Telangana, India
               </p>
             </div>
           </div>

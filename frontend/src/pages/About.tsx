@@ -8,6 +8,7 @@ import {
   ShieldCheck,
   ArrowRight,
   Calendar,
+  Package,
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -17,7 +18,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About: React.FC = () => {
   const timelineRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,38 +38,6 @@ const About: React.FC = () => {
           },
         }
       );
-    }
-
-    // Stats counter animation
-    if (statsRef.current) {
-      const counters = statsRef.current.querySelectorAll(".stat-number");
-      counters.forEach((counter) => {
-        const target = parseInt(counter.getAttribute("data-target") || "0");
-        const duration = 2000;
-        const increment = target / (duration / 16);
-        let current = 0;
-
-        const updateCounter = () => {
-          current += increment;
-          if (current < target) {
-            counter.textContent = Math.floor(current).toLocaleString();
-            requestAnimationFrame(updateCounter);
-          } else {
-            counter.textContent = target.toLocaleString();
-          }
-        };
-
-        ScrollTrigger.create({
-          trigger: counter,
-          start: "top 80%",
-          onEnter: () => {
-            if (!counter.classList.contains("counted")) {
-              counter.classList.add("counted");
-              updateCounter();
-            }
-          },
-        });
-      });
     }
 
     // Values animation
@@ -96,6 +64,7 @@ const About: React.FC = () => {
     { number: 7, suffix: " Years", label: "Experience", icon: Calendar },
     { number: 500, suffix: "+", label: "Happy Clients", icon: Users },
     { number: 30, suffix: "+", label: "Team Members", icon: Users },
+    { number: 50, suffix: "+", label: "Product SKUs", icon: Package },
   ];
 
   const milestones = [
@@ -109,13 +78,13 @@ const About: React.FC = () => {
       year: "2018",
       title: "Company Incorporation",
       description:
-        "Sri Haritha Agro Food Products Pvt. Ltd. was incorporated with a vision to manufacture healthy, millet-based food products.",
+        "Sri Haritha Agro Food Products Pvt. Ltd. was incorporated with a vision to manufacture healthy, millet and cereal-based food products.",
     },
     {
       year: "2019",
       title: "Product Launch",
       description:
-        "Launched our first range of breakfast mixes and millet-based ready-to-cook products, receiving excellent market response.",
+        "Launched our first range of breakfast mixes and millet and cereal-based ready-to-cook products, receiving excellent market response.",
     },
     {
       year: "2020",
@@ -197,12 +166,9 @@ const About: React.FC = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="section-padding bg-[#fef7e7] -mt-20 relative z-10">
+      <section className="section-padding bg-white -mt-20 relative z-10">
         <div className="container-custom">
-          <div
-            className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
-            ref={statsRef}
-          >
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             {stats.map((stat, index) => {
               const Icon = stat.icon;
               return (
@@ -214,9 +180,7 @@ const About: React.FC = () => {
                     <Icon className="w-8 h-8 text-primary" />
                   </div>
                   <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
-                    <span className="stat-number" data-target={stat.number}>
-                      0
-                    </span>
+                    {stat.number.toLocaleString()}
                     {stat.suffix}
                   </div>
                   <p className="text-lg text-gray-700 font-medium">
@@ -271,7 +235,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Vision & Mission */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
             <div className="card hover:shadow-card-hover transition-all duration-300 group">
@@ -335,14 +299,14 @@ const About: React.FC = () => {
                   <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                     Mrs. K P Annapurna quit her job at IBM to pursue her entrepreneurial dream. Under her visionary leadership, Sri
                     Haritha has established itself as a trusted name in
-                    millet-based food manufacturing, aiming for an annual turnover of Rs. 25 crore. Her commitment to quality,
+                    millet and cereal-based food manufacturing, aiming for an annual turnover of Rs. 25 crore. Her commitment to quality,
                     nutrition, and sustainability drives every aspect of our
                     business.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     With a deep understanding of both traditional food wisdom and
                     modern manufacturing practices, she has built a company that
-                    successfully bridges heritage and innovation. As featured in <a href="https://30stades.com/enterprise/this-mba-quit-ibm-to-start-millet-business-avasya-clocks-rs25-crore-annual-turnover-6924908" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">30Stades</a>, her journey from corporate life to millet entrepreneurship is an inspiration to many.
+                    successfully bridges heritage and innovation. As featured in <a href="https://30stades.com/enterprise/this-mba-quit-ibm-to-start-millet-business-avasya-clocks-rs25-crore-annual-turnover-6924908" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">30Stades</a>, her journey from corporate life to millet and cereal entrepreneurship is an inspiration to many.
                   </p>
                 </div>
               </div>
@@ -352,7 +316,7 @@ const About: React.FC = () => {
       </section>
 
       {/* Timeline */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">

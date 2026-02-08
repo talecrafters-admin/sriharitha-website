@@ -14,6 +14,11 @@ import {
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import factory1 from "../assets/images/factory/f1.jpeg";
+import factory2 from "../assets/images/factory/f2.jpeg";
+import factory3 from "../assets/images/factory/f3.jpeg";
+import factory4 from "../assets/images/factory/f4.jpeg";
+import factory5 from "../assets/images/factory/f5.jpeg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -184,7 +189,7 @@ const Quality: React.FC = () => {
       <section className="relative h-[70vh] min-h-[500px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-primary-dark to-primary">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1700727448575-6f1680cd7d75"
+            src={factory1}
             alt="Quality & Infrastructure"
             className="w-full h-full object-cover opacity-20"
           />
@@ -209,7 +214,7 @@ const Quality: React.FC = () => {
       </section>
 
       {/* FSSAI Certification */}
-      <section className="section-padding bg-[#fef7e7] -mt-20 relative z-10">
+      <section className="section-padding bg-white -mt-20 relative z-10">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="card hover:shadow-card-hover transition-all duration-300 text-center">
@@ -251,15 +256,13 @@ const Quality: React.FC = () => {
                 State-of-the-Art Infrastructure
               </h3>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Our manufacturing unit is strategically located in BHEL AIE, R.C.
-                Puram, Hyderabad, equipped with modern machinery and technology for
-                efficient production of millet and cereal-based food products.
+                Our manufacturing unit is strategically located at APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy (Pin code 502300), equipped with modern machinery and technology for efficient production of millet and cereal-based food products.
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 {facilityFeatures.map((feature, index) => (
                   <div
                     key={index}
-                    className="flex items-start space-x-3 bg-[#fef7e7] rounded-xl p-4 shadow-card"
+                    className="flex items-start space-x-3 bg-white rounded-xl p-4 shadow-card"
                   >
                     <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
                     <span className="text-gray-700 font-medium">{feature}</span>
@@ -269,14 +272,24 @@ const Quality: React.FC = () => {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img
-                src="https://images.unsplash.com/photo-1700727448575-6f1680cd7d75"
-                alt="Quality Control"
-                className="rounded-2xl shadow-modern"
+                src={factory2}
+                alt="Manufacturing facility"
+                className="rounded-2xl shadow-modern w-full h-48 object-cover"
               />
               <img
-                src="https://images.pexels.com/photos/5953751/pexels-photo-5953751.jpeg"
-                alt="Manufacturing"
-                className="rounded-2xl shadow-modern mt-8"
+                src={factory3}
+                alt="Manufacturing facility"
+                className="rounded-2xl shadow-modern w-full h-48 object-cover"
+              />
+              <img
+                src={factory4}
+                alt="Manufacturing facility"
+                className="rounded-2xl shadow-modern w-full h-48 object-cover"
+              />
+              <img
+                src={factory5}
+                alt="Manufacturing facility"
+                className="rounded-2xl shadow-modern w-full h-48 object-cover"
               />
             </div>
           </div>
@@ -284,7 +297,7 @@ const Quality: React.FC = () => {
       </section>
 
       {/* Quality Control Process */}
-      <section className="section-padding bg-[#fef7e7]">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-heading font-bold text-primary mb-6">

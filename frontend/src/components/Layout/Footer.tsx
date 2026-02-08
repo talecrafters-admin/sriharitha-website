@@ -78,6 +78,14 @@ const Footer: React.FC = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
+                  to="/products/instant-mix"
+                  className="hover:text-primary transition-colors"
+                >
+                  Instant Mix
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/products/breakfast-cereals"
                   className="hover:text-primary transition-colors"
                 >
@@ -86,26 +94,26 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link
-                  to="/products/breakfast-mixes"
-                  className="hover:text-primary transition-colors"
-                >
-                  Breakfast Mixes
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/products/beverage-mixes"
-                  className="hover:text-primary transition-colors"
-                >
-                  Beverage Mixes
-                </Link>
-              </li>
-              <li>
-                <Link
                   to="/products/energy-bytes"
                   className="hover:text-primary transition-colors"
                 >
-                  Energy Bytes
+                  Millet Snacks
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products/millet-noodles"
+                  className="hover:text-primary transition-colors"
+                >
+                  Millet Noodles
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/products/bars"
+                  className="hover:text-primary transition-colors"
+                >
+                  Bars
                 </Link>
               </li>
               <li>
@@ -126,11 +134,11 @@ const Footer: React.FC = () => {
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>
-                  Plot No. B-35, BHEL AIE,
+                  Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
                   <br />
-                  R.C. Puram, Hyderabad-502 032,
+                  Nandigaon, Bhanur, Sangareddy, Patancheru Mandal,
                   <br />
-                  Telangana, India
+                  Pin code 502300, Telangana, India
                 </span>
               </li>
               <li className="flex items-center space-x-2">

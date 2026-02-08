@@ -133,7 +133,7 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <div
-          className={`bg-[#fef7e7] rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
+          className={`bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform transition-all duration-300 ${
             isOpen ? "scale-100 translate-y-0" : "scale-95 translate-y-4"
           }`}
         >

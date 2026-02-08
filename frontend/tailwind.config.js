@@ -28,7 +28,7 @@ module.exports = {
         },
         background: {
           DEFAULT: "#FBF9F5", // Warm off-white
-          white: "#fef7e7", // Cream
+          white: "#ffffff",
         },
         text: {
           DEFAULT: "#2C2416", // Warm dark brown

@@ -20,6 +20,13 @@ export interface ProductCategory {
 
 export const productCategories: ProductCategory[] = [
   {
+    id: 'instant-mix',
+    name: 'Instant Mix',
+    slug: 'instant-mix',
+    description: '1) Breakfast mix  2) Beverages Mix  3) Soups and Porridge mixes. Quick, hassle-free options for breakfast, drinks, and wholesome soups.',
+    products: [] // Filled in getCategoryBySlug
+  },
+  {
     id: '1',
     name: 'Breakfast Cereals',
     slug: 'breakfast-cereals',
@@ -152,7 +159,7 @@ export const productCategories: ProductCategory[] = [
     id: '2',
     name: 'Breakfast Mixes',
     slug: 'breakfast-mixes',
-    description: 'Quick & hassle-free traditional breakfast with millets. Ready-to-cook instant mixes for authentic South Indian breakfast.',
+    description: 'Quick & hassle-free traditional breakfast with millets and cereals. Ready-to-cook instant mixes for authentic South Indian breakfast.',
     products: [
       {
         id: 'bm-1',
@@ -190,7 +197,7 @@ export const productCategories: ProductCategory[] = [
       {
         id: 'bm-4',
         name: 'Millet Khichdi Mix',
-        description: 'Comfort food made healthy with millet-based khichdi mix.',
+        description: 'Comfort food made healthy with millet and cereal-based khichdi mix.',
         packSize: '250 g pack',
         category: 'breakfast-mixes',
         price: 99,
@@ -272,7 +279,7 @@ export const productCategories: ProductCategory[] = [
       {
         id: 'sm-1',
         name: 'Soup Mix',
-        description: 'Wholesome and balanced soup mix with the goodness of millets and vegetables.',
+        description: 'Wholesome and balanced soup mix with the goodness of millets, cereals and vegetables.',
         packSize: 'per Kg / piece (bag pack)',
         category: 'soup-mixes',
         price: 500,
@@ -286,7 +293,7 @@ export const productCategories: ProductCategory[] = [
     id: '5',
     name: 'Energy Bytes (Snacks)',
     slug: 'energy-bytes',
-    description: 'Guilt-free snacking! Boost your nutrition intake with these millet-based crispy snacks. No added colors & artificial flavors.',
+    description: 'Guilt-free snacking! Boost your nutrition intake with these millet and cereal-based crispy snacks. No added colors & artificial flavors.',
     products: [
       {
         id: 'eb-1',
@@ -313,7 +320,7 @@ export const productCategories: ProductCategory[] = [
       {
         id: 'eb-3',
         name: 'Energy Bytes Pudina',
-        description: 'Refreshing mint-flavored millet snacks. Perfect for tea-time.',
+        description: 'Refreshing mint-flavored millet and cereal snacks. Perfect for tea-time.',
         packSize: '250 g',
         category: 'energy-bytes',
         price: 40,
@@ -335,7 +342,7 @@ export const productCategories: ProductCategory[] = [
       {
         id: 'eb-5',
         name: 'Energy Bytes Tangy Tomato',
-        description: 'Classic tomato flavor in a healthy millet-based snack.',
+        description: 'Classic tomato flavor in a healthy millet and cereal-based snack.',
         packSize: '250 g',
         category: 'energy-bytes',
         price: 40,
@@ -410,6 +417,44 @@ export const productCategories: ProductCategory[] = [
     ]
   },
   {
+    id: '7a',
+    name: 'Millet Noodles',
+    slug: 'millet-noodles',
+    description: 'Millet and cereal-based noodle varieties. A nutritious, gluten-free alternative for your favorite noodle dishes.',
+    products: [
+      {
+        id: 'mn-1',
+        name: 'Millet Noodles',
+        description: 'Healthy millet and cereal-based noodles for a nutritious meal.',
+        packSize: 'per Kg',
+        category: 'millet-noodles',
+        price: 230,
+        priceUnit: 'per kg',
+        moq: '25 kg',
+        features: ['Gluten-free', 'High fiber', 'Nutritious']
+      }
+    ]
+  },
+  {
+    id: '7b',
+    name: 'Bars',
+    slug: 'bars',
+    description: 'Nutritious bars made from millets, cereals and natural ingredients. Peanut bars, sesame bars and more for on-the-go energy.',
+    products: [
+      {
+        id: 'br-1',
+        name: 'Energy Bars',
+        description: 'Nutritious energy bars made from millets, cereals and natural ingredients.',
+        packSize: 'per Kg',
+        category: 'bars',
+        price: 400,
+        priceUnit: 'per kg',
+        moq: '10 kg',
+        features: ['High protein', 'Natural ingredients', 'Energy-rich']
+      }
+    ]
+  },
+  {
     id: '7',
     name: 'Flours & Grits',
     slug: 'flours-grits',
@@ -453,40 +498,18 @@ export const productCategories: ProductCategory[] = [
     id: '8',
     name: 'Upcoming Products',
     slug: 'upcoming-products',
-    description: 'New and innovative millet-based products coming soon.',
+    description: 'New and innovative millet and cereal-based products coming soon.',
     products: [
-      {
-        id: 'up-1',
-        name: 'Millet Noodles',
-        description: 'Healthy millet-based noodles for a nutritious meal.',
-        packSize: 'per Kg',
-        category: 'upcoming-products',
-        price: 230,
-        priceUnit: 'per kg',
-        moq: '25 kg',
-        features: ['Gluten-free', 'High fiber', 'Nutritious']
-      },
       {
         id: 'up-2',
         name: 'Soup Mix',
-        description: 'Wholesome and balanced soup mix with the goodness of millets.',
+        description: 'Wholesome and balanced soup mix with the goodness of millets and cereals.',
         packSize: 'per Kg / piece (bag pack)',
         category: 'upcoming-products',
         price: 500,
         priceUnit: 'per kg',
         moq: '25-120 units',
         features: ['Rich in antioxidants', 'Low calorie', 'Quick preparation']
-      },
-      {
-        id: 'up-3',
-        name: 'Energy Bars',
-        description: 'Nutritious energy bars made from millets and natural ingredients.',
-        packSize: 'per Kg',
-        category: 'upcoming-products',
-        price: 400,
-        priceUnit: 'per kg',
-        moq: '10 kg',
-        features: ['High protein', 'Natural ingredients', 'Energy-rich']
       }
     ]
   }
@@ -498,5 +521,19 @@ export const getProductsByCategory = (categorySlug: string): Product[] => {
 };
 
 export const getCategoryBySlug = (slug: string): ProductCategory | undefined => {
-  return productCategories.find(cat => cat.slug === slug);
+  const category = productCategories.find(cat => cat.slug === slug);
+  if (slug === 'instant-mix' && category) {
+    const breakfast = productCategories.find(c => c.slug === 'breakfast-mixes');
+    const beverage = productCategories.find(c => c.slug === 'beverage-mixes');
+    const soup = productCategories.find(c => c.slug === 'soup-mixes');
+    return {
+      ...category,
+      products: [
+        ...(breakfast?.products ?? []),
+        ...(beverage?.products ?? []),
+        ...(soup?.products ?? []),
+      ],
+    };
+  }
+  return category;
 };

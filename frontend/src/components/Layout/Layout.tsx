@@ -28,7 +28,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col w-full m-0 p-0">
       <Header />
       {/* No padding on home page - hero section handles its own positioning */}
-      <main className={`flex-grow w-full m-0 ${isHomePage ? "" : "pt-20 md:pt-24"}`}>
+      <main className={`flex-grow w-full m-0 ${isHomePage ? "" : "pt-16 md:pt-18"}`}>
         {children}
       </main>
       <Footer />
