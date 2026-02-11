@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { X, Send, CheckCircle } from "lucide-react";
+import { X, Send, CheckCircle, MapPin } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
 interface ContactModalProps {
@@ -151,6 +151,18 @@ const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) => {
 
           {/* Content */}
           <div className="p-6">
+            <div className="mb-6 p-4 bg-gray-50 rounded-xl border border-gray-200 space-y-3 text-sm">
+              <p className="font-semibold text-gray-900 flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-primary flex-shrink-0" />
+                Reach us at
+              </p>
+              <p className="text-gray-700">
+                <strong>Office:</strong> Plot No 35, BHEL AIE, R.C. Puram, Hyderabad 502032, Telangana, India
+              </p>
+              <p className="text-gray-700">
+                <strong>Factory:</strong> Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy, Patancheru Mandal, Pin code 502300, Telangana, India
+              </p>
+            </div>
             {submitStatus === "success" && (
               <div className="bg-green-50 border-2 border-green-200 text-green-800 px-6 py-4 rounded-xl mb-6 flex items-center space-x-3">
                 <CheckCircle className="w-6 h-6 flex-shrink-0" />

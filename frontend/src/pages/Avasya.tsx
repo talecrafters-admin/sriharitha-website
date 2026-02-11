@@ -15,6 +15,10 @@ import {
   Filter,
   Search,
   Trash2,
+  TrainFront,
+  Plane,
+  Gift,
+  Briefcase,
 } from "lucide-react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -829,32 +833,63 @@ const Avasya: React.FC = () => {
               </p>
             </div>
           </div>
-          <div className="max-w-3xl mx-auto text-center bg-secondary/50 rounded-xl p-8 border border-secondary-dark/20">
-            <h3 className="text-2xl font-heading font-bold text-primary mb-4">
-              Perfect For Your Business Needs
-            </h3>
-            <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              Avasya products are ideal for bulk orders and institutional
-              partnerships. We welcome inquiries from:
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
-                <p className="font-semibold text-primary">Railways</p>
-              </div>
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
-                <p className="font-semibold text-primary">Airlines</p>
-              </div>
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
-                <p className="font-semibold text-primary">Gift Kits</p>
-              </div>
-              <div className="bg-white rounded-lg p-4 border border-secondary-dark/20">
-                <p className="font-semibold text-primary">Corporate Gifting</p>
-              </div>
+          {/* Perfect For Your Business Needs - Redesigned */}
+          <div className="max-w-5xl mx-auto mt-16">
+            <div className="text-center mb-12">
+              <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+                Bulk & Institutional
+              </span>
+              <h3 className="text-3xl md:text-4xl font-heading font-bold text-primary mb-4">
+                Perfect For Your Business Needs
+              </h3>
+              <p className="text-lg text-gray-700 max-w-2xl mx-auto leading-relaxed">
+                Avasya products are ideal for bulk orders and institutional partnerships. We welcome inquiries from:
+              </p>
             </div>
-            <p className="text-sm text-gray-600 mt-6">
-              For pricing and bulk order inquiries, please contact us. We'd be
-              happy to discuss your requirements.
-            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                { icon: TrainFront, title: "Railways", desc: "Catering and pantry solutions for rail networks" },
+                { icon: Plane, title: "Airlines", desc: "In-flight and lounge snack options" },
+                { icon: Gift, title: "Gift Kits", desc: "Curated healthy gift hampers and boxes" },
+                { icon: Briefcase, title: "Corporate Gifting", desc: "Premium gifting for employees and clients" },
+              ].map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={index}
+                    className="group relative bg-white rounded-2xl p-6 border-2 border-secondary-dark/10 hover:border-primary/30 shadow-card hover:shadow-card-hover transition-all duration-300 overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="relative">
+                      <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                        <Icon className="w-7 h-7 text-primary group-hover:text-warmWhite transition-colors" />
+                      </div>
+                      <h4 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+            <div className="mt-10 text-center">
+              <p className="text-gray-600 mb-6">
+                For pricing and bulk order inquiries, we'd be happy to discuss your requirements.
+              </p>
+              <button
+                onClick={() => {
+                  const event = new CustomEvent("openContactModal");
+                  window.dispatchEvent(event);
+                }}
+                className="inline-flex items-center gap-2 bg-primary text-warmWhite px-8 py-4 rounded-xl font-semibold hover:bg-primary-dark transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <span>Get in touch</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
       </section>

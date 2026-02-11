@@ -256,7 +256,7 @@ const Quality: React.FC = () => {
                 State-of-the-Art Infrastructure
               </h3>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Our manufacturing unit is strategically located at APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy (Pin code 502300), equipped with modern machinery and technology for efficient production of millet and cereal-based food products.
+                Our office is at Plot No 35, BHEL AIE, R.C. Puram, Hyderabad 502032. Our manufacturing unit is strategically located at APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy (Pin code 502300), equipped with modern machinery and technology for efficient production of millet and cereal-based food products.
               </p>
               <div className="grid md:grid-cols-2 gap-4">
                 {facilityFeatures.map((feature, index) => (

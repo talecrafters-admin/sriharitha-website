@@ -302,7 +302,7 @@ const Home: React.FC = () => {
     {
       image: hero6,
       badge: null,
-      title: "Looking to Build or Scale a Millet Product Line?",
+      title: "Looking to Build or Scale a Millet & Cereal Product Line?",
       description:
         "Partner with a manufacturer that understands millets and cereals, nutrition and commercial scalability.",
       ctaText: "Enquire for Bulk / OEM",
@@ -716,7 +716,7 @@ const Home: React.FC = () => {
                     {/* Leader Info */}
                     <div className="md:col-span-1">
                       <div className="bg-warmWhite/10 rounded-2xl p-6 border border-warmWhite/20 backdrop-blur-sm group-hover:bg-warmWhite/15 transition-all duration-300">
-                        <div className="w-full aspect-square rounded-2xl overflow-hidden mb-4 border-4 border-warmWhite/30 group-hover:border-warmWhite/50 transition-all duration-300 shadow-xl">
+                        <div className="w-full aspect-[4/5] rounded-2xl overflow-hidden mb-4 border-4 border-warmWhite/30 group-hover:border-warmWhite/50 transition-all duration-300 shadow-xl">
                           <img
                             src={founderImage}
                             alt={leadership.name}
@@ -998,7 +998,8 @@ const Home: React.FC = () => {
             {/* Additional trust indicators */}
             <div className="mt-14 pt-12 border-t border-secondary-dark/20">
               <p className="text-center text-xl text-text font-semibold mb-10 max-w-2xl mx-auto">
-                Trusted by brands, institutions, and nutrition programs across India
+                Trusted by brands, institutions, and nutrition programs across
+                India
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
                 <div className="flex flex-col items-center text-center bg-white rounded-2xl px-8 py-6 border-2 border-secondary-dark/10 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group">
@@ -1006,21 +1007,29 @@ const Home: React.FC = () => {
                     <Users className="w-7 h-7 text-primary" />
                   </div>
                   <p className="text-3xl font-bold text-primary mb-1">500+</p>
-                  <p className="text-sm font-medium text-text-light">Happy Clients</p>
+                  <p className="text-sm font-medium text-text-light">
+                    Happy Clients
+                  </p>
                 </div>
                 <div className="flex flex-col items-center text-center bg-white rounded-2xl px-8 py-6 border-2 border-secondary-dark/10 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
                     <Award className="w-7 h-7 text-primary" />
                   </div>
-                  <p className="text-3xl font-bold text-primary mb-1">7+ Years</p>
-                  <p className="text-sm font-medium text-text-light">Experience</p>
+                  <p className="text-3xl font-bold text-primary mb-1">
+                    7+ Years
+                  </p>
+                  <p className="text-sm font-medium text-text-light">
+                    Experience
+                  </p>
                 </div>
                 <div className="flex flex-col items-center text-center bg-white rounded-2xl px-8 py-6 border-2 border-secondary-dark/10 shadow-card hover:shadow-card-hover hover:border-primary/20 transition-all duration-300 group">
                   <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/15 transition-colors">
                     <ShieldCheck className="w-7 h-7 text-primary" />
                   </div>
                   <p className="text-3xl font-bold text-primary mb-1">FSSAI</p>
-                  <p className="text-sm font-medium text-text-light">Certified</p>
+                  <p className="text-sm font-medium text-text-light">
+                    Certified
+                  </p>
                 </div>
               </div>
             </div>
@@ -1134,15 +1143,24 @@ const Home: React.FC = () => {
                     <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
                       <MapPin className="w-6 h-6 text-primary group-hover:text-warmWhite transition-colors" />
                     </div>
-                    <h3 className="text-2xl font-bold text-text">Address</h3>
+                    <h3 className="text-2xl font-bold text-text">Addresses</h3>
                   </div>
-                  <p className="text-base text-text leading-relaxed mb-6">
-                    Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
-                    <br />
-                    Nandigaon, Bhanur, Sangareddy, Patancheru Mandal,
-                    <br />
-                    Pin code 502300, Telangana, India
-                  </p>
+                  <div className="space-y-4 mb-6">
+                    <p className="text-base text-text leading-relaxed">
+                      <span className="font-semibold text-primary">Office:</span>
+                      <br />
+                      Plot No 35, BHEL AIE, R.C. Puram, Hyderabad 502032, Telangana, India
+                    </p>
+                    <p className="text-base text-text leading-relaxed pt-2 border-t border-secondary-dark/20">
+                      <span className="font-semibold text-primary">Manufacturing Facility:</span>
+                      <br />
+                      Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
+                      <br />
+                      Nandigaon, Bhanur, Sangareddy, Patancheru Mandal,
+                      <br />
+                      Pin code 502300, Telangana, India
+                    </p>
+                  </div>
 
                   <div className="space-y-4 pt-6 border-t border-secondary-dark/20">
                     <a

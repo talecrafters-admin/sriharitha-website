@@ -167,7 +167,23 @@ const Contact: React.FC = () => {
                       <MapPin className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 mb-2">Address</h3>
+                      <h3 className="font-bold text-gray-900 mb-2">Office Address</h3>
+                      <p className="text-gray-700 leading-relaxed">
+                        Plot No 35, BHEL AIE, R.C. Puram,
+                        <br />
+                        Hyderabad 502032, Telangana, India
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="contact-item card hover:shadow-card-hover transition-all duration-300">
+                  <div className="flex items-start space-x-4">
+                    <div className="bg-primary/10 w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <MapPin className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-gray-900 mb-2">Manufacturing Facility</h3>
                       <p className="text-gray-700 leading-relaxed">
                         Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
                         <br />
@@ -461,11 +477,25 @@ const Contact: React.FC = () => {
             ></iframe>
           </div>
           <div className="mt-8 text-center">
-            <div className="inline-flex items-center space-x-3 bg-primary/10 px-6 py-4 rounded-xl">
-              <MapPin className="w-6 h-6 text-primary" />
-              <p className="text-gray-700 font-medium">
-                Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy, Patancheru Mandal, Pin code 502300, Telangana, India
-              </p>
+            <div className="space-y-4 text-left max-w-2xl mx-auto">
+              <div className="inline-flex items-start space-x-3 bg-primary/10 px-6 py-4 rounded-xl w-full">
+                <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Office</p>
+                  <p className="text-gray-700 font-medium">
+                    Plot No 35, BHEL AIE, R.C. Puram, Hyderabad 502032, Telangana, India
+                  </p>
+                </div>
+              </div>
+              <div className="inline-flex items-start space-x-3 bg-primary/10 px-6 py-4 rounded-xl w-full">
+                <MapPin className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Manufacturing Facility</p>
+                  <p className="text-gray-700 font-medium">
+                    Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy, Patancheru Mandal, Pin code 502300, Telangana, India
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

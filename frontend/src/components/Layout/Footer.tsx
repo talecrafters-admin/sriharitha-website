@@ -134,11 +134,13 @@ const Footer: React.FC = () => {
               <li className="flex items-start space-x-2">
                 <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
                 <span>
-                  Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park,
-                  <br />
-                  Nandigaon, Bhanur, Sangareddy, Patancheru Mandal,
-                  <br />
-                  Pin code 502300, Telangana, India
+                  <strong className="text-warmWhite">Office:</strong> Plot No 35, BHEL AIE, R.C. Puram, Hyderabad 502032, Telangana, India
+                </span>
+              </li>
+              <li className="flex items-start space-x-2">
+                <MapPin className="w-4 h-4 mt-1 flex-shrink-0" />
+                <span>
+                  <strong className="text-warmWhite">Factory:</strong> Plot No 36, APJ Abdul Kalam ALEAP Green Industrial Park, Nandigaon, Bhanur, Sangareddy, Patancheru Mandal, Pin code 502300, Telangana, India
                 </span>
               </li>
               <li className="flex items-center space-x-2">

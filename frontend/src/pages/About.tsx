@@ -36,7 +36,7 @@ const About: React.FC = () => {
             trigger: timelineRef.current,
             start: "top 75%",
           },
-        }
+        },
       );
     }
 
@@ -55,7 +55,7 @@ const About: React.FC = () => {
             trigger: valuesRef.current,
             start: "top 80%",
           },
-        }
+        },
       );
     }
   }, []);
@@ -72,7 +72,7 @@ const About: React.FC = () => {
       year: "Pre-2018",
       title: "Mathesis - Food Products Division",
       description:
-        "Prior to incorporation, the founder operated under Mathesis - Food Products Division, manufacturing and supplying products to Government Feeding Projects (Mid-day Meal, Tribal Feeding Projects) and bulk supplies to educational institutions like NRI Colleges and Sri Chaitanya Group of Colleges.",
+        "Prior to incorporation, the founder operated under Mathesis - Food Products Division, manufacturing and supplying products to Government Feeding Projects (Mid-day Meal, Tribal Feeding Projects) and bulk supplies to educational institutions and corporates.",
     },
     {
       year: "2018",
@@ -208,26 +208,34 @@ const About: React.FC = () => {
             </div>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Prior to starting Sri Haritha Agro Food Products Pvt. Ltd., the founder operated under <strong>Mathesis - Food Products Division</strong>, successfully manufacturing and supplying products to Government Feeding Projects including Mid-day Meal programs, Tribal Feeding Projects, and bulk supplies to educational institutions like NRI Colleges and Sri Chaitanya Group of Colleges. This experience provided deep insights into large-scale food production and institutional requirements.
+                Prior to starting Sri Haritha Agro Food Products Pvt. Ltd., the
+                founder operated under{" "}
+                <strong>Mathesis - Food Products Division</strong>, successfully
+                manufacturing and supplying products to Government Feeding
+                Projects including Mid-day Meal programs, Tribal Feeding
+                Projects, bulk supplies to educational institutions and
+                corporates. This experience provided deep insights into
+                large-scale food production and institutional requirements.
               </p>
               <p>
-                Sri Haritha Agro Food Products Pvt. Ltd. was incorporated in 2018 with
-                a vision to bring the nutritional benefits of millets & cereals
-                to modern consumers. Starting from a small unit
-                in Hyderabad, we have grown into a trusted manufacturer serving
+                Sri Haritha Agro Food Products Pvt. Ltd. was incorporated in
+                2018 with a vision to bring the nutritional benefits of millets
+                & cereals to modern consumers. Starting from a small unit in
+                Hyderabad, we have grown into a trusted manufacturer serving
                 brands, institutions, and retailers across India.
               </p>
               <p>
-                Our journey began with a simple question: How can we make healthy,
-                traditional foods accessible and convenient for today's busy
-                lifestyles? The answer led us to develop a comprehensive range of
-                Ready-to-Eat and Ready-to-Cook products that combine the goodness of
-                millets & cereals with modern food technology.
+                Our journey began with a simple question: How can we make
+                healthy traditional foods accessible and convenient for today's
+                busy lifestyles? The answer led us to develop a comprehensive
+                range of Ready-to-Eat and Ready-to-Cook products that combine
+                the goodness of millets & cereals with modern food technology.
               </p>
               <p>
                 Today, we manufacture over 50+ SKUs across instant mixes,
-                breakfast cereals, snacks, millet & cereal noodles, and energy bars -
-                all backed by FSSAI certification and stringent quality controls.
+                breakfast cereals, snacks, millet & cereal noodles, and energy
+                bars - all backed by FSSAI certification and stringent quality
+                controls.
               </p>
             </div>
           </div>
@@ -282,7 +290,7 @@ const About: React.FC = () => {
             </div>
             <div className="card hover:shadow-card-hover transition-all duration-300">
               <div className="flex flex-col md:flex-row items-start space-y-6 md:space-y-0 md:space-x-8">
-                <div className="w-full md:w-64 h-64 md:h-auto md:aspect-square rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-4 border-primary/20">
+                <div className="w-full md:w-64 aspect-[4/5] rounded-2xl overflow-hidden flex-shrink-0 shadow-lg border-4 border-primary/20">
                   <img
                     src={founderImage}
                     alt="Mrs. K P Annapurna"
@@ -297,16 +305,29 @@ const About: React.FC = () => {
                     Chief Executive Officer
                   </p>
                   <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                    Mrs. K P Annapurna quit her job at IBM to pursue her entrepreneurial dream. Under her visionary leadership, Sri
-                    Haritha has established itself as a trusted name in
-                    millet and cereal-based food manufacturing, aiming for an annual turnover of Rs. 25 crore. Her commitment to quality,
+                    Mrs. K P Annapurna quit her job at IBM to pursue her
+                    entrepreneurial dream. Under her visionary leadership, Sri
+                    Haritha has established itself as a trusted name in millet
+                    and cereal-based food manufacturing, aiming for an annual
+                    turnover of Rs. 25 crore. Her commitment to quality,
                     nutrition, and sustainability drives every aspect of our
                     business.
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
-                    With a deep understanding of both traditional food wisdom and
-                    modern manufacturing practices, she has built a company that
-                    successfully bridges heritage and innovation. As featured in <a href="https://30stades.com/enterprise/this-mba-quit-ibm-to-start-millet-business-avasya-clocks-rs25-crore-annual-turnover-6924908" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">30Stades</a>, her journey from corporate life to millet and cereal entrepreneurship is an inspiration to many.
+                    With a deep understanding of both traditional food wisdom
+                    and modern manufacturing practices, she has built a company
+                    that successfully bridges heritage and innovation. As
+                    featured in{" "}
+                    <a
+                      href="https://30stades.com/enterprise/this-mba-quit-ibm-to-start-millet-business-avasya-clocks-rs25-crore-annual-turnover-6924908"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:underline font-semibold"
+                    >
+                      30Stades
+                    </a>
+                    , her journey from corporate life to millet and cereal
+                    entrepreneurship is an inspiration to many.
                   </p>
                 </div>
               </div>
@@ -410,8 +431,8 @@ const About: React.FC = () => {
             Partner With Us
           </h2>
           <p className="text-xl text-warmWhite/90 mb-8 max-w-3xl mx-auto">
-            Join us in our mission to make healthy, nutritious food accessible to
-            everyone. Let's build something great together.
+            Join us in our mission to make healthy, nutritious food accessible
+            to everyone. Let's build something great together.
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center">
             <Link
