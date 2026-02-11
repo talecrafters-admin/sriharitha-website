@@ -28,6 +28,7 @@ import {
   avasyaCategories,
   AvasyaProduct,
 } from "../data/avasyaProducts";
+import { submitLeadToSheet } from "../utils/leadToSheet";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -58,6 +59,7 @@ const Avasya: React.FC = () => {
   });
   const [showOrderForm, setShowOrderForm] = useState(false);
   const [orderSubmitted, setOrderSubmitted] = useState(false);
+  const [orderSubmitError, setOrderSubmitError] = useState<string | null>(null);
   const [zoomedImage, setZoomedImage] = useState<{
     src: string;
     name: string;
@@ -109,10 +111,30 @@ const Avasya: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const handleOrderSubmit = (e: React.FormEvent) => {
+  const handleOrderSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the order to your backend
-    console.log("Order submitted:", { orderFormData, cart });
+    const cart_summary = cart
+      .map((item) => `${item.quantity}x ${item.product.name}`)
+      .join(", ");
+    const result = await submitLeadToSheet({
+      type: "avasya_order",
+      name: orderFormData.name,
+      email: orderFormData.email,
+      phone: orderFormData.phone,
+      address: orderFormData.address,
+      city: orderFormData.city,
+      state: orderFormData.state,
+      pincode: orderFormData.pincode,
+      notes: orderFormData.notes,
+      cart_summary,
+      total_items: getTotalItems(),
+      total_price: getTotalPrice(),
+    });
+    if (!result.ok) {
+      setOrderSubmitError(result.error || "Failed to submit order. Please try again.");
+      return;
+    }
+    setOrderSubmitError(null);
     setOrderSubmitted(true);
     setTimeout(() => {
       clearCart();
@@ -562,14 +584,20 @@ const Avasya: React.FC = () => {
         <>
           <div
             className="fixed inset-0 bg-black/50 z-50"
-            onClick={() => setShowOrderForm(false)}
+            onClick={() => {
+              setShowOrderForm(false);
+              setOrderSubmitError(null);
+            }}
           ></div>
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
               <div className="bg-primary text-warmWhite p-6 flex items-center justify-between sticky top-0">
                 <h2 className="text-2xl font-bold">Create Order</h2>
                 <button
-                  onClick={() => setShowOrderForm(false)}
+                  onClick={() => {
+                    setShowOrderForm(false);
+                    setOrderSubmitError(null);
+                  }}
                   className="w-10 h-10 rounded-full bg-warmWhite/20 hover:bg-warmWhite/30 flex items-center justify-center transition-colors"
                 >
                   <X className="w-5 h-5" />
@@ -589,6 +617,11 @@ const Avasya: React.FC = () => {
                 </div>
               ) : (
                 <form onSubmit={handleOrderSubmit} className="p-6 space-y-6">
+                  {orderSubmitError && (
+                    <div className="rounded-xl bg-red-50 border border-red-200 px-4 py-3 text-red-700 text-sm">
+                      {orderSubmitError}
+                    </div>
+                  )}
                   {/* Order Summary */}
                   <div className="bg-gray-50 rounded-xl p-4">
                     <h3 className="font-semibold text-gray-900 mb-3">

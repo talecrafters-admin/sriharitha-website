@@ -439,18 +439,52 @@ export const productCategories: ProductCategory[] = [
     id: '7b',
     name: 'Bars',
     slug: 'bars',
-    description: 'Nutritious bars made from millets, cereals and natural ingredients. Peanut bars, sesame bars and more for on-the-go energy.',
+    description: 'Nutritious bars made from millets, cereals and natural ingredients. Peanut bars, sesame bars, millet bars and more for on-the-go energy.',
     products: [
       {
         id: 'br-1',
-        name: 'Energy Bars',
-        description: 'Nutritious energy bars made from millets, cereals and natural ingredients.',
+        name: 'Peanut Bars',
+        description: 'Crunchy, protein-rich peanut bars made with natural ingredients. Perfect for on-the-go energy.',
         packSize: 'per Kg',
         category: 'bars',
-        price: 400,
-        priceUnit: 'per kg',
         moq: '10 kg',
         features: ['High protein', 'Natural ingredients', 'Energy-rich']
+      },
+      {
+        id: 'br-2',
+        name: 'Sesame Bars',
+        description: 'Nutritious sesame bars packed with calcium and healthy fats. A wholesome snack for any time of day.',
+        packSize: 'per Kg',
+        category: 'bars',
+        moq: '10 kg',
+        features: ['Calcium-rich', 'Natural ingredients', 'Crunchy texture']
+      },
+      {
+        id: 'br-3',
+        name: 'Millet Bars',
+        description: 'Wholesome millet and cereal-based bars. Gluten-free and rich in fiber for sustained energy.',
+        packSize: 'per Kg',
+        category: 'bars',
+        moq: '10 kg',
+        features: ['Gluten-free', 'High fiber', 'Millet and cereal-based']
+      },
+      {
+        id: 'br-4',
+        name: 'Berry Blast',
+        description: 'Fruity berry-flavored bars with the goodness of millets and cereals. A delicious, nutritious snack.',
+        packSize: 'per Kg',
+        category: 'bars',
+        moq: '10 kg',
+        features: ['Berry flavor', 'Natural ingredients', 'Energy-rich']
+      },
+      {
+        id: 'br-5',
+        name: 'Fruit and Nut Bars',
+        description: 'A perfect blend of dried fruits and nuts with millets and cereals. Premium taste and nutrition.',
+        packSize: 'per Kg',
+        category: 'bars',
+        moq: '10 kg',
+        features: ['Fruit & nut blend', 'Natural ingredients', 'Premium snack']
       }
     ]
   },

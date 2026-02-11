@@ -1,7 +1,8 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, Package } from 'lucide-react';
+import { ArrowLeft, CheckCircle } from 'lucide-react';
 import { getCategoryBySlug } from '../data/products';
+import { getProductImage } from '../data/productImages';
 
 const CategoryPage: React.FC = () => {
   const { category } = useParams<{ category: string }>();
@@ -53,8 +54,12 @@ const CategoryPage: React.FC = () => {
                 to="/contact"
                 className="card hover:shadow-xl transition-all cursor-pointer block"
               >
-                <div className="aspect-square mb-4 rounded-lg overflow-hidden bg-gradient-to-br from-primary/5 to-secondary/20 flex items-center justify-center">
-                  <Package className="w-24 h-24 text-primary/30" />
+                <div className="aspect-[4/3] mb-4 rounded-lg overflow-hidden bg-gray-50">
+                  <img
+                    src={getProductImage(product, categoryData.slug)}
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {product.name}

@@ -7,8 +7,8 @@ import {
   CheckCircle,
   Clock,
 } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import { gsap } from "gsap";
+import { submitLeadToSheet } from "../utils/leadToSheet";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -86,27 +86,20 @@ const Contact: React.FC = () => {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    try {
-      // EmailJS configuration - Replace these with actual values later
-      const serviceId = "YOUR_SERVICE_ID";
-      const templateId = "YOUR_TEMPLATE_ID";
-      const publicKey = "YOUR_PUBLIC_KEY";
+    const result = await submitLeadToSheet({
+      type: "contact",
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      company: formData.company,
+      country: formData.country,
+      interests: formData.interests.join(", "),
+      products: formData.products,
+      quantity: formData.quantity,
+      message: formData.message,
+    });
 
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        company: formData.company,
-        country: formData.country,
-        interests: formData.interests.join(", "),
-        products: formData.products,
-        quantity: formData.quantity,
-        message: formData.message,
-      };
-
-      // Note: This will fail until actual EmailJS credentials are provided
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
-
+    if (result.ok) {
       setSubmitStatus("success");
       setFormData({
         name: "",
@@ -119,12 +112,10 @@ const Contact: React.FC = () => {
         quantity: "",
         message: "",
       });
-    } catch (error) {
-      console.error("Error sending email:", error);
+    } else {
       setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
     }
+    setIsSubmitting(false);
   };
 
   return (
@@ -279,9 +270,8 @@ const Contact: React.FC = () => {
                 {submitStatus === "error" && (
                   <div className="bg-red-50 border-2 border-red-200 text-red-800 px-6 py-4 rounded-xl mb-6">
                     <p>
-                      <strong>Note:</strong> EmailJS credentials need to be
-                      configured. Please provide your details and we'll contact
-                      you directly.
+                      <strong>Note:</strong> Your submission is saved to our
+                      leads sheet. We'll contact you directly.
                     </p>
                   </div>
                 )}
