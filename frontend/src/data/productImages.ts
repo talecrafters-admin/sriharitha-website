@@ -23,6 +23,7 @@ import kodoFlakesImg from "../assets/images/products/Kodo flakes.jpeg";
 import brownTopFlakesImg from "../assets/images/products/BrownTop-Millet-FLakes.jpeg";
 import brownRiceFlakesImg from "../assets/images/products/Brown-rice-flakes.jpeg";
 import barleyFlakesImg from "../assets/images/products/Barley-Flake.jpeg";
+import barnyardFlakesImg from "../assets/images/products/barnyard-millet-flakes.jpeg";
 // Instant mix (from products folder)
 import healthMixImg from "../assets/images/products/health-mix.png";
 import upmaMixImg from "../assets/images/products/upma-mix.jpeg";
@@ -40,7 +41,7 @@ const productImageById: Record<string, string> = {
   "bc-1": wheatFlakesImg,
   "bc-2": ragiFlakesImg,
   "bc-3": kodoFlakesImg,
-  "bc-4": placeholderImg,
+  "bc-4": barnyardFlakesImg,
   "bc-5": placeholderImg,
   "bc-6": brownTopFlakesImg,
   "bc-7": brownRiceFlakesImg,
