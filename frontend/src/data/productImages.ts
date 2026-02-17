@@ -1,5 +1,5 @@
 /**
- * Maps products to images from src/assets/images/products.
+ * Maps products to images from src/assets/images/products (and category where needed).
  * Image filenames reflect the product name (e.g. Muesli.jpeg, Jowar-sorghum-flakes.jpeg).
  */
 import barsImg from "../assets/images/products/bars.webp";
@@ -17,26 +17,50 @@ import ragiFlakesImg from "../assets/images/products/Ragi-finger-millet-flakes.j
 import sesameBarsImg from "../assets/images/products/Sesame-bars.webp";
 import spicePowdersImg from "../assets/images/products/spice-powders.webp";
 import placeholderImg from "../assets/images/products/FoxtailMillet.webp";
+// Breakfast cereals (new)
+import wheatFlakesImg from "../assets/images/products/Whear-flakes.jpeg";
+import kodoFlakesImg from "../assets/images/products/Kodo flakes.jpeg";
+import brownTopFlakesImg from "../assets/images/products/BrownTop-Millet-FLakes.jpeg";
+import brownRiceFlakesImg from "../assets/images/products/Brown-rice-flakes.jpeg";
+import barleyFlakesImg from "../assets/images/products/Barley-Flake.jpeg";
+// Instant mix (from products folder)
+import healthMixImg from "../assets/images/products/health-mix.png";
+import upmaMixImg from "../assets/images/products/upma-mix.jpeg";
+import pongalMixImg from "../assets/images/products/pongal-mix.jpeg";
+import khichidiMixImg from "../assets/images/products/khichidi-mix.jpeg";
+import dosaMixImg from "../assets/images/products/dosa mix.jpeg";
+import soupMixImg from "../assets/images/products/soup-mix.jpeg";
+import ragiMaltImg from "../assets/images/products/ragi-malt.jpeg";
 import idliMixImg from "../assets/images/category/idli-mix.jpeg";
-import khichidiImg from "../assets/images/category/khichidi.jpeg";
-import upmaImg from "../assets/images/category/upma.jpeg";
 import type { Product } from "./products";
 
 /** Product id → image (for products that have a matching image by name) */
 const productImageById: Record<string, string> = {
+  // Breakfast cereals
+  "bc-1": wheatFlakesImg,
   "bc-2": ragiFlakesImg,
+  "bc-3": kodoFlakesImg,
+  "bc-4": placeholderImg,
+  "bc-5": placeholderImg,
+  "bc-6": brownTopFlakesImg,
+  "bc-7": brownRiceFlakesImg,
+  "bc-8": barleyFlakesImg,
   "bc-9": jowarFlakesImg,
   "bc-10": muesliImg,
-  "bm-1": placeholderImg,
-  "bm-2": upmaImg,
-  "bm-3": placeholderImg,
-  "bm-4": khichidiImg,
+  // Instant mix – breakfast mixes
+  "bm-1": healthMixImg,
+  "bm-2": upmaMixImg,
+  "bm-3": pongalMixImg,
+  "bm-4": khichidiMixImg,
   "bm-5": idliMixImg,
-  "bm-6": placeholderImg,
+  "bm-6": dosaMixImg,
   "bm-7": pohaImg,
-  "bv-1": placeholderImg,
-  "bv-2": placeholderImg,
-  "sm-1": placeholderImg,
+  // Beverage mixes
+  "bv-1": healthMixImg,
+  "bv-2": ragiMaltImg,
+  // Soup mixes
+  "sm-1": soupMixImg,
+  // Energy bytes, noodles, bars, spices
   "eb-1": energyBytesImg,
   "eb-2": energyBytesImg,
   "eb-3": energyBytesImg,

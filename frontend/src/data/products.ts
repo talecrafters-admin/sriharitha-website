@@ -141,17 +141,6 @@ export const productCategories: ProductCategory[] = [
         priceUnit: 'per pack',
         moq: '50 packs',
         features: ['High in fiber', 'No artificial flavors', 'Rich in nutrients']
-      },
-      {
-        id: 'bc-11',
-        name: 'Ragi Malt',
-        description: 'Traditional ragi malt for strength and vitality. Rich in calcium and iron.',
-        packSize: 'per Pack',
-        category: 'breakfast-cereals',
-        price: 99,
-        priceUnit: 'per pack',
-        moq: '50 packs',
-        features: ['High calcium', 'Natural iron source', 'Strengthens bones']
       }
     ]
   },
